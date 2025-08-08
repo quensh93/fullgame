@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #messages { height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        button { padding: 10px; margin: 5px; }
+        input { padding: 5px; width: 300px; }
+    </style>
+</head>
+<body>
+    <h2>WebSocket Test</h2>
+    <div>
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+        <button onclick="sendTestMessage()">Send Test Message</button>
+    </div>
+    <div>
+        <input type="text" id="messageInput" placeholder="Enter message to send">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <div id="status">Disconnected</div>
+    <div id="messages"></div>
+
+    <script>
+        let socket = null;
+
+        function connect() {
+            socket = new WebSocket('ws://localhost:8080/raw-ws');
+            
+            socket.onopen = function(event) {
+                document.getElementById('status').textContent = 'Connected';
+                addMessage('Connected to WebSocket');
+            };
+            
+            socket.onmessage = function(event) {
+                addMessage('Received: ' + event.data);
+            };
+            
+            socket.onclose = function(event) {
+                document.getElementById('status').textContent = 'Disconnected';
+                addMessage('Disconnected from WebSocket');
+            };
+            
+            socket.onerror = function(error) {
+                addMessage('Error: ' + error);
+            };
+        }
+
+        function disconnect() {
+            if (socket) {
+                socket.close();
+                socket = null;
+            }
+        }
+
+        function sendTestMessage() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send('Test message from browser');
+                addMessage('Sent: Test message from browser');
+            }
+        }
+
+        function sendMessage() {
+            const message = document.getElementById('messageInput').value;
+            if (socket && socket.readyState === WebSocket.OPEN && message) {
+                socket.send(message);
+                addMessage('Sent: ' + message);
+                document.getElementById('messageInput').value = '';
+            }
+        }
+
+        function addMessage(message) {
+            const messagesDiv = document.getElementById('messages');
+            const time = new Date().toLocaleTimeString();
+            messagesDiv.innerHTML += '<div>[' + time + '] ' + message + '</div>';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Auto-connect on page load
+        window.onload = function() {
+            setTimeout(connect, 1000);
+        };
+    </script>
+</body>
+</html> 

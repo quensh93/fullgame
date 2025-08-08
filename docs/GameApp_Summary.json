@@ -1,0 +1,69 @@
+{
+  "project": "GameApp",
+  "frontend": {
+    "framework": "Flutter",
+    "state_management": "Riverpod",
+    "routing": "GoRouter",
+    "storage": "SharedPreferences",
+    "pages": [
+      "Login",
+      "Signup",
+      "Home",
+      "Profile",
+      "EditProfile",
+      "GameRoom"
+    ]
+  },
+  "backend": {
+    "language": "Java",
+    "framework": "Spring Boot",
+    "auth": {
+      "type": "JWT",
+      "features": [
+        "Signup",
+        "Login",
+        "Refresh",
+        "Logout",
+        "OTP Reset"
+      ]
+    },
+    "models": [
+      "User",
+      "GameRoom",
+      "PlayerState",
+      "CoinTransaction",
+      "WithdrawRequest",
+      "Friendship"
+    ],
+    "xp_policy": {
+      "based_on_entryFee": true,
+      "penalties": {
+        "left_intentionally": -30,
+        "disconnected": -10
+      },
+      "no_bonus_for": [
+        "shooting_moon",
+        "sholm_success"
+      ]
+    }
+  },
+  "games": [
+    "hokm",
+    "shelm",
+    "hearts",
+    "crazy7",
+    "backgammon",
+    "rps"
+  ],
+  "features": [
+    "Dynamic XP/Level system",
+    "Friendship system",
+    "Withdraw system",
+    "Coin transactions",
+    "GameRoom join/cancel/start",
+    "Edit profile",
+    "Avatar upload"
+  ],
+  "localization": true,
+  "timestamp": "2025-08-03T19:38:03.424945"
+}

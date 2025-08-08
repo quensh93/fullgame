@@ -1,0 +1,84 @@
+
+Project Name: Gamino
+
+Product Overview:
+Gamino is an online multiplayer mobile app offering popular Iranian and global card and board games. It provides both team-based and individual formats, delivering an engaging, competitive, and fair gaming experience.
+
+Target Audience:
+Users aged 18 to 65, including Iranian and international users who enjoy online gaming.
+
+Supported Games and Rules:
+
+1. Hokm (4 players):
+- Team-based (2 vs 2), 52 cards.
+- Modes: Normal, NARAS, SARAS, TAK_NARAS.
+- First Ace receiver is the ruler.
+- Trump rules and scoring defined explicitly.
+
+2. Shelem (4 players):
+- Team-based (2 vs 2), 52 cards.
+- Card distribution: 12 cards each player, 4 leftover cards.
+- Bidding starts from 105 to 165 in increments of 5.
+- Special "Shelem" bid doubles risk and reward.
+- Game ends when a team reaches 1165 or the predefined score.
+
+3. Hearts (Bi-Del, 4 players):
+- Individual gameplay, 52 cards.
+- No trump.
+- Negative scoring: each heart card = 1 negative, Queen of Spades = 13 negative.
+- Total negative points: 26.
+- Game ends at a predefined negative score (50, 70, 100).
+- Winner has the lowest negative score.
+
+4. Haft Khabis (4 to 7 players):
+- Individual gameplay, 52 or 104 cards based on players.
+- Special card rules defined explicitly (8, Jack, Ace, 10, 2, 7).
+- First to discard all cards wins.
+
+5. Backgammon (2 players):
+- Traditional gameplay.
+- Adjustable winning rounds (3, 5, 7).
+- Special rules: players can't continue moving the same piece after capturing in their own home.
+
+6. Rock-Paper-Scissors:
+- Quick, casual gameplay.
+- Adjustable winning rounds (3, 5, 7).
+
+Application Features:
+- User registration (email-based), referral codes.
+- User profile management (personal info, wallet addresses).
+- Coin economy: initial free coins, game entry fees (fixed amounts: 50, 100, 250, 500, 1000 coins).
+- System fee: 10% of total room entry.
+- Withdrawal of coins through cryptocurrency (USDT).
+- Referral rewards.
+- Game rooms: public and private (with invite codes).
+- Social interactions: friends list, block users, limited chat.
+- Notifications, tutorials, spectator mode.
+- Anti-cheating measures.
+
+Technical Details:
+- Backend: Spring Boot, JWT authentication.
+- Frontend: Flutter with Riverpod (state management), GoRouter (routing), Dio (network), Hive & SharedPreferences (local storage), get_it (dependency injection).
+- Multi-language support (English, Persian).
+- UI based on Material Design.
+
+Revenue Model:
+- Entry fee revenue (10% system commission).
+- In-app purchases (coin packs).
+- Referral rewards system.
+
+Competitive Advantages:
+- Variety of games.
+- Comprehensive social and anti-cheat systems.
+- Scalable and modular architecture.
+
+Future Roadmap:
+- Player rankings and leagues.
+- Periodic tournaments.
+- Customizable avatars and badges.
+- Enhanced AI and recommendations.
+
+Additional notes:
+- XP and coin penalties for intentional game abandonment and disconnects.
+- Games continue until predefined negative points are reached for Hearts (Bi-Del).
+

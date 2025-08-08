@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تست WebSocket</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .connected { background: #4CAF50; color: white; }
+        .disconnected { background: #f44336; color: white; }
+        .messages { background: #f5f5f5; padding: 15px; border-radius: 5px; max-height: 300px; overflow-y: auto; }
+        input, textarea, button { margin: 5px; padding: 8px; }
+        button { background: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 پنل تست WebSocket</h1>
+    
+    <div id="status" class="status disconnected">وضعیت: قطع اتصال</div>
+    
+    <div>
+        <input type="text" id="token" placeholder="توکن (اختیاری)">
+        <button onclick="connect()">اتصال</button>
+        <button onclick="disconnect()">قطع اتصال</button>
+    </div>
+    
+    <div>
+        <select id="messageType">
+            <option value="broadcast">ارسال به همه</option>
+            <option value="userStatus">وضعیت کاربر</option>
+            <option value="gameInvitation">دعوت بازی</option>
+        </select>
+        <textarea id="message" rows="4" placeholder="پیام..."></textarea>
+        <button onclick="sendMessage()">ارسال</button>
+    </div>
+    
+    <div class="messages" id="messages"></div>
+
+    <script>
+        let stompClient = null;
+        let connected = false;
+
+        function connect() {
+            const token = document.getElementById('token').value;
+            const wsUrl = token ? `ws://localhost:8080/ws?token=${token}` : 'ws://localhost:8080/ws';
+            
+            const socket = new WebSocket(wsUrl);
+            
+            socket.onopen = function() {
+                addMessage('اتصال برقرار شد', 'success');
+                updateStatus(true);
+                connected = true;
+            };
+            
+            socket.onclose = function() {
+                addMessage('اتصال قطع شد', 'error');
+                updateStatus(false);
+                connected = false;
+            };
+            
+            socket.onerror = function(error) {
+                addMessage('خطا: ' + error, 'error');
+                updateStatus(false);
+                connected = false;
+            };
+            
+            socket.onmessage = function(event) {
+                addMessage('دریافت: ' + event.data, 'info');
+            };
+            
+            stompClient = socket;
+        }
+
+        function disconnect() {
+            if (stompClient) {
+                stompClient.close();
+                stompClient = null;
+            }
+            connected = false;
+            updateStatus(false);
+        }
+
+        function sendMessage() {
+            if (!connected) {
+                addMessage('ابتدا اتصال کنید', 'error');
+                return;
+            }
+
+            const messageType = document.getElementById('messageType').value;
+            const message = document.getElementById('message').value;
+
+            const payload = {
+                type: messageType,
+                message: message,
+                timestamp: new Date().toISOString()
+            };
+
+            stompClient.send(JSON.stringify(payload));
+            addMessage('ارسال: ' + JSON.stringify(payload), 'success');
+        }
+
+        function updateStatus(isConnected) {
+            const statusDiv = document.getElementById('status');
+            if (isConnected) {
+                statusDiv.className = 'status connected';
+                statusDiv.textContent = 'وضعیت: متصل';
+            } else {
+                statusDiv.className = 'status disconnected';
+                statusDiv.textContent = 'وضعیت: قطع اتصال';
+            }
+        }
+
+        function addMessage(text, type) {
+            const messagesDiv = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.style.color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'blue';
+            messageDiv.textContent = `[${new Date().toLocaleTimeString()}] ${text}`;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
