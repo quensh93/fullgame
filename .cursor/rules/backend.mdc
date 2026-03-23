@@ -1,0 +1,666 @@
+---
+alwaysApply: true
+---
+# پروژه قوانین Backend - GameApp
+
+این فایل شامل تمام قوانین، الگوها و کنوانسیون‌های کدنویسی پروژه Backend Spring Boot است که باید در تمام توسعه‌ها رعایت شوند.
+
+## 📁 ساختار پروژه
+
+### سازماندهی فایل‌ها
+```
+src/main/java/com/gameapp/game/
+├── GameApplication.java           # نقطه ورود برنامه
+├── SecurityConfig.java           # تنظیمات امنیتی
+├── WebSocketConfig.java          # تنظیمات WebSocket
+├── WebConfig.java               # تنظیمات وب
+├── SwaggerConfig.java           # تنظیمات مستندات API
+├── JwtAuthenticationFilter.java # فیلتر احراز هویت JWT
+├── controllers/                 # کنترلرهای REST API
+├── models/                      # مدل‌های داده و DTO ها
+├── repositories/                # مخازن داده (JPA Repository)
+├── services/                    # سرویس‌های business logic
+└── resources/                   # منابع و تنظیمات
+    ├── application.properties   # تنظیمات اصلی
+    ├── application.yml          # تنظیمات YAML
+    └── db/                     # اسکریپت‌های دیتابیس
+        └── migration/          # فایل‌های migration
+```
+
+## 🏗️ معماری پروژه
+
+### الگوی Clean Architecture
+- **Controller Layer**: REST endpoints و WebSocket handlers
+- **Service Layer**: Business logic و validation
+- **Repository Layer**: Data access و database operations
+- **Model Layer**: Entities و DTO ها
+
+### Spring Boot Stack
+- **Spring Boot 3.5.4** با Java 17
+- **Spring Security** برای امنیت
+- **Spring Data JPA** برای ORM
+- **Spring WebSocket** برای real-time communication
+- **MySQL** برای database
+- **JWT** برای authentication
+- **Swagger/OpenAPI** برای مستندات
+
+## 🎨 الگوهای کدنویسی
+
+### نام‌گذاری فایل‌ها
+- استفاده از **PascalCase** برای نام فایل‌ها
+- پسوندهای مشخص:
+  - `Controller.java` برای REST controllers
+  - `Service.java` برای business services
+  - `Repository.java` برای data repositories
+  - `Config.java` برای configuration classes
+  - `Filter.java` برای filter classes
+
+### نام‌گذاری کلاس‌ها
+- استفاده از **PascalCase** برای نام کلاس‌ها
+- پسوندهای مشخص:
+  - `Controller` برای REST controllers
+  - `Service` برای business services
+  - `Repository` برای data repositories
+  - `Config` برای configuration classes
+  - `Filter` برای filter classes
+  - `Request` برای DTO های ورودی
+  - `Response` برای DTO های خروجی
+  - `Entity` برای JPA entities
+
+### نام‌گذاری متغیرها و توابع
+- استفاده از **camelCase** برای متغیرها و توابع
+- نام‌های توصیفی و واضح
+- استفاده از پیشوندهای مشخص:
+  - `get` برای getter methods
+  - `set` برای setter methods
+  - `is` برای boolean getters
+  - `has` برای boolean checks
+  - `create` برای factory methods
+  - `update` برای update operations
+  - `delete` برای delete operations
+  - `find` برای search operations
+
+## 🔧 الگوهای توسعه
+
+### Controller Pattern
+```java
+@RestController
+@RequestMapping("/api/feature")
+@RequiredArgsConstructor
+@Tag(name = "Feature", description = "توضیح عملکرد")
+public class FeatureController {
+
+    private final FeatureService featureService;
+
+    @Operation(summary = "توضیح endpoint", description = "جزئیات عملکرد")
+    @GetMapping("/endpoint")
+    public ResponseEntity<ResponseType> getData(
+        @RequestParam String param,
+        @AuthenticationPrincipal UserDetailsImpl userDetails
+    ) {
+        var result = featureService.getData(param, userDetails.getUser());
+        return ResponseEntity.ok(result);
+    }
+}
+```
+
+### Service Pattern
+```java
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class FeatureService {
+
+    private final FeatureRepository featureRepository;
+    private final OtherService otherService;
+
+    public ResponseType createData(CreateRequest request, User user) {
+        // Validation
+        validateRequest(request);
+        
+        // Business logic
+        Entity entity = Entity.builder()
+            .field1(request.getField1())
+            .field2(request.getField2())
+            .createdBy(user)
+            .build();
+        
+        // Save
+        Entity saved = featureRepository.save(entity);
+        
+        // Additional operations
+        otherService.performOperation(saved);
+        
+        return buildResponse(saved);
+    }
+
+    private void validateRequest(CreateRequest request) {
+        if (request.getField1() == null) {
+            throw new IllegalArgumentException("Field1 is required");
+        }
+    }
+
+    private ResponseType buildResponse(Entity entity) {
+        return ResponseType.builder()
+            .id(entity.getId())
+            .field1(entity.getField1())
+            .build();
+    }
+}
+```
+
+### Repository Pattern
+```java
+@Repository
+public interface FeatureRepository extends JpaRepository<Entity, Long> {
+    
+    Optional<Entity> findByField1(String field1);
+    
+    List<Entity> findByStatusAndCreatedAtAfter(Status status, LocalDateTime date);
+    
+    @Query("SELECT e FROM Entity e WHERE e.field1 = :field1 AND e.status = :status")
+    List<Entity> findByCustomQuery(@Param("field1") String field1, @Param("status") Status status);
+    
+    @Modifying
+    @Query("UPDATE Entity e SET e.status = :status WHERE e.id = :id")
+    void updateStatus(@Param("id") Long id, @Param("status") Status status);
+}
+```
+
+### Entity Pattern
+```java
+@Entity
+@Table(name = "entities")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Entity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String field1;
+
+    @Column(nullable = false)
+    private String field2;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @ManyToOne
+    private User createdBy;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        // Update logic if needed
+    }
+}
+```
+
+### DTO Pattern
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class CreateRequest {
+    
+    @NotBlank(message = "Field1 is required")
+    private String field1;
+    
+    @NotNull(message = "Field2 is required")
+    private Integer field2;
+    
+    private String optionalField;
+}
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ResponseType {
+    
+    private Long id;
+    private String field1;
+    private Integer field2;
+    private Status status;
+    private LocalDateTime createdAt;
+}
+```
+
+## 🔐 امنیت و احراز هویت
+
+### JWT Authentication
+- استفاده از **JWT** برای token-based authentication
+- **JwtService** برای تولید و اعتبارسنجی token ها
+- **JwtAuthenticationFilter** برای اعتبارسنجی خودکار
+- **TokenRepository** برای مدیریت token ها
+
+### Security Configuration
+```java
+@Configuration
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/test/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+            .build();
+    }
+}
+```
+
+### User Authentication
+- **UserDetailsImpl** برای Spring Security integration
+- **CustomUserDetailsService** برای load user details
+- **PasswordEncoder** برای hash کردن رمز عبور
+- **AuthenticationManager** برای authenticate کردن کاربران
+
+## 🌐 WebSocket و Real-time Communication
+
+### WebSocket Configuration
+```java
+@Configuration
+@EnableWebSocket
+public class WebSocketConfig implements WebSocketConfigurer {
+
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(rawWebSocketHandler(), "/raw-ws")
+                .setAllowedOriginPatterns("*");
+    }
+
+    @Bean
+    public WebSocketHandler rawWebSocketHandler() {
+        return new WebSocketHandler() {
+            @Override
+            public void afterConnectionEstablished(WebSocketSession session) {
+                // Connection established logic
+            }
+
+            @Override
+            public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) {
+                // Message handling logic
+            }
+        };
+    }
+}
+```
+
+### WebSocket Message Handling
+```java
+@Controller
+@RequiredArgsConstructor
+public class WebSocketController {
+
+    private final WebSocketRoomService webSocketRoomService;
+
+    @MessageMapping("/game/action")
+    public void handleGameAction(@Payload WebSocketMessage message) {
+        String action = message.getAction();
+        Long roomId = message.getRoomId();
+        
+        switch (action) {
+            case "START_GAME":
+                webSocketRoomService.broadcastGameStarted(roomId);
+                break;
+            case "PLAY_CARD":
+                // Handle card play
+                break;
+        }
+    }
+}
+```
+
+### Real-time Broadcasting
+- **WebSocketRoomService** برای broadcast پیام‌ها
+- **ConcurrentHashMap** برای مدیریت sessions
+- **ObjectMapper** برای JSON serialization
+- **Message types** برای routing پیام‌ها
+
+## 🎮 Game-Specific Patterns
+
+### Game Types و Enums
+```java
+public class Enums {
+    
+    public enum GameType {
+        HOKM, SHELEM, HEARTS, HAV7KHABIS, BACKGAMMON, ROCK_PAPER_SCISSORS
+    }
+    
+    public enum GameStatus {
+        WAITING_FOR_PLAYERS, READY_TO_START, IN_PROGRESS, FINISHED, CANCELLED
+    }
+    
+    public enum PlayerStatus {
+        WAITING, PLAYING, DISCONNECTED, FINISHED
+    }
+}
+```
+
+### Game Room Management
+- **GameRoom** entity برای مدیریت اتاق‌های بازی
+- **PlayerState** entity برای وضعیت بازیکنان
+- **GameRoomService** برای business logic
+- **WebSocketRoomService** برای real-time updates
+
+### Game Engine
+- **GameEngineService** برای منطق بازی
+- **GameState** entity برای state بازی
+- **PlayerState** entity برای وضعیت بازیکن
+- **GameSession** entity برای session بازی
+
+## 💾 مدیریت داده
+
+### Database Configuration
+- **MySQL** برای production database
+- **JPA/Hibernate** برای ORM
+- **Flyway** برای database migrations
+- **Connection pooling** برای performance
+
+### Transaction Management
+```java
+@Service
+@Transactional
+public class FeatureService {
+    
+    @Transactional(readOnly = true)
+    public List<Entity> findAll() {
+        return repository.findAll();
+    }
+    
+    @Transactional
+    public Entity save(Entity entity) {
+        return repository.save(entity);
+    }
+    
+    @Transactional
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
+}
+```
+
+### Repository Queries
+```java
+@Repository
+public interface FeatureRepository extends JpaRepository<Entity, Long> {
+    
+    // Derived queries
+    List<Entity> findByStatus(Status status);
+    Optional<Entity> findByName(String name);
+    
+    // Custom queries
+    @Query("SELECT e FROM Entity e WHERE e.createdAt > :date")
+    List<Entity> findRecentEntities(@Param("date") LocalDateTime date);
+    
+    // Native queries
+    @Query(value = "SELECT * FROM entities WHERE status = ?1", nativeQuery = true)
+    List<Entity> findByStatusNative(String status);
+}
+```
+
+## 📊 API Documentation
+
+### Swagger Configuration
+```java
+@Configuration
+public class SwaggerConfig {
+
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+            .info(new Info()
+                .title("GameApp API")
+                .version("1.0.0")
+                .description("مستندات REST API برای اپلیکیشن GameApp")
+            );
+    }
+}
+```
+
+### API Documentation
+```java
+@RestController
+@RequestMapping("/api/feature")
+@Tag(name = "Feature", description = "مدیریت ویژگی‌ها")
+public class FeatureController {
+
+    @Operation(summary = "ایجاد ویژگی جدید", description = "یک ویژگی جدید ایجاد می‌کند")
+    @PostMapping
+    public ResponseEntity<ResponseType> create(@RequestBody CreateRequest request) {
+        // Implementation
+    }
+}
+```
+
+## 🔄 Exception Handling
+
+### Global Exception Handling
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgument(IllegalArgumentException e) {
+        ErrorResponse error = ErrorResponse.builder()
+            .message(e.getMessage())
+            .status(HttpStatus.BAD_REQUEST.value())
+            .timestamp(LocalDateTime.now())
+            .build();
+        return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception e) {
+        ErrorResponse error = ErrorResponse.builder()
+            .message("Internal server error")
+            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+            .timestamp(LocalDateTime.now())
+            .build();
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
+    }
+}
+```
+
+### Custom Exceptions
+```java
+public class GameException extends RuntimeException {
+    public GameException(String message) {
+        super(message);
+    }
+    
+    public GameException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+```
+
+## 📧 Email Service
+
+### Email Configuration
+```java
+@Service
+@RequiredArgsConstructor
+public class EmailService {
+
+    private final JavaMailSender mailSender;
+
+    public void sendOtpEmail(String email, String otp) {
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
+            
+            helper.setTo(email);
+            helper.setSubject("کد تأیید");
+            helper.setText("کد تأیید شما: " + otp);
+            
+            mailSender.send(message);
+        } catch (Exception e) {
+            throw new RuntimeException("خطا در ارسال ایمیل", e);
+        }
+    }
+}
+```
+
+## 💰 مدیریت مالی
+
+### Coin Transaction System
+- **CoinTransaction** entity برای تراکنش‌های سکه
+- **CoinTransactionService** برای business logic
+- **CoinTransactionType** enum برای انواع تراکنش
+- **WithdrawRequest** entity برای درخواست‌های برداشت
+
+### XP System
+- **XpTransaction** entity برای تراکنش‌های XP
+- **XpService** برای مدیریت XP
+- **XpTransactionType** enum برای انواع تراکنش
+
+## 👥 مدیریت کاربران
+
+### User Management
+- **User** entity برای اطلاعات کاربر
+- **UserRepository** برای data access
+- **AuthService** برای authentication
+- **UserStatusService** برای مدیریت وضعیت
+
+### Friendship System
+- **Friendship** entity برای روابط دوستی
+- **FriendshipService** برای business logic
+- **FriendDto** برای data transfer
+- **FriendRequestDto** برای درخواست‌های دوستی
+
+## 🎯 Performance و Optimization
+
+### Caching Strategy
+- استفاده از **@Cacheable** برای cache کردن نتایج
+- **Redis** برای distributed caching
+- **Cache eviction** برای مدیریت حافظه
+
+### Database Optimization
+- **Indexing** برای بهبود query performance
+- **Lazy loading** برای کاهش memory usage
+- **Batch operations** برای bulk operations
+- **Connection pooling** برای بهبود performance
+
+### Monitoring و Logging
+- **SLF4J** برای logging
+- **Logback** برای log configuration
+- **Metrics** برای monitoring performance
+- **Health checks** برای system health
+
+## 🧪 Testing
+
+### Unit Testing
+```java
+@ExtendWith(MockitoExtension.class)
+class FeatureServiceTest {
+
+    @Mock
+    private FeatureRepository featureRepository;
+
+    @InjectMocks
+    private FeatureService featureService;
+
+    @Test
+    void shouldCreateEntitySuccessfully() {
+        // Given
+        CreateRequest request = new CreateRequest("test");
+        Entity entity = Entity.builder().field1("test").build();
+        when(featureRepository.save(any())).thenReturn(entity);
+
+        // When
+        ResponseType result = featureService.create(request, user);
+
+        // Then
+        assertThat(result.getField1()).isEqualTo("test");
+        verify(featureRepository).save(any());
+    }
+}
+```
+
+### Integration Testing
+```java
+@SpringBootTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@TestPropertySource(locations = "classpath:application-test.properties")
+class FeatureControllerIntegrationTest {
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Test
+    void shouldCreateEntitySuccessfully() {
+        // Test implementation
+    }
+}
+```
+
+## 📋 Development Guidelines
+
+### Code Quality
+- استفاده از **Lombok** برای کاهش boilerplate code
+- **Validation** با Bean Validation
+- **Null safety** با Optional
+- **Immutable objects** با @Builder
+
+### Error Handling
+- **Consistent error responses** با ErrorResponse
+- **Proper HTTP status codes** برای responses
+- **Logging** برای debugging
+- **Graceful degradation** برای failures
+
+### Security Best Practices
+- **Input validation** برای تمام inputs
+- **SQL injection prevention** با parameterized queries
+- **XSS protection** با proper encoding
+- **CSRF protection** با Spring Security
+
+### Performance Best Practices
+- **Lazy loading** برای relationships
+- **Batch operations** برای bulk data
+- **Connection pooling** برای database
+- **Caching** برای frequently accessed data
+
+---
+
+## ⚠️ قوانین مهم
+
+1. **همیشه** از این قوانین پیروی کنید
+2. **هرگز** بدون بررسی این فایل کد جدید اضافه نکنید
+3. **همیشه** قبل از شروع task جدید این فایل را بخوانید
+4. **همیشه** از الگوهای تعریف شده استفاده کنید
+5. **همیشه** error handling را پیاده‌سازی کنید
+6. **همیشه** validation را انجام دهید
+7. **همیشه** از transaction management استفاده کنید
+8. **همیشه** Persian comments برای توضیحات مهم اضافه کنید
+9. **همیشه** از Lombok برای کاهش boilerplate استفاده کنید
+10. **همیشه** از Spring Security برای امنیت استفاده کنید
+
+## 🔄 به‌روزرسانی
+
+این فایل باید با تغییرات پروژه به‌روزرسانی شود. هر تغییری در الگوها یا قوانین باید در این فایل منعکس شود.
+
+---
+
+**آخرین به‌روزرسانی**: $(date)
+**نسخه**: 1.0.0

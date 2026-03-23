@@ -1,0 +1,692 @@
+{
+  "meta": {
+    "name": "GameApp WebSocket v2 Protocol Contract",
+    "version": "1.1.3",
+    "generatedAt": "2026-02-21",
+    "sourceOfTruth": [
+      "gameBackend/src/main/java/com/gameapp/game/ImprovedWebSocketConfig.java",
+      "gameBackend/src/main/java/com/gameapp/game/services/WebSocketMessageHandler.java",
+      "gameBackend/src/main/java/com/gameapp/game/services/WebSocketRoomService.java",
+      "gameBackend/src/main/java/com/gameapp/game/services/*EngineService.java"
+    ]
+  },
+  "transport": {
+    "endpointPath": "/ws-v2",
+    "requestEnvelope": {
+      "required": [
+        "type",
+        "protocolVersion",
+        "traceId"
+      ],
+      "optional": [
+        "action",
+        "roomId",
+        "data",
+        "clientActionId",
+        "clientSentAt",
+        "stateVersion"
+      ],
+      "notes": "For GAME_ACTION, action, roomId and data are required. clientActionId is required after migration window."
+    },
+    "successEnvelope": {
+      "shape": {
+        "type": "<RESPONSE_TYPE>",
+        "action": "<RESPONSE_ACTION>",
+        "roomId": 0,
+        "success": true,
+        "data": {},
+        "eventId": "<uuid>",
+        "traceId": "<uuid>",
+        "serverTime": "<iso8601>",
+        "protocolVersion": "v2.1",
+        "stateVersion": 0
+      }
+    },
+    "errorEnvelope": {
+      "shape": {
+        "type": "ERROR",
+        "action": "<REQUEST_OR_ACTION>",
+        "roomId": 0,
+        "success": false,
+        "errorCode": "<code>",
+        "error": "<message>",
+        "clientActionId": "<client-action-id>",
+        "eventId": "<uuid>",
+        "traceId": "<uuid>",
+        "serverTime": "<iso8601>",
+        "protocolVersion": "v2.1",
+        "stateVersion": 0
+      }
+    },
+    "errorCodes": [
+      "ACTION_REJECTED",
+      "APP_VERSION_UNSUPPORTED",
+      "AUTH_EXPIRED",
+      "AUTH_REQUIRED",
+      "CHALLENGE_ALREADY_CLAIMED",
+      "CHALLENGE_EXPIRED",
+      "CHALLENGE_NOT_COMPLETED",
+      "CHALLENGE_NOT_FOUND",
+      "COMPLETE_ALL_ALREADY_CLAIMED",
+      "COMPLETE_ALL_NOT_UNLOCKED",
+      "INVALID_TOKEN",
+      "STATE_RESYNC_REQUIRED",
+      "TOKEN_REVOKED"
+    ],
+    "gameEventEnvelope": {
+      "shape": {
+        "type": "GAME_ACTION",
+        "action": "<EVENT_ACTION>",
+        "roomId": 0,
+        "data": {},
+        "eventId": "<uuid>",
+        "traceId": "<uuid>",
+        "serverTime": "<iso8601>",
+        "protocolVersion": "v2.1",
+        "stateVersion": 0
+      }
+    },
+    "bootstrap": {
+      "authRequest": {
+        "type": "AUTH",
+        "token": "<jwt>",
+        "protocolVersion": "v2.1",
+        "appVersion": "<semver>",
+        "capabilities": [
+          "CLIENT_ACTION_ID",
+          "ACTION_ACK",
+          "RESYNC_HANDLER",
+          "CLIENT_TELEMETRY"
+        ]
+      },
+      "heartbeatRequest": {
+        "type": "HEARTBEAT"
+      }
+    }
+  },
+  "requestTypes": {
+    "AUTH": {
+      "requiredFields": [
+        "token",
+        "protocolVersion",
+        "appVersion",
+        "capabilities"
+      ]
+    },
+    "HEARTBEAT": {
+      "requiredFields": []
+    },
+    "CLIENT_TELEMETRY": {
+      "requiredFields": [
+        "data"
+      ],
+      "optionalFields": [
+        "data.connect_latency",
+        "data.ack_latency",
+        "data.reconnect_attempts",
+        "data.resync_count",
+        "data.action_retry_count",
+        "data.action_timeout_count",
+        "data.pending_action_count"
+      ]
+    },
+    "CREATE_ROOM": {
+      "requiredFields": [
+        "gameType",
+        "roomType",
+        "entryFee"
+      ],
+      "optionalFields": [
+        "gameScore",
+        "diceWinnerType",
+        "maxPlayers"
+      ]
+    },
+    "JOIN_ROOM": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "GET_ROOM": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "LEAVE_ROOM": {
+      "requiredFields": [
+        "roomId"
+      ],
+      "notes": "Backend also accepts nested data.roomId for compatibility."
+    },
+    "CANCEL_ROOM": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "SUBSCRIBE_ROOMS": {
+      "requiredFields": [
+        "gameType"
+      ]
+    },
+    "UNSUBSCRIBE_ROOMS": {
+      "requiredFields": [
+        "gameType"
+      ]
+    },
+    "GET_ROOM_LIST": {
+      "requiredFields": [
+        "gameType"
+      ]
+    },
+    "GET_FRIENDS": {
+      "requiredFields": []
+    },
+    "GET_FRIEND_REQUESTS": {
+      "requiredFields": []
+    },
+    "SEND_FRIEND_REQUEST": {
+      "requiredFields": [
+        "targetUserId"
+      ]
+    },
+    "ACCEPT_FRIEND_REQUEST": {
+      "requiredFields": [
+        "senderId"
+      ]
+    },
+    "REJECT_FRIEND_REQUEST": {
+      "requiredFields": [
+        "senderId"
+      ]
+    },
+    "REMOVE_FRIEND": {
+      "requiredFields": [
+        "friendId"
+      ]
+    },
+    "BLOCK_USER": {
+      "requiredFields": [
+        "targetUserId"
+      ]
+    },
+    "UNBLOCK_USER": {
+      "requiredFields": [
+        "targetUserId"
+      ]
+    },
+    "SEARCH_USERS": {
+      "requiredFields": [
+        "query"
+      ],
+      "constraints": {
+        "minLength": 3,
+        "maxLength": 50
+      }
+    },
+    "SEND_GAME_INVITATION": {
+      "requiredFields": [
+        "receiverId",
+        "gameType",
+        "entryFee",
+        "maxPlayers"
+      ]
+    },
+    "ACCEPT_GAME_INVITATION": {
+      "requiredFields": [
+        "invitationId"
+      ]
+    },
+    "REJECT_GAME_INVITATION": {
+      "requiredFields": [
+        "invitationId"
+      ]
+    },
+    "CANCEL_GAME_INVITATION": {
+      "requiredFields": [
+        "invitationId"
+      ]
+    },
+    "GET_RECEIVED_INVITATIONS": {
+      "requiredFields": []
+    },
+    "GET_SENT_INVITATIONS": {
+      "requiredFields": []
+    },
+    "GET_PROFILE": {
+      "requiredFields": []
+    },
+    "UPDATE_PROFILE": {
+      "requiredFields": [],
+      "notes": "Profile fields are mapped into UpdateProfileRequest."
+    },
+    "GET_TRANSACTIONS": {
+      "requiredFields": []
+    },
+    "GET_WITHDRAW_REQUESTS": {
+      "requiredFields": []
+    },
+    "REQUEST_WITHDRAW": {
+      "requiredFields": [
+        "amount"
+      ]
+    },
+    "GET_XP_HISTORY": {
+      "requiredFields": []
+    },
+    "GET_GAME_HISTORY_USER": {
+      "requiredFields": [],
+      "optionalFields": [
+        "limit"
+      ]
+    },
+    "GET_GAME_RECENT_USER": {
+      "requiredFields": [],
+      "optionalFields": [
+        "limit"
+      ]
+    },
+    "GET_GAME_BEST_USER": {
+      "requiredFields": []
+    },
+    "GET_GAME_STATS_USER": {
+      "requiredFields": []
+    },
+    "GET_GAME_STATE": {
+      "requiredFields": [
+        "gameStateId"
+      ]
+    },
+    "GET_GAME_STATE_BY_ROOM": {
+      "requiredFields": [
+        "roomId"
+      ],
+      "notes": "Primary response is STATE_SNAPSHOT. During compatibility window, GAME_STATE may also be emitted."
+    },
+    "GAME_ACTION": {
+      "requiredFields": [
+        "action",
+        "roomId",
+        "data"
+      ],
+      "conditionalRequiredFields": [
+        "clientActionId (after migration window)"
+      ]
+    },
+    "GET_DAILY_CHALLENGES": {
+      "requiredFields": []
+    },
+    "GET_DAILY_CHALLENGE_SUMMARY": {
+      "requiredFields": []
+    },
+    "CLAIM_CHALLENGE_REWARD": {
+      "requiredFields": [
+        "challengeId"
+      ]
+    },
+    "CLAIM_COMPLETE_ALL_BONUS": {
+      "requiredFields": []
+    }
+  },
+  "gameActionRequestActions": {
+    "RPS_CHOICE": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "gameStateId",
+        "choice"
+      ]
+    },
+    "RPS_ROUND_TIMEOUT": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ]
+    },
+    "DICE_ROLL": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "gameStateId"
+      ]
+    },
+    "DICE_ROUND_TIMEOUT": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ]
+    },
+    "BJ_HIT": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "gameStateId"
+      ]
+    },
+    "BJ_STAND": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "gameStateId"
+      ]
+    },
+    "BJ_TURN_TIMEOUT": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ]
+    },
+    "CASINO_WAR_PICK_CARD": {
+      "requiredFields": [
+        "roomId"
+      ],
+      "atLeastOneOf": [
+        [
+          "cardIndex"
+        ],
+        [
+          "cardSlotIndex"
+        ]
+      ],
+      "notes": "playerId can come from authenticated session."
+    },
+    "CHOOSE_TRUMP": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "trumpSuit"
+      ],
+      "optionalFields": [
+        "trumpMode"
+      ]
+    },
+    "PLAY_CARD": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "card"
+      ],
+      "notes": "playerId is resolved from authenticated session."
+    },
+    "TURN_TIMEOUT": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ],
+      "notes": "playerId is resolved from authenticated session."
+    },
+    "PASS_CARDS_SELECTION": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "cards"
+      ],
+      "notes": "cards is array of card objects with suit/rank."
+    },
+    "START_HEARTS_GAME": {
+      "requiredFields": [
+        "roomId"
+      ],
+      "notes": "Currently ignored by backend."
+    },
+    "HEARTS_PASSING_TIMER_ENDED": {
+      "requiredFields": [
+        "roomId"
+      ],
+      "notes": "Currently ignored by backend."
+    },
+    "HEARTS_PLAY_CARD": {
+      "requiredFields": [
+        "roomId",
+        "playerId",
+        "card"
+      ],
+      "notes": "card must include suit/rank object."
+    },
+    "SHELEM_SUBMIT_BID": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "bidAmount"
+      ],
+      "notes": "playerId is resolved from authenticated session."
+    },
+    "SHELEM_PASS_BID": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ],
+      "notes": "playerId is resolved from authenticated session."
+    },
+    "SHELEM_EXCHANGE_CARDS": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "cardsToReturn"
+      ],
+      "notes": "cardsToReturn accepts list of strings or list of card objects."
+    },
+    "SHELEM_PLAY_CARD": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "card"
+      ],
+      "notes": "card accepts string or card object."
+    },
+    "SHELEM_TURN_TIMEOUT": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId"
+      ]
+    },
+    "CE_PLAY_CARD": {
+      "requiredFields": [
+        "roomId",
+        "card"
+      ],
+      "notes": "playerId is resolved from authenticated session."
+    },
+    "CE_DRAW_CARD": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "CE_CHOOSE_SUIT": {
+      "requiredFields": [
+        "roomId",
+        "suit"
+      ]
+    },
+    "CE_GIVE_CARD": {
+      "requiredFields": [
+        "roomId",
+        "targetPlayerId"
+      ]
+    },
+    "CE_FORFEIT": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "CE_TURN_TIMEOUT": {
+      "requiredFields": [
+        "roomId"
+      ]
+    },
+    "RIM_DRAW_CARD": {
+      "requiredFields": [
+        "roomId",
+        "source"
+      ]
+    },
+    "RIM_LAY_MELD": {
+      "requiredFields": [
+        "roomId",
+        "cards"
+      ]
+    },
+    "RIM_ADD_TO_MELD": {
+      "requiredFields": [
+        "roomId",
+        "meldId",
+        "card",
+        "side"
+      ]
+    },
+    "RIM_DISCARD_CARD": {
+      "requiredFields": [
+        "roomId",
+        "card"
+      ]
+    },
+    "CHAHAR_BARG_PLAY_CARD": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "playerId",
+        "card"
+      ]
+    },
+    "CHAHAR_BARG_SELECT_CAPTURE": {
+      "requiredFields": [
+        "roomId",
+        "gameStateId",
+        "playerId",
+        "optionIndex"
+      ]
+    }
+  },
+  "responseTypes": [
+    "ACTION_ACK",
+    "AUTH_SUCCESS",
+    "CANCEL_ROOM_SUCCESS",
+    "CHALLENGE_REWARD_CLAIMED",
+    "CLIENT_TELEMETRY_ACK",
+    "COMPLETE_ALL_BONUS_CLAIMED",
+    "DAILY_CHALLENGES_DATA",
+    "DAILY_CHALLENGE_SUMMARY",
+    "ERROR",
+    "FRIENDS_LIST",
+    "FRIEND_REMOVED",
+    "FRIEND_REQUESTS",
+    "FRIEND_REQUEST_ACCEPTED",
+    "FRIEND_REQUEST_REJECTED",
+    "FRIEND_REQUEST_SENT",
+    "GAME_BEST_USER",
+    "GAME_HISTORY_USER",
+    "GAME_INVITATION_ACCEPTED",
+    "GAME_INVITATION_CANCELLED",
+    "GAME_INVITATION_REJECTED",
+    "GAME_INVITATION_SENT",
+    "GAME_RECENT_USER",
+    "GAME_STATE",
+    "GAME_STATS_USER",
+    "JOIN_ROOM_SUCCESS",
+    "LEAVE_ROOM_SUCCESS",
+    "PROFILE_UPDATED",
+    "RECEIVED_INVITATIONS",
+    "ROOM_CREATED",
+    "ROOM_DETAILS",
+    "SEARCH_RESULTS",
+    "SENT_INVITATIONS",
+    "STATE_SNAPSHOT",
+    "SUBSCRIBE_ROOMS_SUCCESS",
+    "TRANSACTIONS_LIST",
+    "UNSUBSCRIBE_ROOMS_SUCCESS",
+    "USER_BLOCKED",
+    "USER_PROFILE",
+    "USER_UNBLOCKED",
+    "WITHDRAW_REQUESTED",
+    "WITHDRAW_REQUESTS",
+    "XP_HISTORY"
+  ],
+  "pushTypes": [
+    "CHALLENGE_COMPLETED",
+    "CHALLENGE_PROGRESS_UPDATED",
+    "DAILY_CHALLENGES_RESET",
+    "GAME_ACTION",
+    "GAME_INVITATION_RESPONSE",
+    "GAME_STARTED",
+    "QUICK_MESSAGE",
+    "STICKER",
+    "USER_PROFILE",
+    "USER_STATUS",
+    "room_cancelled",
+    "room_created",
+    "room_list",
+    "room_removed",
+    "room_update"
+  ],
+  "gameActionEventActions": [
+    "RPS_ROUND_STARTED",
+    "RPS_CHOICE_MADE",
+    "RPS_ROUND_RESULT",
+    "RPS_ROUND_TIMEOUT",
+    "RPS_GAME_FINISHED",
+    "DICE_ROLL_MADE",
+    "DICE_ROUND_STARTED",
+    "DICE_ROUND_TIMEOUT",
+    "DICE_ROUND_RESULT",
+    "DICE_GAME_FINISHED",
+    "BJ_ROUND_STARTED",
+    "BJ_CARD_DRAWN",
+    "BJ_PLAYER_STOOD",
+    "BJ_PLAYER_BUSTED",
+    "BJ_ROUND_RESULT",
+    "BJ_GAME_FINISHED",
+    "CASINO_WAR_ROUND_STARTED",
+    "CASINO_WAR_CARD_PICKED",
+    "CASINO_WAR_REVEAL_COUNTDOWN",
+    "CASINO_WAR_ROUND_RESULT",
+    "CASINO_WAR_PLAYER_FORFEITED",
+    "CASINO_WAR_GAME_FINISHED",
+    "GAME_STATE_UPDATED",
+    "HAND_WON",
+    "ROUND_ENDED",
+    "NEW_ROUND_STARTED",
+    "GAME_FINISHED",
+    "TURN_TIMER_STARTED",
+    "TRUMP_SET",
+    "HEARTS_ROUND_STARTED",
+    "HEARTS_PLAYING_STARTED",
+    "HEARTS_TRICK_FINISHED",
+    "CARD_PLAYED",
+    "CE_GAME_STARTED",
+    "CE_CARD_PLAYED",
+    "CE_CARD_DRAWN",
+    "CE_SUIT_CHANGED",
+    "CE_CARD_GIVEN",
+    "CE_PLAYER_LEFT",
+    "CE_PLAY_ERROR",
+    "CE_GAME_FINISHED",
+    "RIM_GAME_STARTED",
+    "RIM_STATE_UPDATED",
+    "RIM_HAND_FINISHED",
+    "RIM_GAME_FINISHED",
+    "RIM_ERROR",
+    "CHAHAR_BARG_GAME_STARTED",
+    "CHAHAR_BARG_STATE_UPDATED",
+    "CHAHAR_BARG_CAPTURE_OPTIONS",
+    "CHAHAR_BARG_HAND_FINISHED",
+    "CHAHAR_BARG_GAME_FINISHED"
+  ],
+  "knownMismatches": [
+    {
+      "scope": "CrazyEights UI event listeners",
+      "frontendExpects": [
+        "CE_SUIT_CHOSEN",
+        "CE_GAME_STATE"
+      ],
+      "backendEmits": [
+        "CE_SUIT_CHANGED",
+        "CE_GAME_STARTED",
+        "CE_CARD_PLAYED",
+        "CE_CARD_DRAWN",
+        "CE_CARD_GIVEN",
+        "CE_PLAYER_LEFT",
+        "CE_GAME_FINISHED"
+      ],
+      "impact": "If UI listens only to CE_SUIT_CHOSEN/CE_GAME_STATE, some state updates can be missed."
+    }
+  ]
+}

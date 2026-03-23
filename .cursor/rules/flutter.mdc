@@ -1,0 +1,452 @@
+---
+alwaysApply: true
+---
+# پروژه قوانین Flutter - GameApp
+
+این فایل شامل تمام قوانین، الگوها و کنوانسیون‌های کدنویسی پروژه Flutter است که باید در تمام توسعه‌ها رعایت شوند.
+
+## 📁 ساختار پروژه
+
+### سازماندهی فایل‌ها
+```
+lib/
+├── core/                    # کدهای اصلی و مشترک
+│   ├── constants/          # ثابت‌ها و enum ها
+│   ├── di/                 # Dependency Injection
+│   ├── network/            # مدیریت شبکه و API
+│   ├── providers/          # Riverpod providers مشترک
+│   ├── router/             # مدیریت مسیریابی
+│   ├── services/           # سرویس‌های اصلی
+│   ├── storage/            # مدیریت ذخیره‌سازی
+│   └── utils/              # ابزارهای کمکی
+├── features/               # ویژگی‌های اصلی
+│   └── [feature_name]/
+│       ├── data/
+│       │   ├── models/     # مدل‌های داده
+│       │   └── repositories/ # مخزن داده
+│       ├── providers/      # Riverpod providers
+│       ├── ui/             # رابط کاربری
+│       └── utils/          # ابزارهای ویژه
+├── l10n/                   # بین‌المللی‌سازی
+├── widgets/                # ویجت‌های مشترک
+└── main.dart              # نقطه ورود
+```
+
+## 🏗️ معماری پروژه
+
+### الگوی Clean Architecture
+- **Data Layer**: Models, Repositories, Data Sources
+- **Domain Layer**: Business Logic, Use Cases
+- **Presentation Layer**: UI, Providers, Controllers
+
+### State Management
+- استفاده از **Riverpod** برای مدیریت state
+- استفاده از **AsyncNotifierProvider** برای async operations
+- استفاده از **StateNotifierProvider** برای state management
+
+### Dependency Injection
+- استفاده از **GetIt** برای DI
+- ثبت سرویس‌ها در `core/di/injection.dart`
+- استفاده از Singleton pattern برای سرویس‌های اصلی
+
+## 🎨 الگوهای کدنویسی
+
+### نام‌گذاری فایل‌ها
+- استفاده از **snake_case** برای نام فایل‌ها
+- پسوندهای مشخص:
+  - `_page.dart` برای صفحات
+  - `_provider.dart` برای providers
+  - `_model.dart` برای مدل‌ها
+  - `_service.dart` برای سرویس‌ها
+  - `_widget.dart` برای ویجت‌های سفارشی
+
+### نام‌گذاری کلاس‌ها
+- استفاده از **PascalCase** برای نام کلاس‌ها
+- پسوندهای مشخص:
+  - `Page` برای صفحات
+  - `Provider` برای providers
+  - `Model` برای مدل‌ها
+  - `Service` برای سرویس‌ها
+  - `Widget` برای ویجت‌های سفارشی
+  - `Notifier` برای StateNotifier ها
+  - `Controller` برای AsyncNotifier ها
+
+### نام‌گذاری متغیرها و توابع
+- استفاده از **camelCase** برای متغیرها و توابع
+- نام‌های توصیفی و واضح
+- استفاده از پیشوندهای مشخص:
+  - `_` برای متغیرهای private
+  - `on` برای event handlers
+  - `handle` برای توابع مدیریت رویداد
+  - `load` برای توابع بارگذاری
+  - `save` برای توابع ذخیره‌سازی
+
+## 🔧 الگوهای توسعه
+
+### Provider Pattern
+```dart
+// Provider definition
+final featureProvider = Provider<FeatureService>((ref) {
+  return FeatureService();
+});
+
+// StateNotifier pattern
+final featureNotifierProvider = StateNotifierProvider<FeatureNotifier, FeatureState>((ref) {
+  final service = ref.watch(featureProvider);
+  return FeatureNotifier(service);
+});
+
+// AsyncNotifier pattern
+final featureControllerProvider = AsyncNotifierProvider<FeatureController, void>(FeatureController.new);
+```
+
+### Model Pattern
+```dart
+class UserModel {
+  final String id;
+  final String email;
+  final String? username;
+  
+  const UserModel({
+    required this.id,
+    required this.email,
+    this.username,
+  });
+  
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json['id'].toString(),
+      email: json['email'],
+      username: json['username'],
+    );
+  }
+  
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'email': email,
+    'username': username,
+  };
+  
+  UserModel copyWith({
+    String? id,
+    String? email,
+    String? username,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      username: username ?? this.username,
+    );
+  }
+}
+```
+
+### Service Pattern
+```dart
+class ApiService {
+  static ApiService? _instance;
+  late Dio _dio;
+  
+  ApiService._() {
+    _dio = Dio(BaseOptions(
+      baseUrl: Endpoints.baseUrl,
+      connectTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 30),
+    ));
+  }
+  
+  static ApiService get instance {
+    _instance ??= ApiService._();
+    return _instance!;
+  }
+  
+  Future<dynamic> get(String path) async {
+    try {
+      final response = await _dio.get(path);
+      return response.data;
+    } on DioException catch (e) {
+      throw _handleError(e);
+    }
+  }
+}
+```
+
+### Error Handling Pattern
+```dart
+// Exception classes
+class ApiException implements Exception {
+  final int? statusCode;
+  final String message;
+  final String? details;
+  final dynamic originalError;
+  
+  ApiException({
+    this.statusCode,
+    required this.message,
+    this.details,
+    this.originalError,
+  });
+  
+  @override
+  String toString() {
+    return 'ApiException: $message (Status: $statusCode)${details != null ? ' - $details' : ''}';
+  }
+}
+
+// Error handling in widgets
+try {
+  await someAsyncOperation();
+} catch (e, stack) {
+  state = AsyncValue.error(e, stack);
+}
+```
+
+## 🌐 مدیریت شبکه
+
+### API Manager
+- استفاده از **Dio** برای HTTP requests
+- مدیریت خودکار token ها
+- Interceptor برای error handling
+- Timeout configuration
+- Logging برای debugging
+
+### WebSocket Service
+- Singleton pattern
+- Callback-based message handling
+- Automatic reconnection
+- Authentication handling
+- Message type routing
+
+## 💾 مدیریت داده
+
+### Storage
+- **SharedPreferences** برای تنظیمات
+- **SharedPrefsManager** برای مدیریت متمرکز
+- JSON serialization برای مدل‌ها
+- Type-safe data access
+
+### Repository Pattern
+```dart
+class FeatureRepository {
+  final ApiManager _apiManager;
+  
+  FeatureRepository(this._apiManager);
+  
+  Future<Model> getData() async {
+    try {
+      final response = await _apiManager.get('/api/endpoint');
+      return Model.fromJson(response);
+    } catch (e) {
+      throw ApiException(message: 'Error loading data', originalError: e);
+    }
+  }
+}
+```
+
+## 🎯 UI/UX Patterns
+
+### Theme Configuration
+- استفاده از **MaterialApp** با theme سفارشی
+- Font family: **IranSans**
+- Colors: Deep purple primary color
+- Consistent spacing و border radius
+
+### Widget Patterns
+```dart
+// Custom Button
+class CustomButton extends StatelessWidget {
+  final String text;
+  final VoidCallback? onPressed;
+  final bool isLoading;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final double? width;
+  final double height;
+  final double borderRadius;
+  final IconData? icon;
+  
+  const CustomButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.isLoading = false,
+    this.backgroundColor,
+    this.textColor,
+    this.width,
+    this.height = 48.0,
+    this.borderRadius = 8.0,
+    this.icon,
+  });
+}
+```
+
+### Loading States
+- استفاده از **CircularProgressIndicator** برای loading
+- **AsyncValue** برای مدیریت async states
+- Loading indicators در buttons
+- Skeleton loading برای لیست‌ها
+
+### Error States
+- نمایش error messages در SnackBar
+- Error dialogs برای خطاهای مهم
+- Retry mechanisms
+- Fallback UI states
+
+## 🌍 بین‌المللی‌سازی
+
+### Localization
+- استفاده از **flutter_localizations**
+- فایل‌های `.arb` برای translations
+- پشتیبانی از زبان‌های فارسی و انگلیسی
+- استفاده از **AppLocalizations** در widgets
+
+### Text Handling
+```dart
+// استفاده از localized strings
+Text(AppLocalizations.of(context)!.loginTitle)
+
+// String interpolation
+Text(AppLocalizations.of(context)!.welcomeMessage(userName))
+```
+
+## 🎮 Game-Specific Patterns
+
+### Game Types
+- استفاده از **enum** برای انواع بازی‌ها
+- Extension methods برای metadata
+- API value mapping
+- Persian name support
+
+### Game State Management
+- **GameState** model برای state بازی
+- **GameStatus** enum برای وضعیت‌ها
+- Real-time updates via WebSocket
+- State persistence
+
+### Game UI Components
+- Card widgets برای بازی‌های کارتی
+- Game board layouts
+- Player status indicators
+- Score displays
+
+## 🔒 Security Patterns
+
+### Authentication
+- JWT token management
+- Automatic token refresh
+- Secure storage
+- Session management
+
+### Data Validation
+- Input validation در forms
+- Server-side validation
+- Type safety
+- Null safety
+
+## 📱 Platform-Specific
+
+### Android
+- Material Design
+- Adaptive icons
+- Permissions handling
+
+### iOS
+- Cupertino widgets
+- iOS-specific configurations
+- App Store guidelines
+
+## 🧪 Testing Patterns
+
+### Unit Tests
+- Test coverage برای business logic
+- Mock dependencies
+- Test utilities
+
+### Widget Tests
+- UI component testing
+- User interaction testing
+- Snapshot testing
+
+## 📝 Documentation
+
+### Code Comments
+- استفاده از **dartdoc** comments
+- توضیح complex logic
+- TODO comments برای future work
+- Persian comments برای توضیحات مهم
+
+### README Files
+- Setup instructions
+- Architecture overview
+- API documentation
+- Deployment guide
+
+## 🚀 Performance
+
+### Optimization
+- Lazy loading
+- Image optimization
+- Memory management
+- Build optimization
+
+### Monitoring
+- Performance metrics
+- Error tracking
+- User analytics
+- Crash reporting
+
+## 🔄 Version Control
+
+### Git Workflow
+- Feature branches
+- Pull request reviews
+- Commit message conventions
+- Release management
+
+### Code Review
+- Review checklist
+- Quality gates
+- Security review
+- Performance review
+
+## 📋 Development Guidelines
+
+### Code Quality
+- استفاده از **flutter_lints**
+- Code formatting با **dart format**
+- Static analysis
+- Type safety
+
+### Debugging
+- Debug logging
+- Error tracking
+- Performance profiling
+- Memory debugging
+
+### Deployment
+- Build configurations
+- Environment management
+- Release process
+- Rollback procedures
+
+---
+
+## ⚠️ قوانین مهم
+
+1. **همیشه** از این قوانین پیروی کنید
+2. **هرگز** بدون بررسی این فایل کد جدید اضافه نکنید
+3. **همیشه** قبل از شروع task جدید این فایل را بخوانید
+4. **همیشه** از الگوهای تعریف شده استفاده کنید
+5. **همیشه** error handling را پیاده‌سازی کنید
+6. **همیشه** type safety را رعایت کنید
+7. **همیشه** از null safety استفاده کنید
+8. **همیشه** Persian comments برای توضیحات مهم اضافه کنید
+
+## 🔄 به‌روزرسانی
+
+این فایل باید با تغییرات پروژه به‌روزرسانی شود. هر تغییری در الگوها یا قوانین باید در این فایل منعکس شود.
+
+---
+
+**آخرین به‌روزرسانی**: $(date)
+**نسخه**: 1.0.0

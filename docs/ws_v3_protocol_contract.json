@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "name": "GameApp WebSocket v3 Protocol Contract",
+    "version": "3.0.0",
+    "generatedAt": "2026-02-21"
+  },
+  "transport": {
+    "endpointPath": "/ws-v3",
+    "requestEnvelope": {
+      "required": [
+        "type",
+        "protocolVersion",
+        "traceId"
+      ],
+      "optional": [
+        "action",
+        "roomId",
+        "matchId",
+        "data",
+        "clientActionId",
+        "clientSentAt",
+        "stateVersion"
+      ]
+    },
+    "successEnvelope": {
+      "shape": {
+        "type": "<RESPONSE_TYPE>",
+        "action": "<RESPONSE_ACTION>",
+        "roomId": 0,
+        "matchId": 0,
+        "success": true,
+        "data": {},
+        "eventId": "<uuid>",
+        "traceId": "<uuid>",
+        "serverTime": "<iso8601>",
+        "protocolVersion": "v3",
+        "stateVersion": 0
+      }
+    },
+    "errorEnvelope": {
+      "shape": {
+        "type": "ERROR",
+        "action": "<REQUEST_OR_ACTION>",
+        "roomId": 0,
+        "matchId": 0,
+        "success": false,
+        "errorCode": "<code>",
+        "error": "<message>",
+        "clientActionId": "<client-action-id>",
+        "eventId": "<uuid>",
+        "traceId": "<uuid>",
+        "serverTime": "<iso8601>",
+        "protocolVersion": "v3",
+        "stateVersion": 0
+      }
+    },
+    "errorCodes": [
+      "ACTION_REJECTED",
+      "APP_VERSION_UNSUPPORTED",
+      "AUTH_EXPIRED",
+      "AUTH_REQUIRED",
+      "CHALLENGE_ALREADY_CLAIMED",
+      "CHALLENGE_EXPIRED",
+      "CHALLENGE_NOT_COMPLETED",
+      "CHALLENGE_NOT_FOUND",
+      "COMPLETE_ALL_ALREADY_CLAIMED",
+      "COMPLETE_ALL_NOT_UNLOCKED",
+      "INVALID_TOKEN",
+      "RATE_LIMITED",
+      "STATE_RESYNC_REQUIRED",
+      "TOKEN_REVOKED"
+    ],
+    "bootstrap": {
+      "authRequest": {
+        "type": "AUTH",
+        "token": "<jwt>",
+        "protocolVersion": "v3",
+        "appVersion": "<semver>",
+        "capabilities": [
+          "CLIENT_ACTION_ID",
+          "ACTION_ACK",
+          "RESYNC_HANDLER",
+          "CLIENT_TELEMETRY",
+          "MATCH_ID"
+        ],
+        "deviceId": "<device-id>"
+      }
+    }
+  },
+  "requestTypes": {
+    "AUTH": {
+      "requiredFields": [
+        "token",
+        "protocolVersion",
+        "appVersion",
+        "capabilities",
+        "deviceId"
+      ]
+    },
+    "GAME_ACTION": {
+      "requiredFields": [
+        "action",
+        "roomId",
+        "clientActionId",
+        "data",
+        "data.stateVersion"
+      ]
+    },
+    "CLIENT_TELEMETRY": {
+      "requiredFields": [
+        "data"
+      ]
+    },
+    "GET_DAILY_CHALLENGES": {
+      "requiredFields": []
+    },
+    "GET_DAILY_CHALLENGE_SUMMARY": {
+      "requiredFields": []
+    },
+    "CLAIM_CHALLENGE_REWARD": {
+      "requiredFields": [
+        "challengeId"
+      ]
+    },
+    "CLAIM_COMPLETE_ALL_BONUS": {
+      "requiredFields": []
+    }
+  },
+  "frontendGuards": {
+    "criticalErrors": [
+      "TOKEN_REVOKED",
+      "AUTH_EXPIRED",
+      "APP_VERSION_UNSUPPORTED",
+      "STATE_RESYNC_REQUIRED"
+    ],
+    "killSwitch": {
+      "enabledFlag": "WS_REALTIME_ENABLED",
+      "reasonFlag": "WS_REALTIME_DISABLED_REASON"
+    }
+  }
+}

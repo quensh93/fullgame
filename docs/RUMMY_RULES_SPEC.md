@@ -1,0 +1,40 @@
+# Straight Rummy (`RIM`) Rules Spec
+
+- Variant: Straight / Basic Rummy on top of internal game type `RIM`
+- Players: 2 to 6
+- Deck: single 52-card deck, no jokers
+- Dealing:
+  - 2 players: 10 cards each
+  - 3 to 4 players: 7 cards each
+  - 5 to 6 players: 6 cards each
+- Turn flow:
+  - draw one card from stock or top discard
+  - optionally lay one or more melds and/or add cards to existing table melds
+  - discard one card to end the turn
+  - if the hand becomes empty after laying/adding to melds, the hand ends immediately without a final discard
+- Meld validity:
+  - `SET`: 3 or 4 cards of the same rank with distinct suits
+  - `RUN`: 3 or more consecutive cards of the same suit
+  - Ace is low only: `A-2-3` is valid, `Q-K-A` is invalid
+- Discard restriction:
+  - a card drawn from discard cannot be discarded in the same turn
+- Stock exhaustion:
+  - when stock is empty, reshuffle discard pile except its top card into a new stock
+  - if no recycle is possible, the hand is blocked
+  - blocked hand winner is the active player with lowest deadwood
+  - if multiple active players tie for lowest deadwood, the hand result is `BLOCKED_TIE` with no score change
+- Scoring:
+  - winner gets the sum of all opponents' deadwood
+  - deadwood values: `A=1`, `2-10` face value, `J/Q/K=10`
+  - no gin / knock / joker / pure-sequence bonuses
+- Match end:
+  - room target score stays on existing `RIM_HUNDRED` .. `RIM_THREE_HUNDRED` options
+  - first player to reach target score wins the match
+- Hand starter rotation:
+  - hand 1 starts from seat 0
+  - each next hand rotates to the next active seat
+- WebSocket notes:
+  - action names stay `RIM_*`
+  - `RIM_GAME_STARTED` and `RIM_STATE_UPDATED` include `myHandCards`
+  - each turn start broadcasts `TURN_TIMER_STARTED { gameStateId, timeoutSeconds }`
+  - `RIM_HAND_FINISHED` may emit `winnerId=null`, `winnerUsername=null`, `handPoints=0`, `reason='BLOCKED_TIE'`
