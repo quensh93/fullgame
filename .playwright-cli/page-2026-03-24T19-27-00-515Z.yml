@@ -1,0 +1,75 @@
+- generic [active]:
+  - generic:
+    - region "Notifications alt+T"
+    - generic [ref=e1]:
+      - generic [ref=e2]:
+        - generic [ref=e3]:
+          - button [ref=e4]:
+            - img [ref=e5]
+          - generic [ref=e9]:
+            - img [ref=e11]
+            - generic [ref=e13]: Texas Hold'em
+          - generic [ref=e14]:
+            - generic [ref=e15]:
+              - img [ref=e16]
+              - generic [ref=e20]: Hand 0 / 0
+            - generic [ref=e21]:
+              - img [ref=e22]
+              - generic [ref=e25]: Starting
+            - generic [ref=e27]: Lvl 1 · 0/0
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - img [ref=e30]
+              - generic [ref=e35]: "0"
+            - button [ref=e36]:
+              - img [ref=e37]
+        - generic [ref=e47]:
+          - generic [ref=e53]:
+            - img [ref=e54]
+            - text: Starting
+          - generic [ref=e57]:
+            - generic [ref=e58]:
+              - generic [ref=e66]: ♠
+              - generic [ref=e78]: ♠
+              - generic [ref=e90]: ♠
+              - generic [ref=e102]: ♠
+              - generic [ref=e114]: ♠
+            - generic [ref=e120]:
+              - text: Main Pot
+              - generic [ref=e121]: "0"
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - img [ref=e124]
+          - generic [ref=e126]: Stacks & Seats
+        - generic [ref=e129]:
+          - img [ref=e130]
+          - generic [ref=e134]: Hand history
+        - generic [ref=e136]: Actions and showdowns will appear here.
+        - generic [ref=e137]:
+          - generic [ref=e138]:
+            - img [ref=e139]
+            - button "Quick Chat" [ref=e141]:
+              - img [ref=e142]
+              - generic [ref=e144]: Quick Chat
+            - button "Stickers" [ref=e145]:
+              - img [ref=e146]
+              - generic [ref=e149]: Stickers
+          - generic [ref=e150]:
+            - button "👋 Hello everyone!" [ref=e151] [cursor=pointer]:
+              - generic [ref=e152]: 👋
+              - generic [ref=e153]: Hello everyone!
+            - button "🍀 Good luck!" [ref=e154] [cursor=pointer]:
+              - generic [ref=e155]: 🍀
+              - generic [ref=e156]: Good luck!
+            - button "⏰ Hurry up!" [ref=e157] [cursor=pointer]:
+              - generic [ref=e158]: ⏰
+              - generic [ref=e159]: Hurry up!
+            - button "👏 Well played!" [ref=e160] [cursor=pointer]:
+              - generic [ref=e161]: 👏
+              - generic [ref=e162]: Well played!
+            - button "🤷 My bad!" [ref=e163] [cursor=pointer]:
+              - generic [ref=e164]: 🤷
+              - generic [ref=e165]: My bad!
+            - button "🔥 Nice move!" [ref=e166] [cursor=pointer]:
+              - generic [ref=e167]: 🔥
+              - generic [ref=e168]: Nice move!

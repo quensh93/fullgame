@@ -1,0 +1,7 @@
+[    4520ms] [ERROR] Access to fetch at 'http://localhost:8080/api/settings/public' from origin 'http://[::1]:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://[::1]:5173/app/game-holdem/313:0
+[    4524ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://localhost:8080/api/settings/public:0
+[    4537ms] [ERROR] Access to fetch at 'http://localhost:8080/api/game-configs/active' from origin 'http://[::1]:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://[::1]:5173/app/game-holdem/313:0
+[    4537ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://localhost:8080/api/game-configs/active:0
+[    4554ms] [ERROR] Access to fetch at 'http://localhost:8080/api/settings/public' from origin 'http://[::1]:5173' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ http://[::1]:5173/app/game-holdem/313:0
+[    4554ms] [ERROR] Failed to load resource: net::ERR_FAILED @ http://localhost:8080/api/settings/public:0
+[    6092ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5173/favicon.ico:0
