@@ -1,0 +1,78 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-gameapp}
+      POSTGRES_USER: ${DB_USERNAME:-gameapp}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env.prod}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_net
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    networks:
+      - app_net
+
+  backend:
+    build:
+      context: ./gameBackend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_FORWARD_HEADERS_STRATEGY: framework
+      JAVA_OPTS: -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0
+      APP_VERSION: ${APP_VERSION:-1.0.0}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-gameapp}
+      DB_USERNAME: ${DB_USERNAME:-gameapp}
+      DB_PASSWORD: ${DB_PASSWORD:?set DB_PASSWORD in .env.prod}
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env.prod}
+      ALLOWED_ORIGINS: https://${APP_DOMAIN:?set APP_DOMAIN in .env.prod}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PAYMENT_CALLBACK_BASE_URL: https://${APP_DOMAIN:?set APP_DOMAIN in .env.prod}
+      OXAPAY_CALLBACK_BASE_URL: https://${APP_DOMAIN:?set APP_DOMAIN in .env.prod}
+      REFERRAL_BASE_URL: https://${APP_DOMAIN:?set APP_DOMAIN in .env.prod}
+      GEOIP_ENABLED: ${GEOIP_ENABLED:-false}
+      WS_MIN_SUPPORTED_APP_VERSION: ${WS_MIN_SUPPORTED_APP_VERSION:-3.0.0}
+    volumes:
+      - backend_uploads:/app/uploads
+    ports:
+      - "127.0.0.1:${HOST_BACKEND_PORT:-18080}:8080"
+    networks:
+      - app_net
+
+  frontend:
+    build:
+      context: ./gameweb
+      dockerfile: Dockerfile
+      args:
+        VITE_APP_VERSION: ${APP_VERSION:-1.0.0}
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "127.0.0.1:${HOST_FRONTEND_PORT:-18081}:80"
+    networks:
+      - app_net
+
+networks:
+  app_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  backend_uploads:
