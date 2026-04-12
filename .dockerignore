@@ -1,0 +1,24 @@
+.git
+.cursor
+.idea
+.vscode
+.playwright-cli
+.DS_Store
+17.0.12
+docs
+gameapp
+gameweb
+improve plan
+output
+scripts
+src
+deploy
+gameBackend/.git
+gameBackend/.gradle
+gameBackend/.idea
+gameBackend/bin
+gameBackend/build/*
+!gameBackend/build/libs/
+!gameBackend/build/libs/*.jar
+gameBackend/docs
+gameBackend/uploads

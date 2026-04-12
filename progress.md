@@ -1,0 +1,532 @@
+Original prompt: نوبت هر بازیکن میشه باید دور اواتارش پروگرس بار بیاد و تایمر هم روش باشه
+
+- Checked active avatar/timer usage across Ludo web layouts.
+- Enabled the timer badge on the sidebar roster avatar ring so the active player now gets both the progress ring and visible countdown there too.
+- New prompt: when a die roll leads to no legal move, the die animation should not replay a second time.
+- Suppressed follow-up roll cue creation for `NO_LEGAL_MOVE` / `THREE_SIXES_BUST` when they arrive immediately after a `ROLL`, so the existing reveal is preserved without replaying the dice animation or dice SFX.
+- Strengthened roll-cue dedupe further by comparing the held roll identity `(player, seat, dieValue)` and suppressing repeated cues when the same rolled value is already being held across consecutive snapshots.
+- New prompt: when a token reaches the final home triangle, make the arrival cinematic with stronger visual and audio FX.
+- Upgraded `finishToken` feedback so the move now lands with a delayed `bearOff` impact plus a `reveal` shimmer near the moment the token reaches home.
+- Replaced the simple end glow with a layered home-arrival effect in `LudoMoveOverlay`: central bloom, triangular flare, burst rays, ring flash, and a stronger landing bounce on the token itself.
+- Reverted the temporary `classicPocketCardFrame` spacing change that had made the black quadrant cards use equal insets on all sides.
+- Removed the duplicate desktop right-sidebar player score cards so the sidebar now relies on the roster section below for player info only.
+- Desktop no-move roll animation was still feeling like a double throw because `LudoDie` restarted its rolling effect when pendingAction handed off to the server reveal cue; split the die's rolling/settle effects so the roll stays continuous until the cue finishes.
+- Tightened the Ludo turn-reveal hold cleanup so a follow-up snapshot that still refers to the same held roll does not clear the existing reveal state too early.
+- Capture return now carries the hit token's reverse progress path in the cue, extends the capture duration for that return leg, and morphs the token into its in-pocket form instead of fading it out before the yard holder.
+- Slowed the captured token's return leg further by allocating more total duration to long reverse paths and by starting the return earlier in the capture timeline so it no longer rushes back to the yard.
+- Reworked the desktop/web dice-roll visual handoff so the die no longer animates directly from raw `pendingAction`; a short-lived local pending-roll seat now bridges the click to the server roll cue without a false stop/start in no-move turns.
+- Console logs for the no-move case show the server sends a single reveal snapshot for the player (`stateVersion 504` with `currentRoll=4`, `phase=ROLL_REVEAL`) and then a turn handoff snapshot (`stateVersion 505` with `currentRoll=null`), so the dice visual now ignores synthetic local pre-rolls and only animates from real reveal snapshots or explicit `ROLL` transitions.
+- The captured token's reverse path was still being visually lost because it morphed into the pocket form too early; moved that morph to the final stretch so the normal token remains visible through almost the entire rewind path.
+- TypeScript parse passed for `gameweb/src/app/pages/LudoGameBase.tsx`.
+- TypeScript parse passed for `gameweb/src/app/hooks/useLudoPresentation.ts`.
+- `git diff --check` passed for `gameweb/src/app/pages/LudoGameBase.tsx` and `progress.md`.
+- `git diff --check` passed for `gameweb/src/app/hooks/useLudoPresentation.ts`.
+- Attempted a Playwright client pass, but the environment does not currently have the `playwright` package available locally/globally, so no browser screenshot verification was completed in this turn.
+- Need final verification in browser to confirm the badge placement feels attached to the avatar and does not collide with nearby text.
+- New prompt: rematch does not work on mobile web even though it works on desktop; verify mobile rematch flow across all games.
+- Fixed rematch post-ready navigation to use the shared `buildLobbyPath` helper so mobile routes now go to `/lobby/:roomCode` while desktop keeps `/app/game-lobby/:roomCode`.
+- Applied the same lobby-path fix to the dedicated Dominoes rematch flow so its mobile and desktop navigation stay aligned with the shared rematch behavior.
+- `npm run build` passed in `gameweb` after the rematch navigation fix.
+- `npx tsc --noEmit` is still not a usable repo-wide signal here because pre-existing invalid files under `gameweb/src/imports/**` fail parsing before reaching the edited rematch code.
+- Playwright verification is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: add Connect Four as a full room-based game with classic rules, room creation presets, bot/admin support, and gameplay shell parity with the existing board games.
+- Backend milestone completed: added `CONNECT_FOUR` room/runtime support end-to-end with engine, WS actions, board presets (`6x5`, `7x6`, `8x7`), best-of score enums (`1/3/5`), bot strategy/settings services, rematch/tournament/admin wiring, DB migrations, and focused backend tests for rules plus bot move selection.
+- Backend verification passed for `./gradlew compileJava --no-daemon` and focused tests `ConnectFourEngineServiceRulesTest` + `ConnectFourBotStrategyTest`.
+- Frontend shared/runtime wiring is underway: `connectfour` is now added to catalog/route metadata, room settings, create-room score mapping, timer-config aliases, room list normalization, admin bot/game metadata, and shared room display adapters including rectangular board metadata (`boardColumns`/`boardRows`).
+- Lobby/game-room UI metadata now recognizes Connect Four match format tags and rectangular board tags so `First to N` and `Board C×R` can render from live room data.
+- Remaining work in this prompt is the dedicated Connect Four gameplay screen/hook/routes plus focused frontend verification.
+- New prompt: implement Soccer Stars as a full room-based web game with create-room presets, server-authoritative shots, result flow, bot/admin support, top bar, right sidebar, spectator/quick chat parity, and Bidel-style gameplay shell.
+- Soccer Stars backend wiring is now connected across enums, room validation, invitations, spectator access, rematch support, continuity handling, game catalog/config, timer aliases/defaults, websocket action routing, tester bot support, and admin setting validation.
+- Added `SoccerStarsEngineService`, `SoccerStarsRuntimeSettingsService`, and `SoccerStarsBotSettingsService`, including server-authoritative shot simulation, turn handoff, score tracking, kickoff resets, finish settlement, and admin/runtime keys under `soccerstars.*`.
+- Fixed Soccer Stars goal-edge logic so disabling own goals no longer bounces legitimate opponent goals, and corrected the `ownGoal` flag in `SOCCER_STARS_SHOT_RESOLVED.goal`.
+- Frontend now includes Soccer Stars catalog metadata, room score presets, timer aliases, admin bot/game metadata, routes, state extractor/types, and a shared `SoccerStarsGameBase` with canvas playfield, desktop top bar, right sidebar, mobile compact panel, quick chat, spectator chrome, leave flow, and result/rematch integration.
+- Added DB migration `V81__soccer_stars_runtime_support.sql` to seed `game_catalog`, `game_configs`, Soccer Stars runtime defaults, and bot defaults.
+- Added targeted backend tests for Soccer Stars bot strategy, runtime settings defaults/overrides, goal-rule gating, plus admin/timer coverage for Soccer Stars keys and aliases.
+- `npm run build` passed in `gameweb` after the Soccer Stars screen/routes/state wiring.
+- Targeted backend tests passed with `./gradlew test --tests com.gameapp.game.services.GameTimerSettingsServiceTest --tests com.gameapp.game.controllers.AdminAppSettingsControllerTest --tests com.gameapp.game.services.SoccerStarsBotStrategyTest --tests com.gameapp.game.services.SoccerStarsRuntimeSettingsServiceTest --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --no-daemon`.
+- `git diff --check` passed after the Soccer Stars implementation.
+- I did not run a browser Playwright pass for Soccer Stars in this turn; earlier environment notes still indicate Playwright-based verification is blocked/mixed in this workspace, so visual smoke-testing in a live browser remains a good next follow-up.
+- Connect Four gameplay files are now in place on the web frontend: dedicated state normalizer + hook, mobile/desktop gameplay wrappers, routes for `/game-connect-four/:roomCode` and `/app/game-connect-four/:roomCode`, and a full gameplay shell with top bar, board UI, move/result states, quick chat, spectator panel, timer ring, and leave/result flows.
+- `npm run build` passed in `gameweb` after the Connect Four frontend wiring and gameplay implementation.
+- `git diff --check` passed for the touched Connect Four frontend files and shared room/catalog/admin updates.
+- Cleared a pre-existing frontend verification blocker by removing a duplicate legacy `Soccer Stars` mapper block from `gameStateMappers.ts`; `npm run build` now passes again with the current Connect Four routes/screens included.
+- New prompt: implement Carrom as a full room-based game with 2-player official play, 4-player 2v2 support, bot/admin wiring, and gameplay shell parity with the existing board games.
+- Backend Carrom integration is now wired into enums, room validation/default scores, spectator/rematch/timer/invitation handling, WebSocket action dispatch (`CARROM_TAKE_SHOT`), disconnect/manual-leave continuity hooks, tournament score mapping, Carrom bot strategy/settings, and DB seed migration support.
+- Frontend Carrom support is now added across catalog/routes/room settings/admin cards/i18n plus dedicated Carrom state normalization, gameplay hook, mobile+desktop gameplay routes, and a full Carrom game screen with top bar, right sidebar, quick chat, spectators, leave/rematch/result flows, striker placement, aiming/power controls, and server-trace playback.
+- Targeted TypeScript verification for the Carrom files now clears Carrom-specific typing issues; the remaining `pnpm exec tsc --noEmit ...` errors are unrelated pre-existing project issues in shared files like `runtimeUrls.ts`, `useGameplayActions.ts`, `useRoom.ts`, `authSession.ts`, `userApi.ts`, and `deviceMeta.ts`.
+- Verification passed for `./gradlew compileJava --no-daemon` in `gameBackend` and `pnpm build` in `gameweb` after the Carrom implementation updates.
+- Carrom leave flow now matches the dice-style forfeit behavior: `LEAVE_ROOM` during an active Carrom match immediately resolves as a match-ending forfeit on the backend, and the frontend defers post-leave navigation so the forfeiting player still sees the final `GameResultScreen` on the same page.
+- Fixed a Carrom 2-player gameplay-entry bug where the route could stay stuck on the `Checking room` access state: `useRoom` now clears loading when a matching `ROOM_UPDATE` / `PLAYER_JOINED` snapshot already contains the room, handles `GET_ROOM` errors instead of hanging forever, and the mobile/desktop lobbies now also recognize `carrom` in their 2-player fallback lists.
+- New prompt: Air Hockey puck response does not feel correct; strike strength should depend on how fast/far the paddle was moving into the puck.
+- Investigated the current Air Hockey server physics and found the main bug: paddle impact used per-tick displacement while puck velocity is stored in pixels-per-second, so collisions under-transferred speed and felt like simple reflections instead of real strikes.
+- Updated Air Hockey collision response to derive paddle velocity from displacement over `dt`, resolve the contact in normal/tangent space, and preserve stronger puck launch for faster forward swings. Added a focused backend physics test to assert stronger swings transfer more speed.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon`.
+- New prompt: Air Hockey page chrome should match the other games, specifically Bidel/Hearts with the standard top header and right-side panel.
+- Refactored `AirHockeyGameBase` to use the shared game-shell pattern more closely: fixed desktop layout, standard top bar, spectator panel hanging under the header, and a dedicated right sidebar that now contains player cards, room/phase/score meta cards, goal history, and quick chat.
+- Tightened the mobile screen to use the same compact top-bar language as the other game pages while keeping the right-side drawer for panel content.
+- Verification passed for `pnpm build` in `gameweb` after the Air Hockey shell refactor.
+- New prompt: leaving an Air Hockey room should behave like Dice, count as a forfeit, and still show the end-of-game screen.
+- Updated Air Hockey to reuse the generic match-leave confirmation copy (the same “leave match / records a loss” flow used by Dice-family screens), enabled the unload continuity warning during active play, and added an explicit `AIR_HOCKEY_MATCH_FINISHED` listener so the result screen still opens reliably after a manual leave/forfeit.
+- Verification passed for `pnpm build` in `gameweb` after the Air Hockey leave-flow update.
+- New prompt: on desktop web, clicking Soccer Stars was opening/rendering Hokm instead of the Soccer Stars shell.
+- Root cause was frontend metadata fallback, not the gameplay route itself: `DesktopGameRoom`, `GameRoom`, `DesktopGameLobby`, and `GameLobby` were missing `soccerstars` entries in their local game maps, so they fell back to Hokm labels/colors/icons/two-player detection.
+- Fixed the desktop/mobile room and lobby maps to recognize `soccerstars`, and added `game.soccerstars` plus description strings to all four web locales so the UI no longer shows raw/mismatched fallback text.
+- `npm run build` passed in `gameweb` after the Soccer Stars room/lobby fallback fix.
+- `git diff --check` passed for the touched Soccer Stars web files after the fallback patch.
+- New prompt: Soccer Stars gameplay only showed 5 discs instead of both sides, and bot turns could expire without taking a shot.
+- Fixed Soccer Stars backend side assignment to derive `LEFT/RIGHT` from actual two-player order instead of assuming a specific raw `seatNumber`, so rooms using the platform’s normal `0/1` seating no longer stack both players onto the same side.
+- Added a Soccer Stars automated-turn fallback in `handleTurnTimeout`: if the timed-out seat is bot/system-controlled, the engine now tries an immediate bot shot before converting the turn into a timeout skip.
+- Added `SoccerStarsEngineServiceContractTest` to lock both behaviors: sequential-seat side mapping produces distinct left/right formations, and automated bot turns do not fall through to `SOCCER_STARS_TURN_TIMEOUT` when a bot decision can be applied.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.SoccerStarsBotStrategyTest --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --no-daemon`.
+- `npm run build` passed in `gameweb` after the Soccer Stars gameplay backend fixes.
+- New prompt: Soccer Stars drag/release felt wrong; discs appeared to jump toward the ball instead of launching smoothly with power tied to pull distance.
+- Fixed the backend shot timeline to start with a real `t=0` frame at the striker’s initial position, corrected post-step timestamps, and replaced the old head-trimming behavior with timeline condensation that preserves the opening and ending frames.
+- Relaxed the minimum Soccer Stars shot power clamp so small-but-valid pull distances can produce softer strikes instead of being forced to the old minimum speed.
+- Reworked the Soccer Stars web shot presentation with drag-geometry helpers, linear pull-to-power mapping, interpolated playback between timeline frames, and a stronger on-canvas aiming preview including a pulled-back ghost disc, forward guide, and clearer power readout.
+- Added a focused contract test asserting that `SOCCER_STARS_SHOT_RESOLVED.sampledTimeline` now begins at the striker’s pre-shot position with `tMs = 0`.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --tests com.gameapp.game.services.SoccerStarsBotStrategyTest --no-daemon` and `npm run build` in `gameweb`.
+- New prompt: Soccer Stars status toasts like `Turn skipped • tester` were sticking on screen instead of disappearing after 1-2 seconds.
+- Root cause was shared toast timing, not Soccer Stars state itself: `ActionErrorToast` was restarting its dismiss timer on every render because the inline `onClear` callback identity kept changing during active game rerenders.
+- Fixed `ActionErrorToast` to keep the latest clear callback in a ref and run the dismiss timer only off `message` + `delay`, so info/error toasts now auto-hide reliably even while the game is rerendering every second.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/components/ActionErrorToast.tsx`.
+- New prompt: Soccer Stars goals were not visually clear on the table and needed real goal structures.
+- Replaced the old flat side rectangles in `SoccerStarsGameBase` with drawn goal housings that have a visible frame, recessed dark mouth, subtle net grid, and side-colored glow, while still keeping the center playfield clean.
+- Added a short inner glow on each goal mouth so the left/right openings read immediately from the field edge during play.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- Reverted only the Connect Four playfield design in `gameweb/src/app/pages/ConnectFourGameBase.tsx` back to the earlier cleaner version from this thread, keeping the newer page chrome/sidebar changes intact; verification passed for `npm run build` and `git diff --check`.
+- New prompt: remove `Status` and `Shot history` from the Soccer Stars side menu.
+- Removed the dedicated `Status` and `Shot history` cards from the desktop right sidebar in `SoccerStarsGameBase`, keeping only the player stats, spectators, and quick chat sections there.
+- Cleaned up the now-unused `Crosshair` import after the sidebar simplification.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: remove `Shots / Goals / Conceded` from the Soccer Stars player info cards.
+- Simplified `SidebarPlayerStat` in `SoccerStarsGameBase` so the player cards now only show the player name and score pill; the per-player mini stats row and its supporting localized `stats` copy were removed.
+- Cleaned up the now-unused `shotStats`/`copy` props from the sidebar player cards after the stat-strip removal.
+- Verification passed for `npm run build` in `gameweb`, `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`, and no remaining `shotStats`/`copy.stats` usages exist in that page.
+- New prompt: make the Soccer Stars player info cards match the shared look used in games like Air Hockey.
+- Reworked `SidebarPlayerStat` in `SoccerStarsGameBase` to follow the Air Hockey card pattern more closely: avatar inside `TurnTimerRing`, quick-chat bubble anchor, active-turn highlight gradient, optional bot/system/left status line, and a larger accent-colored score on the right.
+- Updated the Soccer Stars sidebar wiring so each player card now receives its live turn timer, active state, localized status labels, and quick-chat bubble data instead of rendering as a plain name/score box.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: the Soccer Stars top bar still did not match the shared Bidel/Hokm header pattern.
+- Refactored the Soccer Stars header in `SoccerStarsGameBase` to use the same structural rhythm as the desktop Hokm/Hearts bars: red square leave button, compact title chip on the left, centered score/shot-clock/target badges, and a square mute control on the right.
+- Added the desktop spectator panel as a header-hung surface under the top bar and removed the duplicate desktop spectator panel from the right sidebar so the page chrome feels closer to the shared game-shell pattern.
+- Removed the old Soccer Stars header subtitle and the now-unused phase-format helper during the header cleanup.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: clicking leave in Soccer Stars should behave like the other two-player games, but the top-bar leave control appeared non-responsive.
+- Hardened the Soccer Stars header hit areas in `SoccerStarsGameBase`: the left/right control groups now sit above the centered badge strip, the centered desktop badge strip is `pointer-events-none`, and the header buttons explicitly use `type="button"` so leave/mute clicks cannot be swallowed by overlapping layout chrome.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- Adjusted Connect Four chrome to match the shared Dice-style layout more closely: desktop now uses the common gameplay top bar and right sidebar skeleton, and mobile now puts leave + mute/menu in the top bar with the same score-pill rhythm as the Dice screen.
+- Made the Connect Four board size responsive to viewport width/height so larger presets like 8x7 no longer push beyond the screen; the board now shrinks from available space and the drop-header row scales down with it.
+- Fixed Connect Four room-browser fallback: mobile and desktop game-room pages were missing `connectfour` in their local GAME_INFO maps, so opening `/game-room/connectfour` rendered with Hokm metadata. Added explicit Connect Four entries to both room browser pages.
+- New prompt: Air Hockey puck still did not move naturally; hits should have acceleration, proper direction, and game-engine-style contact handling.
+- Reworked Air Hockey backend paddle motion from capped linear teleporting to acceleration-based kinematics, added runtime/admin tuning for `air_hockey.physics.paddle_acceleration`, and switched puck-vs-paddle contact to a swept collision/TOI-style resolution so fast pass-through hits no longer get missed.
+- Exposed paddle speed/acceleration in the Air Hockey table payload, persisted paddle velocities in match state, and updated the web canvas to use the same acceleration model for local paddle prediction with server reconciliation so visible contact better matches authoritative physics.
+- Added focused backend tests for pass-through collision detection and wind-up speed buildup, and verification passed for `./gradlew compileJava --no-daemon`, `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.controllers.AdminAppSettingsControllerTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- New prompt: Air Hockey result screen was missing round history even though the match has goal-by-goal progress.
+- Air Hockey now persists `goalHistory` in authoritative match state on each goal, includes it in public snapshots, and the web client normalizes that history so it survives the result transition instead of relying on session-local UI memory.
+- The in-game history rail still shows full goal cards, while the end-game `GameResultScreen` now receives standard `RoundBadge` items derived from the persisted goal history so the result page finally shows round history like the other games.
+- Fixed Connect Four initial-state hydration: the frontend normalizer now reads `STATE_SNAPSHOT` data from `gameSpecificData` and `gameRoom`, maps nested room players to real user ids, and backfills player disc/color from `discByPlayerId`, so the board becomes playable immediately after the first snapshot instead of waiting for a later live action.
+- Reworked Connect Four drop animation to render a temporary overlay disc above the whole grid and animate it down the full column path, instead of only animating inside the destination cell. The landed cell stays empty until the falling disc finishes, so the piece now visibly passes through the intermediate rows.
+- Moved Connect Four player info into the same menu/rail pattern used by Sea Battle: desktop player cards now live inside the right sidebar and mobile player cards moved into the slide-up menu instead of sitting above/below the board.
+- Re-layered the Connect Four board face so the falling disc now animates behind a blue front-mask with circular openings, making the piece feel like it drops inside the board instead of sliding on top of the blue frame.
+- Updated Connect Four terminology and sidebar parity with Dice: current-board labels now display as rounds, the right-rail/mobile menu explicitly says `Round History`, and each player card now shows that player’s wins, losses, and draws instead of only a generic score label.
+- Fixed Connect Four quick-chat stickers to layer above the playfield again by making the player cards and desktop right rail overflow visibly with a higher stacking order, so sticker bubbles can extend out over the game instead of being clipped underneath it.
+- Removed the extra Connect Four right-rail meta tiles (`Board`, `Match`, `Center control`, `Playable columns`) so the sidebar stays focused on players, round history, spectators, and quick chat.
+- Simplified the Connect Four player cards again by removing the inline `W / L / D` mini-stats row from each card while keeping the larger win count and the shared right-rail match summary.
+- Added a dedicated `Result` section header above the desktop right-rail wins/draws/losses summary so it reads as its own sidebar section, matching the visual structure used by `Round History`.
+- New prompt: Air Hockey puck motion is better now, but the player striker still feels wrong and slippery; it should feel directly under the mouse instead of gliding on ice.
+- Reworked Air Hockey human-controlled paddle motion to stop using the acceleration-chase model: backend human paddles now snap directly to the latest input target and only cap strike velocity, while bot/system paddles keep their smoother simulation path.
+- Matched the web client prediction to the same direct-control model so the local striker follows the cursor much more tightly and no longer keeps “sliding” toward an old target.
+- Updated Air Hockey collision resolution to use the paddle’s authoritative velocity fields, which keeps shot power/direction tied to the player’s real swipe even after the direct-control rewrite.
+- Added a focused Air Hockey physics contract for “stop immediately when target stops changing” and kept the existing collision/power tests green with the new velocity source.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon` and `pnpm build`.
+- Attempted the Playwright verification loop again, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: remove the box around the playfield, add a real frame around the actual table with inward shadow for depth, and use the empty vertical space to make the table taller on screen.
+- Removed the separate `boardPanel` shell around Air Hockey and moved the table framing into the canvas itself: the table now renders with a steel-blue outer rim plus top/left highlight and right/bottom inner shadow so the play surface feels more embossed and three-dimensional.
+- Increased the Air Hockey table footprint by reducing outer page padding and raising the playfield max size on both desktop and mobile so the board uses more of the previously empty top/bottom space.
+- `pnpm build` passed in `gameweb` after the Air Hockey table-frame/size pass.
+- Rebuilt the Connect Four playfield art direction: the old flat blue card/grid was replaced with a cleaner arcade-style board that has a brighter shell, a dedicated drop-slot rail, deeper circular sockets, and a more cohesive one-piece face while preserving the behind-the-board falling-disc animation and responsive sizing.
+- New prompt: when it becomes either player's turn in Air Hockey, show the same avatar progress ring and timer used by the other games.
+- Air Hockey player cards now wrap the avatar block with the shared `TurnTimerRing` component, and the active player's ring/timer is driven by the authoritative `serveOwnerUserId` plus `countdownMs` during `serve-countdown` and `goal-pause`.
+- Tracked the current serve phase locally so the ring uses the full countdown duration for that phase/player pairing instead of collapsing as snapshots arrive, which keeps the avatar timer visually consistent with the other games' turn indicators.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the Playwright client again, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: improve the Air Hockey `Table data` section and remove `Spectators` plus `Phase` from it.
+- Air Hockey `Table data` now focuses on `Room`, `Score`, and `Target`, with the room card spanning the full row so the section reads cleaner in both the desktop right rail and the mobile drawer.
+- Removed the old `Phase` and `Spectators` meta cards from the Air Hockey sidebar/drawer and replaced the third slot with the goal target pulled from `goalLimit`.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- New prompt: remove the ready-serve button from below the Air Hockey table because it is no longer needed.
+- Removed the bottom-of-board `Ready Serve` button from Air Hockey and cleaned up the now-unused local button visibility/handler plus its copy strings so the board area ends directly after the playfield.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- New prompt: improve the design of the Air Hockey table itself, especially the goals and surface markings.
+- Reworked the Air Hockey canvas table art with richer field treatment: the ice surface now has subtle diagonal sheen bands and edge tinting, the classic lane/faceoff markings are more structured, and the center line reads more like a real play surface.
+- Replaced the flat goal bars with layered goal housings plus recessed goal mouths and crease arcs, using red/blue accent lighting so the top and bottom ends of the table feel distinct and more arcade-like.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the Playwright client again, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: Air Hockey crashed with `ReferenceError: phaseText is not defined`.
+- Restored the shared `phaseLabel(...)` helper and rebuilt the `phaseText` top-bar value so the center desktop status chip can render again without throwing at runtime.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- New prompt: after the table-art redesign, the Air Hockey board no longer showed the puck, paddles, or bottom goal.
+- Root cause was the new goal-slot helper receiving `rgba(...)` strings and then appending hex alpha suffixes (`...66` / `...00`), producing invalid canvas colors that broke the render loop before puck/paddle drawing.
+- Fixed the goal accent inputs to use the existing hex accents (`MY_ACCENT` / `OPP_ACCENT`) and moved the decorative goal housings to render after the clipped play-surface pass so the bottom housing is visible again instead of being painted over by the board fill.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- New prompt: Air Hockey striker motion became dumb again, sometimes passing through the puck instead of hitting it cleanly.
+- Root cause was a backend/frontend consistency bug in the direct-control rewrite: human paddles snapped their position directly to the newest target, but collision strength was computed from a separately capped velocity value, so the actual swept path and the impact velocity diverged.
+- Fixed both the authoritative backend paddle step and the web local prediction to move human paddles by a capped per-tick travel distance instead of teleporting to the target. That keeps the paddle path, the reported velocity, and the collision math aligned, which should stop the “crossed over the puck without a real hit” behavior.
+- Added a focused backend physics contract to verify human paddles respect their capped travel distance in one tick, and verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- New prompt: remove the line-and-circle markings from the Air Hockey field and replace them with a cooler split design that clearly divides the board into two halves.
+- Replaced the old center line / blue lane lines / faceoff circles with a stylized split-surface treatment: red and blue half-panels taper toward the middle, a beveled central split core now divides the table, and subtle chevron notches reinforce the two-sided layout without cluttering the puck lane.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the Playwright client again, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: replace the Air Hockey `Table data` block with a `Result` section and move room/target metadata into the top bar like Hokm/Dice.
+- Removed the old `Table data` section from the Air Hockey sidebar/drawer, replaced it with a dedicated `Result` block that shows the score much larger, and kept only phase as a small status pill inside that result card.
+- Moved room and target metadata into the top bar: desktop now shows them as header chips near the title, and mobile now exposes room code in the title cluster plus a compact target chip next to the score, bringing Air Hockey closer to the Hokm/Dice chrome pattern.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Removed the `Your turn / Opponent turn` subtitle copy from the Connect Four player cards so turn state is communicated only by the shared avatar progress ring instead of duplicate text.
+- Removed the remaining win-count block (`1 / W`) from the Connect Four player cards so match outcome stays scoped to the dedicated `Result` section in the right rail rather than repeating inside each player info card.
+- Simplified the Connect Four right-rail round-history cards by removing the repeated `Round n` title and promoting the per-round outcome (`Win / Loss / Draw`) to the primary large label, since the round number is already shown in its own badge.
+- Realigned the Connect Four top chrome with the Dice/RPS pattern: desktop now uses the same simpler title area plus center status badges and shared theme surfaces, while mobile folds the round badge into the main top row and removes the extra secondary chip row.
+- Updated the Connect Four final result screen so its round-history badges no longer repeat `Round 1 / Round 2 / ...`; they now show only the per-round outcome (`Win / Loss / Draw`) inside each badge.
+- New prompt: remove the `Live score` label text from the Soccer Stars result screen.
+- Removed the `scoreLabel` prop from the Soccer Stars `GameResultScreen` usage so the final score numbers remain visible without the extra `Live score` caption.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: Air Hockey gameplay still feels buggy from recorded play, especially puck/mallet motion and hit registration.
+- Analyzed the supplied video `REC-20260411164826.mp4` by extracting timed preview frames; the visible symptom is not just backend contact handling, but also client-side render drift where the puck display lags behind authoritative motion and the local striker gets tugged back toward snapshots while dragging.
+- Reworked Air Hockey frontend presentation so the puck now uses dead-reckoning between snapshots (velocity-based advance plus soft reconciliation) instead of pure `lerp` lag, and reduced the local player's striker snap-back by only applying stronger server correction when drift is genuinely large.
+- Reworked Air Hockey backend puck stepping to split fast motion into multiple substeps per tick before applying wall/goal handling, which makes fast contacts more stable and reduces the “dead hit / passed over it” behavior during sparse or jittery ticks.
+- Added a focused physics contract to lock the new fast-puck substep behavior, and verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again after the Air Hockey gameplay patch, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here.
+- New prompt: when it is the player's turn in Soccer Stars, show a clear halo around their selectable discs.
+- Added a turn-state highlight pass to the Soccer Stars canvas so every disc owned by the active player gets a soft accent glow and outer ring during the `aiming` phase, with a stronger treatment on the currently selected disc.
+- Kept the highlight gated off during shot playback so the cue only appears when the player can actually choose a disc.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: the local player's shot start in Soccer Stars felt laggy/jumpy while opponent shots stayed smooth.
+- Root cause was the drag UI rendering a pulled-back preview disc even though the server-authoritative shot always starts from the disc's real position, so release caused a visual snap before playback began.
+- Reworked the shot cue to stay anchored on the real disc: the board now shows a stronger aim ring, tether line, forward arrow head, pointer handle, and power glow instead of a displaced ghost disc, which removes the false backstep at launch.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: the Connect Four board still looked ugly; research stronger board references and redesign only the playfield.
+- Rebuilt the Connect Four playfield as a more premium classic board: unified blue frame, darker integrated drop rail, punched circular apertures instead of tile-like cells, subtler cavity depth, and a stronger base silhouette while keeping the rest of the page chrome intact.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/ConnectFourGameBase.tsx`.
+- Follow-up prompt: keep the disc movement/animation as-is and redesign only the Connect Four frame/casing.
+- Refined only the Connect Four board shell into a more physical silhouette with a sturdier outer frame, integrated top rail, and pedestal-style lower supports while leaving the disc motion logic and gameplay timing untouched.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/ConnectFourGameBase.tsx`.
+- Follow-up prompt: the board still looked too similar; redesign the desktop/web board shell more drastically.
+- Reworked the Connect Four playfield into a darker, more premium board direction with a different shell palette, slimmer integrated drop rail, cleaner geometric face, and stronger side/base supports while preserving the existing disc animation behavior.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/ConnectFourGameBase.tsx`.
+- Follow-up prompt: show a proper between-round result animation/view for Connect Four like the stronger board-game overlays in Hokm/Dice/RPS-style flows.
+- Replaced the simple Connect Four board-finished message with a richer animated round-result overlay that highlights win/loss/draw tone, round label, next-round message, and current match standing over the board before play resumes.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/ConnectFourGameBase.tsx`.
+- New prompt: Soccer Stars full-power shots still felt too weak and could not carry a disc from one side of the table to the other.
+- Tuned the Soccer Stars backend physics defaults to be more energetic: raised the default max shot power and loosened the balanced/arcade damping and restitution values so strong shots preserve speed longer and bounce with more life.
+- Added a follow-up migration that upgrades existing `soccerstars.physics.max-shot-power` app settings from the old `980` default to the new value without clobbering custom admin overrides.
+- New prompt: spectator overlay should move from top-left to top-right in RTL languages across games.
+- Added RTL-aware anchoring inside `InGameSpectatorPanel` so legacy `left-*` placements automatically mirror to the right in Persian/Arabic without changing inline/stacked usages.
+- Fixed the two mobile board wrappers that positioned the spectator panel outside the component (`LudoGameBase` and `SoccerStarsGameBase`) so they also pin to the top-right in RTL.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/components/InGameSpectatorPanel.tsx`, `gameweb/src/app/pages/LudoGameBase.tsx`, `gameweb/src/app/pages/SoccerStarsGameBase.tsx`, and `progress.md`.
+- Build emitted existing Vite warnings about `lottie-web` using `eval` and large output chunks; no new RTL-related build errors were introduced.
+- New prompt: in Dots & Boxes spectator mode, box stats did not refresh when players closed boxes even though the board itself updated correctly.
+- Root cause was frontend-only in `DotsAndBoxesGameBase`: spectator mode still derived the bottom/player-side stats from the authenticated spectator user id, so score/box-count cards and history/result fallbacks were keyed to the wrong participant instead of the actual watched player.
+- Fixed Dots & Boxes spectator perspective wiring by resolving a real perspective player (friend target when present, otherwise first player), deriving opponent/score/box-count/history/result state from that perspective id, and keeping action dispatch tied to the real authenticated player id for non-spectator play.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: from Friends-page spectate flow in Dots & Boxes, both visible player seats could still show the friend instead of friend bottom / opponent top.
+- Deeper root cause was the Dots & Boxes player mapper preferring raw `id` from spectator `gameRoom.players` rows, which can be the `player_state` PK rather than the real user id; that breaks `friendUserId` matching and can skew spectator seat resolution.
+- Fixed `normalizeDotsAndBoxesPlayers` to prefer `playerId/userId/user.id` before raw row ids and to dedupe by resolved user id, then switched the screen to the shared `resolveSpectatorPerspectivePlayer` helper for spectator perspective resolution.
+- Verification passed again for `npm run build` in `gameweb` after the mapper fix.
+- Follow-up prompt: in Dots & Boxes spectator mode, claimed boxes could still all render with the friend/orange owner color, making opponent-claimed boxes look misattributed.
+- Root cause was a remaining owner-id mismatch path: board box fills resolve color by `claimedBoxes[boxId] -> playerAccentMap`, and spectator snapshots can still expose alternate identity values for players even when the visible perspective player is resolved correctly.
+- Added `identityKeys` aliases to mapped Dots & Boxes players and taught `buildPlayerAccentMap` to register every known player alias to the same accent color, so claimed-box ownership now colors correctly even when spectator payloads mix user ids with row ids.
+- Verification passed for `npm run build` in `gameweb` after the color-ownership alias fix.
+- Follow-up prompt: in Dots & Boxes spectator mode, after two rounds the match score and round history could still show the wrong perspective result (for example 1-0 instead of 1-1, or two losses instead of one win / one loss).
+- Root cause was frontend history bookkeeping: `BOARD_FINISHED` handling relied on stale closure values and even looked for `winnerId` on the board-finished event path, while the backend publishes `boardWinnerId`; box-count snapshots for history badges were also being read from current local state instead of the event/snapshot being processed.
+- Fixed Dots & Boxes spectator result tracking by resolving score/box values through player identity aliases, adding `pushBoardHistoryFromState(...)` to build history entries from the exact snapshot/event payload being processed, and syncing history on both `board-finished` and `match-finished` states.
+- Verification passed for `npm run build` in `gameweb` after the history/score sync fix.
+- Follow-up prompt: in Dots & Boxes, a player who closed the browser and rejoined from another browser could see broken player identity layout (own name missing at bottom, opponent name duplicated).
+- Root cause was backend reconnect bootstrap inconsistency: `GET_GAME_STATE_BY_ROOM` for Dots & Boxes returned the raw `GameState` entity after reclaim, while live gameplay updates use the normalized `buildPublicState(...)` payload; this shape mismatch made the frontend re-entry path parse a different player structure than the steady-state live path.
+- Added `DotsAndBoxesEngineService.buildViewerSnapshot(...)` as a normalized reconnect snapshot and wired `ImprovedWebSocketConfig.handleGetGameStateByRoom` to use it for `DOTS_AND_BOXES`, so reconnects now receive the same player/state payload shape as live broadcasts.
+- Verification passed for `./gradlew compileJava --no-daemon` in `gameBackend`.
+- New prompt: in Sea Battle spectator mode, entering the room showed no boards; the spectator should see both players' maps in hidden/public form.
+- Root cause: Sea Battle spectator snapshots already provided `publicBoardsByUserId` and `publicFleetProgressByUserId`, but `gameweb/src/app/pages/SeaBattleGameBase.tsx` only rendered `ownBoard` / `enemyBoard`, which are populated for seated players, not spectators.
+- Updated `SeaBattleGameBase` to treat spectator mode explicitly: it now resolves both seated players in seat order, derives spectator boards from `publicBoardsByUserId`, keeps both player cards/score labels populated, and switches spectator detection on as soon as either `gp.viewerMode` or the normalized state says `SPECTATOR`.
+- Kept spectator boards hidden by design: ship overlays and placement affordances remain player-only, so spectators now see public shot history on both maps without leaked live ship positions.
+- Verification passed for `npm run build` in `gameweb`.
+- New prompt: add Tarneeb as a full 4-player team card game with Shelem/Hokm-style room/table shell reuse across backend, web, and app.
+- Backend Tarneeb foundation landed: added `Enums.GameType.TARNEEB` and `Enums.GameScore.TARNEEB_FORTY_ONE`, seeded catalog/config migration `V82__tarneeb_catalog_and_config.sql`, and wired core room/rematch/invitation/continuity/timer/tournament/admin normalization paths to recognize Tarneeb as a 4-player team hidden-info game.
+- Added `TarneebEngineService`, `TarneebBotStrategy`, and `TarneebBotSettingsService` with classic Tarneeb flow: numeric bidding `7..13`, explicit trump choice by bid winner, follow-suit enforcement, trick resolution, contract scoring, all-pass redeal, 41-point target, 13-trick sweep finish, and team surrender continuity hooks.
+- Next step is compile-driven cleanup for backend exhaustiveness/imports, then web and Flutter client wiring plus targeted verification.
+- Added a contract test that verifies a full-power unobstructed shot now reaches the far side of the board, and verification passed for `./gradlew test --tests com.gameapp.game.services.SoccerStarsRuntimeSettingsServiceTest --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --no-daemon` plus `git diff --check`.
+- New prompt: when a player scores in Air Hockey, show a cinematic center-table goal animation with whistle/crowd audio and stronger visual FX.
+- Replaced the old tiny `goalFlash` popup in `AirHockeyGameBase` with a full-screen-in-board celebration overlay: layered spotlight beams, pulse rings, burst rays, confetti, glow wash, scorer line, and a large scoreline centered over the table.
+- Wired Air Hockey into the shared `useSoundEffects` hook so each goal now plays `goalImpact`, then `goalWhistle`, then `goalCrowd` with short cinematic delays and reduced-motion-aware timing.
+- Increased the Air Hockey goal overlay hold to `3000ms`, stopped clearing it immediately on `MATCH_FINISHED`, and gated the final `GameResultScreen` behind both the active overlay and the pending-new-goal detection so the winning-goal celebration can fully play before the result screen appears.
+- Verification passed for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here.
+- New prompt: Air Hockey strike start still feels broken; at the opening hit the puck can appear to spin around and end up on the wrong side of the striker.
+- Root cause had two layers: the web client was still simulating puck-vs-paddle collisions during `serve-countdown`/`goal-pause` even though the backend only authoritatively simulates collisions in `in-play`, and both frontend/backend separation logic could still place the puck on the wrong side of the paddle after contact if the post-impact overlap vector disagreed with the impact normal.
+- Air Hockey web prediction now only advances/collides the puck locally during `in-play`; during serve countdown and goal pause the puck stays glued to the authoritative server snapshot instead of inventing an early collision at match start.
+- Hardened puck separation on both frontend and backend so the puck is forced to remain on the impact side of the striker using the collision normal, instead of being re-positioned behind the paddle when overlap cleanup runs.
+- Added a focused backend contract that invokes `separatePuckFromPaddle` directly and asserts a bottom paddle cannot push the puck to its back side during cleanup.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here too.
+- New prompt: reduce the Air Hockey table’s top/bottom spacing so the board itself can grow larger, with width growing proportionally as height increases.
+- Reworked the Air Hockey board sizing budget to derive width from the available viewport height (`10/16` ratio preserved explicitly in the width formula), instead of relying on the older smaller fixed max widths.
+- Increased the desktop/mobile board caps (`860` / `690`) and reduced the surrounding gameplay padding so the playfield uses more of the previously empty vertical space without changing the rest of the chrome structure.
+- Widened the desktop board wrapper and tightened the mobile content stack spacing so the larger table actually gets room to render.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here as well.
+- New prompt: Air Hockey puck motion still feels too uniform; hit distance and strike intensity should materially affect puck speed and launch.
+- Root cause was the human-striker speed model: once the target was farther than one tick of travel, the striker moved at nearly the same capped speed every time, so many hits transferred almost the same energy regardless of swipe intensity.
+- Reworked the Air Hockey backend human paddle model to derive speed from realtime input intensity (`sentAt` + target delta) plus wind-up distance. `applyRealtimeInputs` now computes `inputSpeed`, `advanceHumanPaddle` scales travel from `inputSpeed` and target distance, and stale input decays down to a lighter track speed instead of staying maxed.
+- Updated the web client to send the original pointer-event timestamp through `GAME_ACTION`, compute local `inputSpeed` from drag movement, and mirror the same speed/wind-up model in `advancePredictedPaddle` so local strike feel stays aligned with the authoritative server result.
+- Added focused backend contracts to lock the new behavior: stronger human swipes now move the paddle faster than gentle swipes, and longer human wind-up still builds more speed than a short correction at the same swipe intensity.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here too.
+- New prompt: the local Air Hockey player should always appear on the bottom half of the table, but the current view sometimes renders them on the top.
+- Reworked Air Hockey canvas rendering into a view-centric layout: when the local player's authoritative side is `TOP`, puck and paddle coordinates are vertically flipped for display so the local striker still appears on the bottom half.
+- Matched the pointer/input mapping to that same flip so drag controls remain correct after the visual inversion; the fix is not just cosmetic, the local input now maps back into authoritative world coordinates properly.
+- Updated on-canvas paddle coloring to use displayed bottom/top ownership (`mySide`) instead of raw server `BOTTOM` side, so the local striker keeps the blue/my accent even when the authoritative side is `TOP`.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here as well.
+- New prompt: after a goal in Air Hockey, the player who conceded should restart, but the scoring player is effectively starting the next rally.
+- Clarified the goal-reset semantics in the backend by assigning post-goal `serveOwnerUserId` through an explicit opponent helper (`opponentUserId`) instead of the more ambiguous `nextServeOwner` call site.
+- Tightened serve-phase behavior in `movePaddles(...)`: during `goal-pause` and `serve-countdown`, the non-serve-owner paddle is forced back to its home target and its input speed is cleared, so the scorer can no longer creep onto the puck before play resumes.
+- Added focused backend tests covering both expectations: `nextServeOwnerAfterGoalShouldBeThePlayerWhoConceded` and `nonServeOwnerShouldStayAtHomeDuringServeCountdown`.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --no-daemon` and `git diff --check`.
+- New prompt: redesign the Air Hockey gameplay page because the current shapes and form language are not liked.
+- Reworked the Air Hockey chrome away from the old soft rounded-pill look into a more faceted arena style by introducing reusable faceted surface helpers and applying them to player cards, score/result panels, top-bar controls/chips, and the mobile drawer surfaces.
+- The desktop sidebar now reads more like a steel control rail with accent washes instead of stacked rounded cards, while the player cards keep their overflow bubbles but use a separate clipped background layer so the new shape language does not clip quick-chat bubbles.
+- Mobile drawer and leave/top-bar controls were updated to the same beveled shape system so the page feels visually consistent across desktop and mobile instead of mixing rounded and angular surfaces.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the standard Playwright client again, but this environment still cannot load it because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`), so browser-automation verification remains blocked here too.
+- New prompt: remove the player info cards from above the Soccer Stars board because the sidebar already shows them.
+- Removed the two top-of-board `PlayerChip` overlays from the Soccer Stars playfield and deleted the now-unused helper component so the table surface stays cleaner and the right rail remains the single source of player info.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: leaving a Soccer Stars match only emitted `PLAYER_CONTROL_CHANGED` and never reached the final result screen.
+- Root cause was backend leave routing: `SOCCER_STARS` had been included in `IndividualGameContinuityService` manual-leave games, so `LEAVE_ROOM` handed the player to `SYSTEM` instead of triggering the dedicated forfeit flow that emits `GAME_FINISHED`.
+- Removed Soccer Stars from manual-leave continuity while keeping its disconnect continuity, and added regression tests to lock both the support matrix and `GameRoomService` forfeit routing to `SoccerStarsEngineService`.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.IndividualGameContinuityServiceSupportTest --tests com.gameapp.game.services.GameRoomServiceSoccerStarsForfeitTest --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --no-daemon` plus `git diff --check`.
+- New prompt: Air Hockey still has serious gameplay issues in a second recorded video, including bad hit registration, unstable physics, and weak bot play.
+- Extracted timed preview frames from `REC-20260411171517.mp4`; the visible pattern still points to both gameplay layers: puck/striker interactions remain too brittle during fast contact windows, and the bot still over-commits into poor attack lines instead of clearing safely.
+- Reworked Air Hockey backend puck substep sizing so it now considers both current puck speed and the fastest paddle speed in the room, not just the puck. This makes fast striker-driven hits more stable in the same tick, especially right after a strong swipe.
+- Added a directional drive boost in puck-vs-paddle collision response so forward swipes transfer more convincing intent into the puck instead of relying only on a pure bounce/reflection response.
+- Reworked bot targeting to lead moving pucks, choose safer clear-lane destinations when the puck is deep in its own half or near side walls, and keep serve/attack approach targets based on projected puck position instead of only the current puck coordinate.
+- Added focused regression tests for the new fast-paddle substep behavior and the bot's lead/clear targeting, and verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again after this Air Hockey pass, but it is still blocked in this environment because the `playwright` package is missing (`ERR_MODULE_NOT_FOUND`).
+- Follow-up rewrite pass: the engine still had a deeper timing flaw because puck motion was sub-stepped while paddles still advanced once per outer tick, so fast hits were being resolved against mismatched motion scales.
+- Reworked `tickRoom` / `simulateInPlay` so active in-play frames now run on a shared outer substep cadence where paddles and puck advance together; puck collision still has its own finer-grain subdivision inside those shared steps for stability, but it now sees per-substep paddle motion instead of whole-tick paddle sweeps.
+- Added `computeSimulationStepCount(...)` to size the shared substeps from the fastest body in the frame (puck or paddle), which is much closer to the Box2D-style sub-stepping guidance for stable fast contacts.
+- Verification passed again for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Follow-up prompt: local hits still felt wrong because the striker visually rode over the puck and the puck started moving from inside the striker instead of from edge contact.
+- Root cause was split across both layers: server-side collision separation still positioned the puck too close to the striker center after impact, and the frontend had no local paddle-vs-puck contact preview at all, so the puck visually waited for the next authoritative snapshot before reacting.
+- Tightened backend separation in `resolvePaddleCollision(...)` so the puck is now placed from the paddle impact center at full `(paddle radius + puck radius + epsilon)` separation and then re-checked against the paddle's final position to prevent the puck from living inside the striker.
+- Added frontend predicted paddle-vs-puck collision handling so the local puck display now responds immediately when a striker edge contacts it, instead of letting the striker slide over it until the server snapshot catches up.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again after the local-hit rewrite, but the environment still lacks the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- Follow-up prompt: even after the big physics rewrite, some strikes still occasionally sent the puck the wrong way or re-bounced unnaturally while separating.
+- Found a sign/overlap bug in collision resolution: the drive term was being treated too permissively during overlap cases, and separating contacts could still receive a fresh impulse just because the bodies were still touching.
+- Tightened both backend and frontend collision handling so once the puck is separating (`normalSpeed >= 0`) we only separate it geometrically and do not apply a new bounce impulse; also locked the expected downward-hit direction with a focused physics test.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- New prompt: the top and bottom of the Air Hockey table were visually clipped, cutting off the goal housings.
+- Root cause was canvas framing, not the art itself: the board was scaled to fill the frame exactly for the raw 10x16 table area, but the rim and goal housings are drawn slightly outside that box. Because the wrapper also clips overflow, the decorative top/bottom ends got cut.
+- Added shared padded canvas metrics so both rendering and pointer-to-world mapping now reserve safe top/bottom space for the table shell. This keeps the full Air Hockey table visible without desynchronizing drag input from the drawn board.
+- Verification passed for `pnpm build` and `git diff --check`.
+- Attempted the standard Playwright client again after the Air Hockey table framing fix, but the environment still lacks the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: in Soccer Stars, the next turn and bot shot could start before the local shot playback and ball movement had visually finished.
+- Root cause was that the server opened the next turn immediately after `SOCCER_STARS_SHOT_RESOLVED`: it set the next `currentTurnPlayerId`, started the turn timer, and scheduled bot play right away, while the web client was still replaying the sampled timeline.
+- Introduced a dedicated Soccer Stars `resolving` phase on the backend. After a shot, the game now pauses in resolving state with no active turn, schedules a post-playback transition using the exact playback duration, and only then broadcasts `GAME_STATE_UPDATED`, starts the turn timer, and lets bots act. Match finish is also delayed through that same settle boundary.
+- Aligned the frontend with that contract by consuming server-provided `playbackHoldMs`, showing waiting text during resolving/playback, and hiding the live shot clock behind `...` until the authoritative next turn actually opens.
+- Verification passed for `./gradlew test --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --tests com.gameapp.game.services.IndividualGameContinuityServiceSupportTest --tests com.gameapp.game.services.GameRoomServiceSoccerStarsForfeitTest --tests com.gameapp.game.services.SoccerStarsRuntimeSettingsServiceTest --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --no-daemon`, `npm run build` in `gameweb`, and `git diff --check`.
+- New prompt: in the Soccer Stars lobby creator, replace the `Match Format` label with `Goal To Win`.
+- Switched the Soccer Stars room-setting label to a dedicated key so only this game's create-room form now shows `Goal To Win`, while other games keep the shared `Match Format` copy.
+- Added localized copy for the new label and kept a direct fallback label on the setting object so non-updated locales still render the correct English text.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/services/gameRoomSettings.ts` and `gameweb/src/app/i18n/translations.ts`.
+- New prompt: Soccer Stars still showed the goal view/result screen too early, before the visible shot animation had fully completed.
+- Deferred goal feedback on the client so `goalBanner` and the related status toast are now queued until the current playback finishes instead of appearing immediately when `SOCCER_STARS_SHOT_RESOLVED` arrives.
+- Deferred final-result activation while playback is active, so `GAME_FINISHED` no longer interrupts the last goal animation; the result screen now opens only after the visual replay ends.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: when a Soccer Stars disc is selected for a shot, the turn halo should disappear so the player can see the disc and aiming direction clearly.
+- Updated the turn-highlight gating so the selectable-disc halo now shows only before selection; as soon as drag/aim starts, the shared turn glow is removed and the player sees only the selected-disc cue plus the shot guide.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: Soccer Stars crashed at runtime with `ReferenceError: useCallback is not defined`.
+- Root cause was a missing React import after the deferred-result/deferred-goal work introduced `useCallback` inside `SoccerStarsGameBase`.
+- Added the missing `useCallback` import to restore the page render path.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: when a Soccer Stars disc is selected and the player starts dragging, all extra selection highlights should disappear so the disc and aim direction stay easy to read.
+- Removed the remaining selected-disc halo treatment from the board render and stripped the origin glow/ring from the drag cue, leaving only the shot guide lines and pointer handle once aiming begins.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- New prompt: a drawn Connect Four round should replay the same round instead of advancing or letting the match end in a draw.
+- Reworked `ConnectFourEngineService` so a full-board draw now emits `CONNECT_FOUR_BOARD_FINISHED` with replay intent, keeps `boardHistory` unchanged, schedules the same `boardNumber` again, and never finalizes the match as a draw.
+- Updated the Connect Four round-result overlay so repeated draws in the same round still show correctly and the subtitle now says the same round is restarting.
+- Verification passed for `./gradlew test --no-daemon --tests com.gameapp.game.services.ConnectFourEngineServiceRulesTest`, `npm run build` in `gameweb`, and `git diff --check`.
+- New prompt: when a player scores in Soccer Stars, show a stronger cinematic goal effect in the middle of the field with whistle, crowd cheer, and heavier SFX.
+- Extended the shared Web Audio SFX hook with dedicated Soccer Stars goal sounds: impact hit, referee whistle, and layered crowd-roar playback that respects the existing mute setting.
+- Replaced the old simple Soccer Stars goal text banner with a full cinematic center overlay: vignette flash, accent-colored pulse rings, burst streaks, big headline, scorer line, score line, and a small own-goal chip when relevant.
+- Delayed the final result screen behind the goal overlay too, so a winning goal now gets to play its full cinematic sequence before the result screen takes over.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx` plus `gameweb/src/app/hooks/useSoundEffects.ts`.
+- Follow-up prompt: the first Soccer Stars goal view still felt ugly and not at all close to the project's stronger casino/dice/RPS-style animations.
+- Reviewed the internal animation language from `CasinoWarWinnerSpotlight`, the Dice/RPS reveal/result overlays, and the shared Web Audio hook, then rebuilt the Soccer Stars goal moment around that same layered style instead of a boxed panel.
+- The Soccer Stars goal celebration is now a free-form cinematic arena overlay with moving stadium spotlights, center shockwave, burst rays, confetti shards, crowd-band shimmer, layered headline text, scorer capsule, score ticker, and richer chained audio (`impact -> whoosh -> whistle -> surBlast -> crowd`, plus `matchPoint` on the decisive goal).
+- Verification passed again for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`, `gameweb/src/app/hooks/useSoundEffects.ts`, and `progress.md`.
+- New prompt: the Soccer Stars goals themselves should visually match the reference screenshots, with a proper metallic 3D frame and visible side/back netting instead of the flat goal block.
+- Rebuilt the Soccer Stars goal drawing routine around an open-mouth geometry: front post, slanted top/bottom supports, rear upright, perspective side net, and metallic tube shading similar to the original Soccer Stars reference art.
+- Removed the old enclosed goal housing/slot look and replaced it with a more readable silver goal frame plus a subtler mouth glow so the goals read like real table-football cages from the side view.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx` and `progress.md`.
+- Follow-up prompt: after the goal redesign, the left/right goals were still visually cropped and the whole playfield looked rounded off at all four corners.
+- Fixed the underlying playfield layout by reserving horizontal gutter space for goal depth inside `measurePlayfield`, removing the canvas border-radius clip, and switching the main pitch clip from a rounded path to a true rectangle so the table no longer cuts off the side goals.
+- The outer stadium backing was also widened to include the full goal depth, so the new 3D goals sit inside the visible table area instead of being pushed outside the canvas.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx` and `progress.md`.
+- Follow-up prompt: the visible Soccer Stars goals still did not look good enough; the user wanted a much stronger goal-frame and net design closer to the original reference.
+- Reworked `drawSoccerGoal(...)` again into a more reference-driven cage: front mouth frame slightly outside the pitch, deeper angled supports, a narrow rear net plane, curved side-mesh lines, denser rear mesh, and subtler cage fill/shadow so the goal reads as a real 3D netted structure rather than a filled polygon.
+- Kept the metallic tube treatment but moved the geometry and mesh to be much closer to the reference screenshots' open-mouthed Soccer Stars goal silhouette.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx` and `progress.md`.
+- New prompt: the Connect Four between-round overlay was rendering below the board, and it needed more time plus stronger cinematic presentation.
+- Moved the Connect Four round-result overlay inside the board shell so it now renders directly over the table, upgraded it with layered glow/vignette/sheen/score-strip motion, and lengthened the between-round presentation timing.
+- Increased the backend post-round hold from 2s to 5s so the richer overlay and win-line celebration have room to read before the next round begins.
+- Verification passed for `./gradlew test --no-daemon --tests com.gameapp.game.services.ConnectFourEngineServiceRulesTest`, `npm run build` in `gameweb`, and `git diff --check`.
+- Follow-up prompt: the Connect Four drop animation looked removed again after the cinematic overlay pass.
+- Root cause was overlay visibility leaking into the next `playing` state; the board overlay now hard-gates on `state.phase === "board-finished"` so it cannot cover the restored falling-disc animation when the next round opens.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: on desktop web the Connect Four falling-disc animation was still effectively invisible.
+- Reworked the active falling-disc layer for desktop clarity: slowed the descent timing, resized the moving disc to align with the board apertures, and added a column light-shaft/glow so the piece reads clearly while traveling downward behind the board face.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: suspected the Connect Four falling-disc animation was trapped under the board layers on desktop web.
+- Rebuilt the moving-disc render path as a masked per-column overlay that sits above the board face in z-order but is clipped to that column's hole apertures, so the drop remains visible while still reading as if it is traveling inside the board.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: the desktop web drop animation still was not visible, and the user pointed back to the earlier known-good version from this thread.
+- Removed the later experimental masked-column drop layer and restored the original working falling-disc implementation with the earlier `0.1` offset and `0.8` disc size so the animation path matches the version that had previously looked correct.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: the user still only saw the disc appear in the destination cell instead of clearly passing hole-by-hole down the column.
+- Upgraded Connect Four drop playback to start optimistically on local click and changed the shared falling-disc timeline to a slower hole-by-hole path with brief per-row holds, so the disc is visibly read as traveling down through the board instead of only popping into the final slot.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: temporarily force the falling disc onto the top-most layer for desktop web debugging.
+- Switched the board face to `overflow-visible` and raised the active falling-disc layer above every board surface with a stronger outline/glow, so this diagnostic pass shows the raw drop path even if the normal face/mask layering had been hiding it.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: the user confirmed the diagnostic top-layer drop was visible but not smooth, and asked to move it one layer lower.
+- Lowered the Connect Four falling-disc layer from the debug top-most stack to a nearer-to-board layer while keeping it above the face, and replaced the stepped path with a smoother tweened descent so the drop reads more naturally without disappearing again.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: lowering the falling-disc layer made it disappear again.
+- Restored the drop layer to the higher visible z-plane while keeping the smoother tweened descent, confirming that the current hidden/visible threshold is still a stacking-order problem rather than the animation trigger itself.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: keep the drop layer visible but make it read as falling behind the board face, only through the empty circular holes.
+- Reworked the active falling-disc layer into a per-column SVG-masked overlay: it stays on the visible high z-plane for reliability, but the mask limits visibility to that column's hole apertures so the disc reads as moving behind the board shell instead of over the whole frame.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: the browser still was not reliably showing the masked falling disc through the holes.
+- Replaced the CSS/SVG mask approach with per-hole circular clipping windows for the active column; each hole now clips the same moving disc locally, which is a more robust cross-browser way to show the piece only inside the empty apertures while keeping the animation layer itself visible.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: the per-hole clipping windows still did not make the falling disc visible enough in practice.
+- Simplified the stacking model again: kept the single visible falling-disc layer, but moved the board face overlay above it so the face itself becomes the occluder and only the overlay's hole cutouts can reveal the disc, instead of relying on extra masking/clipping layers.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- Follow-up prompt: even the simplified face-over-disc stacking still was not reliably revealing the falling piece through the holes.
+- Rebuilt the falling-disc render as a grid-aligned overlay that uses the exact board cell geometry: for the active column, each visible hole row gets its own circular clipped window with the same shared animated disc passing through it. This avoids both browser mask issues and manual pixel alignment drift.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check`.
+- New prompt: in Soccer Stars, resigning/leaving must always count as a decisive loss because the game cannot end in a draw; for example, if the score is `1-1` in a `goal to 3` match, a player who quits should lose `0-3`.
+- Normalized Soccer Stars forfeit settlement in `SoccerStarsEngineService.finishMatch(...)` so a forfeit now overrides the live score to `winner = targetGoals` and `loser = 0`, updates both `playerScores` and the game-specific `score/players` payload, and keeps the final state consistent for the result screen and websocket consumers.
+- Added/updated a focused contract test covering the tied-score forfeit case to lock the `1-1 -> 0-3` behavior for `SOCCER_STARS_THREE_GOALS`, and verification passed for `./gradlew test --tests com.gameapp.game.services.GameRoomServiceSoccerStarsForfeitTest --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --no-daemon`.
+- New prompt: in Soccer Stars, goals should only count after the ball actually enters the cage, the pitch corners should be rounded like the reference screenshot, and the penalty area should look more realistic.
+- Tightened Soccer Stars goal detection in `SoccerStarsEngineService` so the ball now has to fit fully inside the goal window and travel a bit past the line into the goal before a score is declared, instead of scoring on the first touch of the line.
+- Reworked the Soccer Stars canvas table to better match the reference direction: rounded stadium/pitch corners, metallic rounded outer shell, and more realistic penalty-area markings with the main box, goal box, penalty spot, and penalty arc on both sides.
+- Added focused goal-rule coverage for the new “fully enters goal” behavior and verification passed for `./gradlew test --tests com.gameapp.game.services.SoccerStarsEngineServiceGoalRulesTest --tests com.gameapp.game.services.SoccerStarsEngineServiceContractTest --no-daemon`, `npm run build` in `gameweb`, and `git diff --check`.
+- New prompt: the Soccer Stars goal celebration still lacked an audible fan-cheer, and shots needed a proper impact SFX when striking the ball.
+- Strengthened the procedural `goalCrowd` audio in `useSoundEffects.ts` into a louder, longer stadium-style cheer with layered noise and low/mid chant tones so the crowd reaction reads clearly during the goal cinematic.
+- Added a dedicated `soccerKick` SFX and wired it into Soccer Stars gameplay so the local player hears the shot immediately on release while remote/opponent shots still trigger the same impact sound on `SOCCER_STARS_SHOT_RESOLVED` without double-playing the local shot.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: the user still could not hear a proper crowd cheer after goals in Soccer Stars.
+- Rebuilt `goalCrowd` from simple broadband noise into a more obvious stadium roar using layered filtered-noise bands plus longer low/mid chant tones, and triggered a second delayed crowd swell during the goal cinematic so the cheer does not get buried under impact/whistle/blast SFX.
+- Verification passed again for `npm run build` in `gameweb` and `git diff --check`.
+- New prompt: the frame around the Soccer Stars table still felt too flat and needed to read more like a stadium around the playfield.
+- Reworked the Soccer Stars outer shell into a darker stadium-style bowl with layered terraces, crowd-light dots, floodlight glow bands, a cleaner inner apron around the pitch, and left/right tunnel accents so the table feels embedded in an arena instead of sitting inside a plain metallic border.
+- Verification passed for `npm run build` in `gameweb`.
+- New prompt: add a shadow under the Soccer Stars ball.
+- Added a soft elliptical ground shadow under the ball in `SoccerStarsGameBase.tsx`, plus a tiny base fill pass so the ball reads with a little more depth against the pitch without making the playfield noisy.
+- Verification passed for `npm run build` in `gameweb`.
+- New prompt: make the Soccer Stars ball look more like a real football with visible patterning.
+- Upgraded the ball render in `SoccerStarsGameBase.tsx` from a plain white orb to a stylized football with a central dark panel, surrounding patches, subtle seam curves, rim stroke, and a cleaner specular highlight while keeping the existing soft ground shadow.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: the ball still looked fake and static; it needed a more believable football pattern and should visibly spin while moving.
+- Reworked the Soccer Stars ball pattern again into a cleaner classic-panel composition and added movement-driven spin tracking so the ball texture now rotates as the ball travels, while automatically resetting on large teleports such as goal/kickoff resets.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: the visible spin still looked like a flat 2D disk rotating in place instead of a more believable 3D football roll.
+- Rebuilt the Soccer Stars ball render a third time around a simple projected-sphere model: the visible patches are now drawn from front-hemisphere spherical coordinates and the roll phase is applied around an axis derived from the ball's movement direction, so the pattern reads more like a ball rolling over its surface rather than a sticker spinning in place.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: even with the improved roll, the ball still looked wrong because only one visible side had enough panel detail and large areas stayed plain white during rotation.
+- Expanded the Soccer Stars ball panel layout across the whole sphere with multiple front/mid/back patch rings plus denser seam arcs, so whichever way the ball rolls there are always visible football panels instead of a single detailed face and blank white sides.
+- Verification passed for `npm run build` in `gameweb`.
+- Follow-up prompt: the ball still had too much blank white area during rotation because the visible dark-panel coverage was not enough.
+- Added lighter panel cells with their own seams across the ball body so the full visible hemisphere stays patterned during roll, not just the dark-patch face; the ball now reads as a fully paneled football instead of dark spots floating on a plain white sphere.
+- Verification passed for `npm run build` in `gameweb`.
+- New prompt: collisions in Soccer Stars still had no audible or visible feedback when discs hit each other or the ball.
+- Added frontend collision inference from the authoritative Soccer Stars playback timeline, producing timed impact events for disc-disc and ball-disc contacts without waiting for a new backend event type.
+- Wired those impact events into a dedicated `soccerCollision` SFX plus a small in-canvas cinematic burst effect (flash core, shock ring, and spark streaks) rendered at the contact point during shot playback.
+- Verification passed for `npm run build` in `gameweb`.
+- New prompt: Carrom still got stuck on the shared `Checking room` screen even though the websocket log showed `ROOM_DETAILS`, `CARROM_STATE_UPDATED`, and `STATE_SNAPSHOT` arriving successfully.
+- Fixed Carrom gameplay bootstrap in two more places: `useGameplayRoomAccess` now compares normalized room codes so mixed/lowercase route params cannot keep `GameplayRouteGuard` in a false stale-room loading state, and `CarromGameBase` now only shows the loading gate when state is truly absent instead of blocking a live board that already has players/state in memory.
+- Follow-up from the same Carrom trace: the supposedly 2-player tester room was actually being created as `maxPlayers: 4`.
+- Switched Carrom room creation defaults back to 2 players and added a safe 2-player fallback in both mobile and desktop create-room flows so Carrom no longer silently escalates to a 4-seat tester room when the player-count setting is missing or left at the old default.
+- New prompt: Carrom desktop still needed to look like the other core game screens, specifically with the same top bar and right-side chrome as Hokm/Bidel.
+- Reworked the desktop branch of `CarromGameBase` onto the shared visual shell pattern used by the main games: fixed desktop layout, compact top bar chrome, spectator panel under the bar, and a true right sidebar for score/roster/history/quick chat instead of the previous standalone stacked card page layout.
+- Follow-up prompt: the Carrom board showed confusing scribble-like lines during play and the start state did not feel playable.
+- Identified those lines as persisted shot-trace overlays; Carrom now shows only a brief, simplified striker trace after fresh shots, skips replaying stale traces from the initial snapshot, and stops leaving old path scribbles on the table while waiting for the next turn.
+- Follow-up prompt: even after the earlier shell pass, Carrom's desktop top bar and right sidebar still did not match the established Hokm/Bidel layout language closely enough.
+- Tightened the Carrom desktop chrome to the same structural pattern as the core desktop games: `fixed` full-screen shell, reference-style top bar with center chips, `w-56` right sidebar with compact section headers and bottom-attached quick chat, plus the spectator panel anchored under the top bar instead of living as another custom content card.
+- New prompt: Air Hockey physics still felt unnatural; research real strike factors and rewrite the collision/motion model to behave closer to the real game.
+- Research pass used Box2D collision docs plus robotics/air-hockey references as guidance: key takeaways were to base hits on pre-solve relative normal velocity, keep speculative/non-penetrating contact, and avoid heavy linear damping that makes the puck die too quickly.
+- Reworked `AirHockeyEngineService` around a more realistic strike model: human input now keeps recent swipe direction vectors (`inputVx/inputVy`), puck collision uses a blended effective mallet velocity instead of artificial drive-boosting, the striker gets locked to the impact point so it no longer passes through the puck, wall/puck damping were loosened, and collision substeps were increased for better stability on fast strokes.
+- Mirrored the same collision ideas in `AirHockeyGameBase.tsx`: local prediction now uses swipe vectors, the local striker is also stopped at the impact point during predicted contact, and client-side wall/damping constants were aligned with the backend so the board view better matches authoritative motion.
+- Added a focused physics contract test so the striker must remain at the contact point instead of tunneling through the puck, alongside the earlier direction/strength tests.
+- Verification passed for `./gradlew compileJava --no-daemon`, `./gradlew test --tests com.gameapp.game.services.AirHockeyEngineServicePhysicsTest --tests com.gameapp.game.services.AirHockeyEngineServiceBotTargetingTest --no-daemon`, `pnpm build`, and `git diff --check`.
+- Attempted the standard Playwright client again after the Air Hockey rewrite, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: change the Air Hockey table design itself.
+- Reworked the Air Hockey playfield art direction in `AirHockeyGameBase.tsx` so the table no longer uses the previous split-panel composition; it now has a new arena-style surface language with side chevron lanes, top/bottom territory wedges, a brighter central reactor/spine, and crease arcs near both goals.
+- Redesigned the goal visuals too: the goal mouths now read more like inset arcade cages with accent rails, and the outer goal housings were updated with a different metallic shell and support-brace treatment so the table silhouette changes more noticeably from the previous version.
+- Verification passed for `pnpm build` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- Attempted the standard Playwright client again after the Air Hockey table redesign, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- New prompt: Carrom had no real shot animation; the user asked to inspect Soccer Stars and reuse the same playback tools so striker/coins move and collide visibly after each shot.
+- Reworked `CarromGameBase.tsx` around a Soccer Stars-style frontend playback pipeline: authoritative `lastShotTrace` now becomes sampled playback frames, those frames are interpolated with `requestAnimationFrame`, and the board renders animated striker/coin positions instead of jumping straight to the final server snapshot.
+- Added lightweight inferred Carrom impact events from the playback timeline and render them as short contact pulses on the board while also reusing the existing `soccerCollision` SFX for collision feedback during playback.
+- Removed the old trace-line dependency from the board rendering path so the shot now reads through moving pieces and collision pulses rather than confusing scribble overlays.
+- Held the Carrom result/spectator-finished overlays until playback completes so a final shot can finish animating before the end screen takes over.
+- Verification passed for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/CarromGameBase.tsx`.
+- Attempted the standard Playwright client for visual verification again, but it is still blocked in this environment because `/Users/sajadrahmanipour/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js` cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`).
+- Follow-up prompt: the new Carrom playback still felt too fast, and the user wanted the actual Soccer Stars mouse interaction model where direction + power come from pulling the striker back and releasing to shoot.
+- Slowed Carrom playback further by stretching the authoritative trace timeline to a friendlier visual duration before interpolation, so short shots and collisions no longer flash past too quickly.
+- Reworked Carrom shot input to mirror Soccer Stars more closely: pointer-down on the striker starts a pull-back drag, drag distance now drives shot power, direction updates live from the drag vector, and pointer-up fires the shot immediately without needing the shoot button.
+- Kept baseline placement available by dragging on the baseline itself, and added a visible pull-back tether / stronger power-scaled guide line so the aiming gesture is readable while dragging.
+- Verification passed again for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/CarromGameBase.tsx`.
+- Follow-up prompt: the user still felt forced to use the slider bars and `Shoot` button, and wanted Carrom to behave like Soccer Stars directly on the board with the mouse.
+- Moved Carrom drag handling fully onto the board surface with `pointer capture` instead of relying on window listeners plus form controls, so the shot gesture now lives on the table itself: pointer-down, pull back, release.
+- Removed the operational angle/power/baseline sliders and the `Shoot` button from the Carrom control panels, leaving only live readouts plus reset/help text so the UI no longer suggests form-based shooting.
+- Verification passed again for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/CarromGameBase.tsx`.
+- Follow-up prompt: Carrom movement still felt much too fast compared with Soccer Stars, and the user specifically wanted slower, more readable piece motion.
+- Reworked the Carrom playback timeline again so it no longer just stretches the sparse authoritative trace by a simple scale factor; the frontend now resamples the trace into denser intermediate frames and maps raw simulation steps onto a longer target playback duration.
+- Increased the default Carrom playback window into a slower 3.0s-5.2s range (depending on shot length) so collisions and piece travel are easier to follow visually.
+- Verification passed again for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/CarromGameBase.tsx`.
+- New prompt: Air Hockey's top bar and right sidebar still did not feel like the other core games, and should follow the Hokm/Bidel desktop chrome more closely.
+- Reworked the Air Hockey desktop shell in `AirHockeyGameBase.tsx` toward the same structure language as Hokm/Bidel: the top bar now uses the shared blurred strip with simple center chips, the leave/mute controls were simplified to the same visual family, and the room code moved into the same title cluster pattern.
+- Simplified the Air Hockey right sidebar into the standard `w-56` glass rail with section separators and compact content blocks instead of the previous custom faceted shell, while keeping players, result, and quick chat in the same sidebar flow.
+- Restyled the Air Hockey player cards to better match the other desktop games by using cleaner rounded cards, simpler avatar tiles, and lighter score presentation instead of the more bespoke arena-card treatment.
+- Verification passed for `pnpm build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/AirHockeyGameBase.tsx`.
+- New prompt: live Soccer Stars could crash with `Unexpected Application Error! The index is not in the allowed range.` and a `paintPlayfield` canvas stack from the production bundle.
+- Hardened Soccer Stars state normalization so malformed live payloads no longer default ball/disc radii to `0`; the mapper now falls back to the engine defaults (`field 1280x720`, `disc radius 28`, `ball radius 18`) and ignores non-positive field sizes.
+- Hardened `SoccerStarsGameBase.tsx` rendering too: field dimensions/goal bounds are clamped before draw, ball/disc radii are forced to safe positive screen sizes before any `ctx.arc(...)` calls, and the playfield effect now catches/logs an invalid frame instead of letting one bad snapshot crash the whole route.
+- Verification passed for `npm run build` in `gameweb` after the Soccer Stars crash hardening patch.
+- Playwright/browser reproduction is still blocked in this environment because the installed web-game client cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`), so this turn verified by production-stack tracing plus successful frontend build rather than an automated live-room playback.
+- New prompt: in Soccer Stars spectator mode, shots were not animating; the board jumped straight to the post-shot state instead of showing the same playback regular players see.
+- Root cause: spectator sessions were only receiving delayed `STATE_SNAPSHOT` payloads, while the authoritative Soccer Stars shot timeline (`SOCCER_STARS_SHOT_RESOLVED` with `sampledTimeline`) was only broadcast to active players.
+- Added delayed spectator forwarding for `SOCCER_STARS_SHOT_RESOLVED` in `WebSocketRoomService`, and introduced `SpectatorStateService.queueDelayedGameAction(...)` so spectators now receive the same shot-resolution playback event after the configured spectator delay.
+- This keeps spectator mode read-only because the frontend still blocks `act(...)` when `viewerMode=SPECTATOR`; the change only restores the playback/goal-feedback event stream.
+- Verification passed for `./gradlew compileJava --no-daemon` in `gameBackend` and `git diff --check` on the edited backend files.
+- New prompt: production Soccer Stars could still crash on small/mobile canvases with `The radius provided (...) is negative.` from `drawSoccerGoal` / `paintPlayfield`.
+- Root cause was the goal-mouth glow using a rounded rect whose height could go negative when the viewport made the pitch fit very small; the fixed minimum goal insets were larger than the rendered goal opening.
+- Hardened `drawRoundedRect(...)` to no-op on non-positive dimensions and clamp its corner radius safely before calling the canvas API.
+- Reworked `drawSoccerGoal(...)` to scale its goal geometry from the actual rendered goal height instead of desktop-biased minimums, and to skip the mouth-glow fill when the compact goal opening is too small to draw safely.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/pages/SoccerStarsGameBase.tsx`.
+- Playwright/browser verification is still blocked in this environment because the web-game client cannot import the `playwright` package (`ERR_MODULE_NOT_FOUND`), so this fix was verified by stack-trace analysis plus successful frontend build.
+- New prompt: Persian Ludo mode labels should include the mode type, e.g. `۳ نفره انفرادی` instead of just `۳ نفره`.
+- Updated the Persian in-game Ludo mode copy so FFA modes now include `انفرادی`, and team modes use explicit team wording too.
+- Added shared localized Ludo room-mode translation keys and wired `formatGameSettingOptionLabel(...)` to use them, so room creation and summaries now show the corrected localized mode labels as well.
+- New prompt: several Arabic UI strings were showing mojibake/replacement characters in the web app.
+- Cleaned the affected Arabic translation entries in `gameweb/src/app/i18n/translations.ts`, including profile/menu labels, Shelem description, market copy, referral copy, and notification copy that the user reported.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/i18n/translations.ts`.
+- New prompt: Turkish `Taş Kağıt Makas` strings were showing a broken character in challenge/game labels.
+- Fixed the Turkish `game.rps` translation so generated challenge labels like `5 Taş Kağıt Makas oyunu oyna` and `6 Taş Kağıt Makas oyunu oyna` render correctly again.
+- New prompt: Turkish Durak was showing an untranslated/Farsi description in the catalog.
+- Added `game.durak` / `game.durak.desc` keys to the shared translation table, including a proper Turkish Durak description instead of relying on server fallback text.
+- Verification passed for `npm run build` in `gameweb` and `git diff --check` on `gameweb/src/app/i18n/translations.ts`.

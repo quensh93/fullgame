@@ -1,0 +1,639 @@
+[    7410ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:4173/node_modules/.vite/deps/chunk-YQ5BCTVV.js?v=9d94d208:21608
+[   12830ms] [LOG] [WS Context] autoConnect=false, hasToken=false, tokenLen=0 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:110
+[   12834ms] [LOG] [WS Context] ❌ autoConnect is false — disconnecting @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[   13016ms] [LOG] [WS Context] autoConnect=false, hasToken=false, tokenLen=0 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:110
+[   13016ms] [LOG] [WS Context] ❌ autoConnect is false — disconnecting @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[   14095ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://127.0.0.1:4173/auth:0
+[   16076ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4173/favicon.ico:0
+[   96827ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://127.0.0.1:4173/auth:0
+[   96830ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ http://127.0.0.1:4173/auth:0
+[  150663ms] [LOG] [WS Context] autoConnect=true, hasToken=true, tokenLen=376 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:110
+[  150738ms] [LOG] [WS Context] ✅ Calling manager.connect() @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:112
+[  150739ms] [LOG] [WS v3] 🔌 Connecting to: ws://127.0.0.1:8080/ws-v3 @ http://127.0.0.1:4173/src/app/services/wsManager.ts:170
+[  151255ms] [INFO] [WS v3] Connection opened — starting AUTH bootstrap @ http://127.0.0.1:4173/src/app/services/wsManager.ts:48
+[  151261ms] [LOG] [WS v3] → AUTH (token length: 376 ) @ http://127.0.0.1:4173/src/app/services/wsManager.ts:302
+[  151284ms] [LOG] [WS v3] → AUTH: {
+  "type": "AUTH",
+  "protocolVersion": "v3",
+  "traceId": "03721eb2-a0c3-4efe-8ad7-f690c42f4b7c",
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdiI6MiwidHlwIjoiQUNDRVNTIiwiZGlkIjoiNGU3ZTVlMTgtOTJhMS00MTI3LTlhZDctYzA0MzZkYzZiNDJmIiwic2lkIjoiZWViYjc4YjItNjdiMy00NzkwLTkwNGUtNmMyNDc1NjQ5NWI2IiwianRpIjoiNjU1ZGViYWItNTlhOS00YzlkLWI5MmEtNDU3YjYzY2Y5Mzk2Iiwic3ViIjoib3RoZWxsby5wMS4yMDI2MDQwOWFAZXhhbXBsZS5jb20iLCJpYXQiOjE3NzU3MTgwMTUsImV4cCI6MTc3NjMyMjgxNX0.a3sOzH2W-k5rh2dB9G9GFht2AxdMqPFq52sbP8uNy5A",
+  "appVersion": "3.0.0",
+  "capabilities": [
+    "GAME",
+    "CHAT",
+    "PRESENCE"
+  ],
+  "deviceId": "4e7e5e18-92a1-4127-9ad7-c0436dc6b42f"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  151511ms] [LOG] [WS v3] ← AUTH_SUCCESS: {
+  "type": "AUTH_SUCCESS",
+  "action": "AUTH_SUCCESS",
+  "success": true,
+  "data": {
+    "capabilities": [
+      "CLIENT_ACTION_ID",
+      "EVENT_ID",
+      "TRACE_ID",
+      "SERVER_TIME",
+      "STATE_VERSION",
+      "MATCH_ID",
+      "ACTION_ACK",
+      "ACTION_REJECTED",
+      "RESYNC_HANDLER",
+      "CLIENT_TELEMETRY"
+    ],
+    "currentRoomCode": null,
+    "sessionVersion": 2,
+    "currentRoomId": null,
+    "protocolVersion": "v3",
+    "currentGame": null,
+    "sessionId": "3689cd8d-adfd-4a1c-a70f-4aa2cbeb69eb",
+    "presenceStatus": "ONLINE",
+    "user": {
+      "email": "othello.p1.20260409a@example.com",
+      "username": "othello_p1_20260409a",
+      "id": 69
+    },
+    "serverConfig": {
+      "endpoint": "/ws-v3",
+      "heartbeatIntervalSeconds": 30,
+      "realtimeEnabled": true
+    }
+  },
+  "eventId": "532a45c2-4672-4598-8ce4-50c19ec6f517",
+  "traceId": "4db85b40-0637-4332-8a13-841b8294ed9c",
+  "serverTime": "2026-04-09T07:00:18.121914Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  151916ms] [LOG] [WS v3] → CLIENT_TELEMETRY: {
+  "type": "CLIENT_TELEMETRY",
+  "protocolVersion": "v3",
+  "traceId": "3ae9a63c-b083-49ec-a5c9-e4dd24b8c319",
+  "data": {
+    "screenWidth": 1200,
+    "screenHeight": 808,
+    "language": "en",
+    "timezone": "Asia/Tehran",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36",
+    "platform": "MacIntel"
+  }
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  151936ms] [LOG] [WS v3] ← CLIENT_TELEMETRY_ACK: {
+  "type": "CLIENT_TELEMETRY_ACK",
+  "action": "CLIENT_TELEMETRY_ACK",
+  "success": true,
+  "data": {
+    "accepted": true
+  },
+  "eventId": "eb88485d-3d07-4485-8b5b-047dc8c257a8",
+  "traceId": "45ab3168-fa5e-4c71-aaf8-9cfec1a2f006",
+  "serverTime": "2026-04-09T07:00:18.694265Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  161385ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "0f3addde-ba74-45d3-b8c1-49768a6e1454"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161459ms] [LOG] [WS v3] → GET_RECEIVED_INVITATIONS: {
+  "type": "GET_RECEIVED_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "9d839924-d6db-47b8-aca6-10af0c14811d"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161459ms] [LOG] [WS v3] → GET_SENT_INVITATIONS: {
+  "type": "GET_SENT_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "2ba7cbfb-07d0-4ee1-8133-8c676ccf4486"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161502ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "ef2b6e75-7340-4818-8e9e-e8a3439e904c"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161503ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "5ef1b308-2706-4cf9-9629-d8615b102044"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161503ms] [LOG] [WS v3] → GET_GAME_CATALOG: {
+  "type": "GET_GAME_CATALOG",
+  "protocolVersion": "v3",
+  "traceId": "717119aa-035a-4484-945f-3f7f7e777071"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161511ms] [LOG] [WS v3] → GET_GAME_STATS_USER: {
+  "type": "GET_GAME_STATS_USER",
+  "protocolVersion": "v3",
+  "traceId": "09a90f1b-6461-4f66-bf61-fa007666b795"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161511ms] [LOG] [WS v3] → GET_GAME_RECENT_USER: {
+  "type": "GET_GAME_RECENT_USER",
+  "protocolVersion": "v3",
+  "traceId": "c20e101b-012e-45ec-8dd6-eb6cc015134b",
+  "limit": 20
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161511ms] [LOG] [useRoomList] snapshot mode — GET_ROOM_LIST only (no SUBSCRIBE_ROOMS) @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:266
+[  161512ms] [LOG] [useRoomList] → GET_ROOM_LIST {} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:211
+[  161521ms] [LOG] [WS v3] → GET_ROOM_LIST: {
+  "type": "GET_ROOM_LIST",
+  "protocolVersion": "v3",
+  "traceId": "e4e07cb9-784e-4c85-9e41-989a39c409a4"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:235
+[  161863ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "Smoke1",
+    "country": "",
+    "gender": "",
+    "level": 1,
+    "coins": 0,
+    "avatarUrl": null,
+    "walletNetwork": "TRC20",
+    "bio": "",
+    "gameStats": {},
+    "firstName": "Othello",
+    "currentRoomCode": null,
+    "phone": "",
+    "currentRoomId": null,
+    "xp": 0,
+    "id": 69,
+    "currentGame": null,
+    "walletAddress": "",
+    "presenceStatus": "ONLINE",
+    "email": "othello.p1.20260409a@example.com",
+    "username": "othello_p1_20260409a"
+  },
+  "eventId": "5ed9561b-efc3-4cdb-a178-e21382625298",
+  "traceId": "207dc0fe-b61c-46c7-b7f9-534bc042517c",
+  "serverTime": "2026-04-09T07:00:28.249861Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  161864ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  161864ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  161865ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162946ms] [LOG] [WS v3] ← RECEIVED_INVITATIONS: {
+  "type": "RECEIVED_INVITATIONS",
+  "action": "RECEIVED_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "325e1caa-d41b-495a-9efa-05b592e9257d",
+  "traceId": "1c8bdc67-7ebb-45e1-8795-929dff4eac12",
+  "serverTime": "2026-04-09T07:00:28.254331Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  162948ms] [LOG] [WS v3] ← SENT_INVITATIONS: {
+  "type": "SENT_INVITATIONS",
+  "action": "SENT_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "eb849659-1d05-4d3b-996f-18e8f4159841",
+  "traceId": "0ff9d6c9-7b7e-4ab7-9ca2-28a601806f66",
+  "serverTime": "2026-04-09T07:00:28.258328Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  162948ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "Smoke1",
+    "country": "",
+    "gender": "",
+    "level": 1,
+    "coins": 0,
+    "avatarUrl": null,
+    "walletNetwork": "TRC20",
+    "bio": "",
+    "gameStats": {},
+    "firstName": "Othello",
+    "currentRoomCode": null,
+    "phone": "",
+    "currentRoomId": null,
+    "xp": 0,
+    "id": 69,
+    "currentGame": null,
+    "walletAddress": "",
+    "presenceStatus": "ONLINE",
+    "email": "othello.p1.20260409a@example.com",
+    "username": "othello_p1_20260409a"
+  },
+  "eventId": "e9b60004-4bad-42ec-ade3-f060549a8eec",
+  "traceId": "d824515d-a8dd-4bc5-a15c-e5a17da76fd9",
+  "serverTime": "2026-04-09T07:00:28.288256Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  162948ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162948ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162949ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162949ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "Smoke1",
+    "country": "",
+    "gender": "",
+    "level": 1,
+    "coins": 0,
+    "avatarUrl": null,
+    "walletNetwork": "TRC20",
+    "bio": "",
+    "gameStats": {},
+    "firstName": "Othello",
+    "currentRoomCode": null,
+    "phone": "",
+    "currentRoomId": null,
+    "xp": 0,
+    "id": 69,
+    "currentGame": null,
+    "walletAddress": "",
+    "presenceStatus": "ONLINE",
+    "email": "othello.p1.20260409a@example.com",
+    "username": "othello_p1_20260409a"
+  },
+  "eventId": "88351393-0390-44c3-be14-e0e3bcf141ed",
+  "traceId": "6b080645-631e-4b1e-aec6-8190aa249bef",
+  "serverTime": "2026-04-09T07:00:28.294120Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  162949ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162949ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  162949ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 69, username: othello_p1_20260409a, balance: 0, coins: 0, level: 1} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:70
+[  163218ms] [LOG] [WS v3] ← GAME_CATALOG: {
+  "type": "GAME_CATALOG",
+  "action": "GAME_CATALOG",
+  "success": true,
+  "data": {
+    "games": [
+      {
+        "gameType": "HOKM",
+        "name": "حکم",
+        "iconKey": "HOKM_ICON",
+        "description": "بازی تیمی کلاسیک 4 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 4,
+        "maxPlayers": 4,
+        "enabled": true,
+        "sortOrder": 0,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 47
+      },
+      {
+        "gameType": "SHELEM",
+        "name": "شلم",
+        "iconKey": "SHELEM_ICON",
+        "description": "بازی تیمی استراتژیک 4 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 4,
+        "maxPlayers": 4,
+        "enabled": true,
+        "sortOrder": 20,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 6
+      },
+      {
+        "gameType": "HEARTS",
+        "name": "بی‌دل",
+        "iconKey": "HEARTS_ICON",
+        "description": "بازی رقابتی 4 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 4,
+        "maxPlayers": 4,
+        "enabled": true,
+        "sortOrder": 30,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 12
+      },
+      {
+        "gameType": "HAV7KHABIS",
+        "name": "هفت‌خبیث",
+        "iconKey": "HAV7KHABIS_ICON",
+        "description": "بازی چندنفره سریع و جذاب",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 4,
+        "maxPlayers": 7,
+        "enabled": true,
+        "sortOrder": 40,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 6
+      },
+      {
+        "gameType": "BACKGAMMON",
+        "name": "تخته نرد",
+        "iconKey": "BACKGAMMON_ICON",
+        "description": "بازی کلاسیک 2 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 50,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 39
+      },
+      {
+        "gameType": "CHESS",
+        "name": "شطرنج",
+        "iconKey": "CHESS_ICON",
+        "description": "شطرنج روم‌محور دو نفره با قوانین کامل استاندارد و نمایش سینمایی",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 52,
+        "createdAt": "2026-04-09T05:54:25.106653",
+        "totalGamesPlayed": 6
+      },
+      {
+        "gameType": "ROCK_PAPER_SCISSORS",
+        "name": "سنگ کاغذ قیچی",
+        "iconKey": "ROCK_PAPER_SCISSORS_ICON",
+        "description": "بازی سریع 2 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 60,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 65
+      },
+      {
+        "gameType": "DUZ",
+        "name": "دوز",
+        "iconKey": "DUZ_ICON",
+        "description": "دوز سه تایی ایرانی با بردهای چند مرحله ای و حرکت آزاد مهره ها",
+        "onlineCount": 0,
+        "activeRoomCount": 1,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 66,
+        "createdAt": "2026-04-09T05:54:25.085117",
+        "totalGamesPlayed": 3
+      },
+      {
+        "gameType": "LUDO",
+        "name": "منچ",
+        "iconKey": "LUDO_ICON",
+        "description": "منچ دیجیتال 2 تا 6 نفره با حالت‌های انفرادی و تیمی، takeover و runtime بلادرنگ",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 6,
+        "enabled": true,
+        "sortOrder": 67,
+        "createdAt": "2026-04-09T05:54:25.112549",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "OTHELLO",
+        "name": "اتللو",
+        "iconKey": "OTHELLO_ICON",
+        "description": "اتللو آنلاین دونفره با بورد چندمرحله‌ای، پاس اجباری و پایان sudden-death",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 67,
+        "createdAt": "2026-04-09T10:02:00.199655",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "TIC_TAC_TOE",
+        "name": "Tic Tac Toe",
+        "iconKey": "TICTACTOE_ICON",
+        "description": "بازی کلاسیک XO در فرمت چندراندی آنلاین با گلدن‌راند سینمایی",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 67,
+        "createdAt": "2026-04-09T08:45:48.100478",
+        "totalGamesPlayed": 3
+      },
+      {
+        "gameType": "CHECKERS",
+        "name": "چکرز",
+        "iconKey": "CHECKERS_ICON",
+        "description": "چکرز آنلاین دونفره با قوانین American 8x8، مولتی‌جامپ اجباری و طراحی مسابقه‌ای",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 68,
+        "createdAt": "2026-04-09T10:02:00.388394",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "DOMINOES",
+        "name": "دومینو",
+        "iconKey": "DOMINOES_ICON",
+        "description": "دومینوی آنلاین دونفره با قوانین Draw Dominoes، اسکور چنددستی و تجربه سینمایی Persian Luxe",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 69,
+        "createdAt": "2026-04-09T10:02:00.396488",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "DICE",
+        "name": "تاس",
+        "iconKey": "DICE_ICON",
+        "description": "بازی تاس 2 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 70,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 27
+      },
+      {
+        "gameType": "CASINO_WAR",
+        "name": "کازینو وار",
+        "iconKey": "CASINO_WAR_ICON",
+        "description": "بازی کارتی رقابتی 4 تا 8 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 4,
+        "maxPlayers": 8,
+        "enabled": true,
+        "sortOrder": 80,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 31
+      },
+      {
+        "gameType": "BLACKJACK",
+        "name": "بلک‌جک",
+        "iconKey": "BLACKJACK_ICON",
+        "description": "بازی کارتی 2 نفره",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 90,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 23
+      },
+      {
+        "gameType": "BACCARAT",
+        "name": "باکارات",
+        "iconKey": "BACCARAT_ICON",
+        "description": "بازی 2 نفره با قوانین Punto Banco",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 95,
+        "createdAt": "2026-03-13T04:39:40.655927",
+        "totalGamesPlayed": 1
+      },
+      {
+        "gameType": "RIM",
+        "name": "ریم",
+        "iconKey": "RIM_ICON",
+        "description": "بازی چندنفره کارتی",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 6,
+        "enabled": true,
+        "sortOrder": 100,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 1
+      },
+      {
+        "gameType": "CHAHAR_BARG",
+        "name": "۴ برگ",
+        "iconKey": "CHAHAR_BARG_ICON",
+        "description": "بازی 2 نفره تاکتیکی",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 2,
+        "enabled": true,
+        "sortOrder": 110,
+        "createdAt": "2026-02-21T11:33:56.862143",
+        "totalGamesPlayed": 36
+      },
+      {
+        "gameType": "TEXAS_HOLDEM",
+        "name": "Texas Hold'em",
+        "iconKey": "TEXAS_HOLDEM_ICON",
+        "description": "No-Limit Hold'em with cinematic tables and bot support",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 8,
+        "enabled": true,
+        "sortOrder": 115,
+        "createdAt": "2026-03-24T11:41:23.137215",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "OMAHA",
+        "name": "Omaha",
+        "iconKey": "OMAHA_ICON",
+        "description": "Pot-Limit Omaha with exact-two-hole evaluation",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 8,
+        "enabled": true,
+        "sortOrder": 116,
+        "createdAt": "2026-03-24T11:41:23.137215",
+        "totalGamesPlayed": 0
+      },
+      {
+        "gameType": "SHORT_DECK",
+        "name": "Short Deck",
+        "iconKey": "SHORT_DECK_ICON",
+        "description": "6+ Hold'em with short-deck hand rankings",
+        "onlineCount": 0,
+        "activeRoomCount": 0,
+        "minPlayers": 2,
+        "maxPlayers": 8,
+        "enabled": true,
+        "sortOrder": 117,
+        "createdAt": "2026-03-24T11:41:23.137215",
+        "totalGamesPlayed": 0
+      }
+    ]
+  },
+  "eventId": "6d9b4ecb-a47c-4b1c-bae6-ea121e3fdf2b",
+  "traceId": "a3002210-7969-421d-9a69-2ac917cb70c7",
+  "serverTime": "2026-04-09T07:00:28.304254Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  163265ms] [WARNING] [GameCatalog] Unknown gameType "CHECKERS" (normalized: "checkers") — using default UI. Server name: "چکرز" @ http://127.0.0.1:4173/src/app/services/gameCatalogTypes.ts:138
+[  163277ms] [WARNING] [GameCatalog] Unknown gameType "DOMINOES" (normalized: "dominoes") — using default UI. Server name: "دومینو" @ http://127.0.0.1:4173/src/app/services/gameCatalogTypes.ts:138
+[  163372ms] [LOG] [WS v3] ← GAME_STATS_USER: {
+  "type": "GAME_STATS_USER",
+  "action": "GAME_STATS_USER",
+  "success": true,
+  "data": {
+    "wins": 0,
+    "totalGames": 0,
+    "bestScore": null,
+    "winStreak": 0,
+    "favoriteGameType": null,
+    "losses": 0,
+    "lastPlayed": null,
+    "averageDuration": 0,
+    "averageScore": 0,
+    "totalPlayTimeMinutes": 0,
+    "winRate": 0,
+    "gamesByMonth": {},
+    "gamesByType": {}
+  },
+  "eventId": "2d96312e-d395-490d-80b6-a685e814bca8",
+  "traceId": "e34ffe2b-1b9a-4978-b8cc-f428ee6a35fe",
+  "serverTime": "2026-04-09T07:00:28.316974Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  163372ms] [LOG] [WS v3] ← GAME_RECENT_USER: {
+  "type": "GAME_RECENT_USER",
+  "action": "GAME_RECENT_USER",
+  "success": true,
+  "data": {
+    "sessions": []
+  },
+  "eventId": "cb5d539d-8cfd-445e-8426-8cdd41449c76",
+  "traceId": "39df9a0f-1e02-4e12-90a9-449b99ba4cfb",
+  "serverTime": "2026-04-09T07:00:28.327372Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:94
+[  230703ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:4173/@vite/client:963
+[  230716ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  231744ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  232746ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  233750ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  234752ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  235778ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034
+[  237044ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:4173/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/@vite/client:1034

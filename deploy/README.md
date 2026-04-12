@@ -75,3 +75,38 @@ After new code:
 git pull
 docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --build
 ```
+
+## 6. Deploy from local machine
+
+The easiest path for constrained servers is:
+
+- build backend jar locally
+- build frontend dist locally
+- sync artifacts to the server
+- rebuild only runtime images on the server
+
+Files involved:
+
+- `.deploy.env.example`
+- `scripts/deploy_server.sh`
+- `gameBackend/Dockerfile.runtime`
+- `gameweb/Dockerfile.runtime`
+
+Setup:
+
+```bash
+cp .deploy.env.example .deploy.env
+```
+
+Set in `.deploy.env`:
+
+- `DEPLOY_SSH_HOST`
+- `DEPLOY_SSH_USER`
+- `DEPLOY_REMOTE_DIR`
+- `DEPLOY_ENV_FILE`
+
+Then deploy:
+
+```bash
+./scripts/deploy_server.sh
+```

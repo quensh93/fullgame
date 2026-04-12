@@ -1,0 +1,218 @@
+- generic [active]:
+  - generic:
+    - region "Notifications alt+T"
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - button [ref=e6]:
+            - img [ref=e7]
+          - generic [ref=e11]:
+            - generic [ref=e13]: 🧿
+            - generic [ref=e14]:
+              - generic [ref=e15]: Iranian Duz
+              - generic [ref=e16]: Twelve-piece Iranian Duz on the classic 24-point Morris board. · Preview
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - generic [ref=e19]: Board
+            - generic [ref=e20]: "4"
+          - generic [ref=e21]:
+            - img [ref=e22]
+            - generic [ref=e26]: Best of 5
+          - button [ref=e27]:
+            - img [ref=e28]
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e37]:
+            - generic [ref=e40]: A
+            - generic [ref=e41]:
+              - generic [ref=e42]:
+                - generic [ref=e43]: Arman
+                - generic [ref=e44]:
+                  - img [ref=e45]
+                  - text: Starter
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic [ref=e49]: Score
+                  - generic [ref=e50]:
+                    - generic [ref=e51]: "1"
+                    - generic [ref=e52]: / 5
+                - generic [ref=e53]:
+                  - generic [ref=e54]: To Place
+                  - generic [ref=e55]: "0"
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - button [ref=e69] [cursor=pointer]
+            - button [ref=e73] [cursor=pointer]
+            - button [ref=e75] [cursor=pointer]
+            - button [ref=e79] [cursor=pointer]
+            - button [ref=e83] [cursor=pointer]
+            - button [ref=e87] [cursor=pointer]
+            - button [ref=e91] [cursor=pointer]
+            - button [ref=e95] [cursor=pointer]
+            - button [ref=e97] [cursor=pointer]
+            - button [ref=e101] [cursor=pointer]
+            - button [ref=e103] [cursor=pointer]
+            - button [ref=e107] [cursor=pointer]
+            - button [ref=e111] [cursor=pointer]
+            - button [ref=e115] [cursor=pointer]
+            - button [ref=e119] [cursor=pointer]
+            - button [ref=e121] [cursor=pointer]
+            - button [ref=e125] [cursor=pointer]
+            - button [ref=e127] [cursor=pointer]
+            - button [ref=e131] [cursor=pointer]
+            - button [ref=e133] [cursor=pointer]
+            - button [ref=e137] [cursor=pointer]
+            - button [ref=e139] [cursor=pointer]
+            - button [ref=e143] [cursor=pointer]
+            - button [ref=e147] [cursor=pointer]
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - img [ref=e154]
+                - generic [ref=e157]: "25"
+              - generic [ref=e158]:
+                - generic [ref=e159]: Sajjad · You formed a mill. Remove one of the glowing enemy stones.
+                - generic [ref=e160]:
+                  - img [ref=e161]
+                  - text: 25s
+            - generic [ref=e164]:
+              - generic [ref=e165]: You formed a mill. Remove one of the glowing enemy stones.
+              - generic [ref=e166]: You formed a mill. Remove one of the glowing enemy stones.
+            - generic [ref=e170]:
+              - generic [ref=e173]: S
+              - generic [ref=e174]:
+                - generic [ref=e176]: Sajjad
+                - generic [ref=e177]:
+                  - generic [ref=e178]:
+                    - generic [ref=e179]: Score
+                    - generic [ref=e180]:
+                      - generic [ref=e181]: "2"
+                      - generic [ref=e182]: / 5
+                  - generic [ref=e183]:
+                    - generic [ref=e184]: To Place
+                    - generic [ref=e185]: "0"
+        - complementary [ref=e186]:
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - generic [ref=e190]: Iranian Duz
+              - generic [ref=e191]: Twelve-piece Iranian Duz on the classic 24-point Morris board.
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - img [ref=e194]
+                - generic [ref=e200]: 2 - 1
+              - generic [ref=e201]: You formed a mill. Remove one of the glowing enemy stones.
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]: Players
+              - generic [ref=e205]: "2"
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - generic [ref=e208]:
+                  - generic [ref=e209]:
+                    - generic [ref=e210]:
+                      - generic [ref=e211]: Sajjad
+                      - generic [ref=e212]: You
+                    - generic [ref=e213]: Sajjad
+                  - generic [ref=e214]:
+                    - generic [ref=e215]: "2"
+                    - generic [ref=e216]: / 5
+                - generic [ref=e217]:
+                  - generic [ref=e218]:
+                    - generic [ref=e219]: On Board
+                    - generic [ref=e220]: "10"
+                  - generic [ref=e221]:
+                    - generic [ref=e222]: Reserve
+                    - generic [ref=e223]: "0"
+                  - generic [ref=e224]:
+                    - generic [ref=e225]: Lost
+                    - generic [ref=e226]: "2"
+              - generic [ref=e227]:
+                - generic [ref=e228]:
+                  - generic [ref=e229]:
+                    - generic [ref=e230]:
+                      - generic [ref=e231]: Arman
+                      - generic [ref=e232]: Starter
+                    - generic [ref=e233]: Arman
+                  - generic [ref=e234]:
+                    - generic [ref=e235]: "1"
+                    - generic [ref=e236]: / 5
+                - generic [ref=e237]:
+                  - generic [ref=e238]:
+                    - generic [ref=e239]: On Board
+                    - generic [ref=e240]: "8"
+                  - generic [ref=e241]:
+                    - generic [ref=e242]: Reserve
+                    - generic [ref=e243]: "0"
+                  - generic [ref=e244]:
+                    - generic [ref=e245]: Lost
+                    - generic [ref=e246]: "4"
+          - generic [ref=e247]:
+            - generic [ref=e248]:
+              - generic [ref=e249]: Live Desk
+              - generic [ref=e250]: B4
+            - generic [ref=e251]:
+              - generic [ref=e252]:
+                - generic [ref=e253]: Turn
+                - generic [ref=e254]: Sajjad
+              - generic [ref=e255]:
+                - generic [ref=e256]: Board
+                - generic [ref=e257]: "4"
+              - generic [ref=e258]:
+                - generic [ref=e259]: My Stones
+                - generic [ref=e260]: "10"
+              - generic [ref=e261]:
+                - generic [ref=e262]: Opp Stones
+                - generic [ref=e263]: "8"
+              - generic [ref=e264]:
+                - generic [ref=e265]: My Lost
+                - generic [ref=e266]: "2"
+              - generic [ref=e267]:
+                - generic [ref=e268]: Opp Lost
+                - generic [ref=e269]: "4"
+          - generic [ref=e270]:
+            - generic [ref=e271]:
+              - generic [ref=e272]: Round History
+              - generic [ref=e273]: "0"
+            - generic [ref=e275]: First board is loading...
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - generic [ref=e281]: Watching Now
+              - generic [ref=e282]: "3"
+            - generic [ref=e283]:
+              - generic [ref=e284]:
+                - generic [ref=e285]: A
+                - generic [ref=e287]: Ava
+              - generic [ref=e288]:
+                - generic [ref=e289]: K
+                - generic [ref=e291]: Kian
+              - generic [ref=e292]:
+                - generic [ref=e293]: M
+                - generic [ref=e295]: Mina
+          - generic [ref=e297]:
+            - generic [ref=e298]:
+              - img [ref=e299]
+              - button "Quick Chat" [ref=e301]:
+                - img [ref=e302]
+                - generic [ref=e304]: Quick Chat
+              - button "Stickers" [ref=e305]:
+                - img [ref=e306]
+                - generic [ref=e309]: Stickers
+            - generic [ref=e310]:
+              - button "👋 Hello everyone!" [ref=e311] [cursor=pointer]:
+                - generic [ref=e312]: 👋
+                - generic [ref=e313]: Hello everyone!
+              - button "🍀 Good luck!" [ref=e314] [cursor=pointer]:
+                - generic [ref=e315]: 🍀
+                - generic [ref=e316]: Good luck!
+              - button "⏰ Hurry up!" [ref=e317] [cursor=pointer]:
+                - generic [ref=e318]: ⏰
+                - generic [ref=e319]: Hurry up!
+              - button "👏 Well played!" [ref=e320] [cursor=pointer]:
+                - generic [ref=e321]: 👏
+                - generic [ref=e322]: Well played!
+              - button "🤷 My bad!" [ref=e323] [cursor=pointer]:
+                - generic [ref=e324]: 🤷
+                - generic [ref=e325]: My bad!
+              - button "🔥 Nice move!" [ref=e326] [cursor=pointer]:
+                - generic [ref=e327]: 🔥
+                - generic [ref=e328]: Nice move!
