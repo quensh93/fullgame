@@ -1,0 +1,7 @@
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e6]:
+    - img [ref=e8]
+    - generic [ref=e10]:
+      - heading "Checking room" [level=1] [ref=e11]
+      - paragraph [ref=e12]: Please wait while we verify the room status.

@@ -1,0 +1,394 @@
+[     507ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:4173/node_modules/.vite/deps/chunk-YQ5BCTVV.js?v=d463187b:21608
+[    8183ms] [LOG] [WS Context] autoConnect=true, hasToken=true, tokenLen=356 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:112
+[    8214ms] [LOG] [WS Context] ✅ Calling manager.connect() @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[    8215ms] [LOG] [WS v3] 🔌 Connecting to: ws://127.0.0.1:4173/ws-v3 @ http://127.0.0.1:4173/src/app/services/wsManager.ts:176
+[    8518ms] [WARNING] WebSocket connection to 'ws://127.0.0.1:4173/ws-v3' failed: WebSocket is closed before the connection is established. @ http://127.0.0.1:4173/src/app/services/wsManager.ts:536
+[    8591ms] [LOG] [WS Context] autoConnect=true, hasToken=true, tokenLen=356 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:112
+[    8591ms] [LOG] [WS Context] ✅ Calling manager.connect() @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[    8595ms] [LOG] [WS v3] 🔌 Connecting to: ws://127.0.0.1:4173/ws-v3 @ http://127.0.0.1:4173/src/app/services/wsManager.ts:176
+[   11501ms] [INFO] [WS v3] Connection opened — starting AUTH bootstrap @ http://127.0.0.1:4173/src/app/services/wsManager.ts:50
+[   11513ms] [LOG] [WS v3] → AUTH (token length: 356 ) @ http://127.0.0.1:4173/src/app/services/wsManager.ts:310
+[   11544ms] [LOG] [WS v3] → AUTH: {
+  "type": "AUTH",
+  "protocolVersion": "v3",
+  "traceId": "011afc58-1547-43a8-9210-16d11ca6cbb8",
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdiI6NzAsInR5cCI6IkFDQ0VTUyIsImRpZCI6IjY0NjFhNmVjLTc5MjItNDUyMy05N2IzLTQzNjMyMGM0Mjg2NyIsInNpZCI6IjVlM2NmMDFmLTdhNTQtNGQ1Ni05MTA1LTgwYzc5OGI1MWZlMSIsImp0aSI6IjU4ZmE3ZGMxLTU0MzktNDIwMC1hZGI1LTJjZWQ4OTExNWIwZCIsInN1YiI6InRlc3RlckBnbWFpbC5jb20iLCJpYXQiOjE3NzY1Njk4MDIsImV4cCI6MTc3NzE3NDYwMn0.kgxJBitUEwJkyQrHvvVwVB5D2-CtlogfZ99EJ6qYsTY",
+  "appVersion": "3.0.0",
+  "capabilities": [
+    "GAME",
+    "CHAT",
+    "PRESENCE"
+  ],
+  "deviceId": "6461a6ec-7922-4523-97b3-436320c42867"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   11957ms] [LOG] [WS v3] ← AUTH_SUCCESS: {
+  "type": "AUTH_SUCCESS",
+  "action": "AUTH_SUCCESS",
+  "success": true,
+  "data": {
+    "capabilities": [
+      "CLIENT_ACTION_ID",
+      "EVENT_ID",
+      "TRACE_ID",
+      "SERVER_TIME",
+      "STATE_VERSION",
+      "MATCH_ID",
+      "ACTION_ACK",
+      "ACTION_REJECTED",
+      "RESYNC_HANDLER",
+      "CLIENT_TELEMETRY"
+    ],
+    "currentRoomCode": null,
+    "sessionVersion": 70,
+    "currentRoomId": null,
+    "protocolVersion": "v3",
+    "currentGame": null,
+    "sessionId": "18f33109-f3d9-c7c9-4bec-2098c341f3dd",
+    "presenceStatus": "ONLINE",
+    "user": {
+      "email": "tester@gmail.com",
+      "username": "tester",
+      "id": 6
+    },
+    "serverConfig": {
+      "endpoint": "/ws-v3",
+      "heartbeatIntervalSeconds": 30,
+      "realtimeEnabled": true
+    }
+  },
+  "eventId": "d05c1e1a-f4af-498c-a726-af66d096efeb",
+  "traceId": "8292a8c3-d338-4e65-b6e8-2c9f7c6e2ff2",
+  "serverTime": "2026-04-19T03:54:38.232591Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   11979ms] [LOG] [WS v3] → CLIENT_TELEMETRY: {
+  "type": "CLIENT_TELEMETRY",
+  "protocolVersion": "v3",
+  "traceId": "08b9475d-0660-43cd-b11f-c630a91a2727",
+  "data": {
+    "screenWidth": 430,
+    "screenHeight": 932,
+    "language": "en",
+    "timezone": "Asia/Tehran",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.0.0 Safari/537.36",
+    "platform": "MacIntel"
+  }
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   12062ms] [LOG] [WS v3] ← CLIENT_TELEMETRY_ACK: {
+  "type": "CLIENT_TELEMETRY_ACK",
+  "action": "CLIENT_TELEMETRY_ACK",
+  "success": true,
+  "data": {
+    "accepted": true
+  },
+  "eventId": "cf3cd3f2-19a1-4b74-807b-ae1a24c21cf9",
+  "traceId": "69cf32c9-623c-49b0-9b78-0ed04b01629d",
+  "serverTime": "2026-04-19T03:54:38.628996Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   12158ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "fcbc0420-02c4-49b8-b36e-1c9961c98b28"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   12158ms] [LOG] [WS v3] → GET_RECEIVED_INVITATIONS: {
+  "type": "GET_RECEIVED_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "a35a3172-3b0f-4178-bf57-b0ed34e56e53"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   12158ms] [LOG] [WS v3] → GET_SENT_INVITATIONS: {
+  "type": "GET_SENT_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "6acf1bf1-fec0-4b8c-bc4d-91bcaf9786a1"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   12170ms] [LOG] [WS v3] → GET_ROOM: {
+  "type": "GET_ROOM",
+  "protocolVersion": "v3",
+  "traceId": "907ced97-9468-4d22-a27c-608375af4303",
+  "roomCode": "NMYHU8RY"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   12978ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": null,
+    "phone": "9199315027",
+    "currentRoomId": null,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": null,
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "ONLINE",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "1df9729c-ac0e-4e27-b6a6-715b057a6470",
+  "traceId": "5cb25702-abe2-484f-b0d3-f094424d4201",
+  "serverTime": "2026-04-19T03:54:39.605720Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   12988ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   13019ms] [LOG] [WS v3] ← RECEIVED_INVITATIONS: {
+  "type": "RECEIVED_INVITATIONS",
+  "action": "RECEIVED_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "e0f3947e-b7ae-4096-ad16-471058f9dcda",
+  "traceId": "700948dd-db54-4f81-8271-cde57a781ff7",
+  "serverTime": "2026-04-19T03:54:39.607563Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13024ms] [LOG] [WS v3] ← SENT_INVITATIONS: {
+  "type": "SENT_INVITATIONS",
+  "action": "SENT_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "b61f6429-7074-456a-bc37-8956dc17e95d",
+  "traceId": "e084d270-809f-4ed4-beb3-f3604d79db64",
+  "serverTime": "2026-04-19T03:54:39.608626Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13024ms] [LOG] [WS v3] ← ROOM_DETAILS: {
+  "type": "ROOM_DETAILS",
+  "action": "ROOM_DETAILS",
+  "success": true,
+  "data": {
+    "id": 1017,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NMYHU8RY",
+    "roomPassword": "111111",
+    "roomStatus": "FINISHED",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2833,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "PLAYING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2834,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "PLAYING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 1,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T06:49:10"
+  },
+  "eventId": "8f56babe-5d5e-4b36-bf99-cd884de82852",
+  "traceId": "8d6c1de8-bb5c-4ca3-9e1b-379fc6b075db",
+  "serverTime": "2026-04-19T03:54:39.635059Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97

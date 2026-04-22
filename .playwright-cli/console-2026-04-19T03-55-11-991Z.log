@@ -1,0 +1,7099 @@
+[     506ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://127.0.0.1:4173/node_modules/.vite/deps/chunk-YQ5BCTVV.js?v=d463187b:21608
+[    9861ms] [LOG] [WS Context] autoConnect=true, hasToken=true, tokenLen=356 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:112
+[    9861ms] [LOG] [WS Context] ✅ Calling manager.connect() @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[    9861ms] [LOG] [WS v3] 🔌 Connecting to: ws://127.0.0.1:4173/ws-v3 @ http://127.0.0.1:4173/src/app/services/wsManager.ts:176
+[   10198ms] [WARNING] WebSocket connection to 'ws://127.0.0.1:4173/ws-v3' failed: WebSocket is closed before the connection is established. @ http://127.0.0.1:4173/src/app/services/wsManager.ts:536
+[   10251ms] [LOG] [WS Context] autoConnect=true, hasToken=true, tokenLen=356 @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:112
+[   10251ms] [LOG] [WS Context] ✅ Calling manager.connect() @ http://127.0.0.1:4173/src/app/contexts/WebSocketContext.tsx:116
+[   10251ms] [LOG] [WS v3] 🔌 Connecting to: ws://127.0.0.1:4173/ws-v3 @ http://127.0.0.1:4173/src/app/services/wsManager.ts:176
+[   12891ms] [INFO] [WS v3] Connection opened — starting AUTH bootstrap @ http://127.0.0.1:4173/src/app/services/wsManager.ts:50
+[   12907ms] [LOG] [WS v3] → AUTH (token length: 356 ) @ http://127.0.0.1:4173/src/app/services/wsManager.ts:310
+[   12969ms] [LOG] [WS v3] → AUTH: {
+  "type": "AUTH",
+  "protocolVersion": "v3",
+  "traceId": "d57c2acd-ed89-4827-a21e-5919516d4b9b",
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdiI6NzAsInR5cCI6IkFDQ0VTUyIsImRpZCI6IjY0NjFhNmVjLTc5MjItNDUyMy05N2IzLTQzNjMyMGM0Mjg2NyIsInNpZCI6IjVlM2NmMDFmLTdhNTQtNGQ1Ni05MTA1LTgwYzc5OGI1MWZlMSIsImp0aSI6IjU4ZmE3ZGMxLTU0MzktNDIwMC1hZGI1LTJjZWQ4OTExNWIwZCIsInN1YiI6InRlc3RlckBnbWFpbC5jb20iLCJpYXQiOjE3NzY1Njk4MDIsImV4cCI6MTc3NzE3NDYwMn0.kgxJBitUEwJkyQrHvvVwVB5D2-CtlogfZ99EJ6qYsTY",
+  "appVersion": "3.0.0",
+  "capabilities": [
+    "GAME",
+    "CHAT",
+    "PRESENCE"
+  ],
+  "deviceId": "6461a6ec-7922-4523-97b3-436320c42867"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   13339ms] [LOG] [WS v3] ← AUTH_SUCCESS: {
+  "type": "AUTH_SUCCESS",
+  "action": "AUTH_SUCCESS",
+  "success": true,
+  "data": {
+    "capabilities": [
+      "CLIENT_ACTION_ID",
+      "EVENT_ID",
+      "TRACE_ID",
+      "SERVER_TIME",
+      "STATE_VERSION",
+      "MATCH_ID",
+      "ACTION_ACK",
+      "ACTION_REJECTED",
+      "RESYNC_HANDLER",
+      "CLIENT_TELEMETRY"
+    ],
+    "currentRoomCode": null,
+    "sessionVersion": 70,
+    "currentRoomId": null,
+    "protocolVersion": "v3",
+    "currentGame": null,
+    "sessionId": "2a562fef-9930-ce1a-6988-65835715bc98",
+    "presenceStatus": "ONLINE",
+    "user": {
+      "email": "tester@gmail.com",
+      "username": "tester",
+      "id": 6
+    },
+    "serverConfig": {
+      "endpoint": "/ws-v3",
+      "heartbeatIntervalSeconds": 30,
+      "realtimeEnabled": true
+    }
+  },
+  "eventId": "c9a0beca-5977-4430-9130-7953bc35b8de",
+  "traceId": "54a094f9-68ae-4fcc-9382-ed8cd7a95cfb",
+  "serverTime": "2026-04-19T03:55:25.009455Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13367ms] [LOG] [WS v3] → CLIENT_TELEMETRY: {
+  "type": "CLIENT_TELEMETRY",
+  "protocolVersion": "v3",
+  "traceId": "d60eaf49-b904-444e-b710-6c989512a26d",
+  "data": {
+    "screenWidth": 430,
+    "screenHeight": 932,
+    "language": "en",
+    "timezone": "Asia/Tehran",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/147.0.0.0 Safari/537.36",
+    "platform": "MacIntel"
+  }
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   13489ms] [LOG] [WS v3] ← CLIENT_TELEMETRY_ACK: {
+  "type": "CLIENT_TELEMETRY_ACK",
+  "action": "CLIENT_TELEMETRY_ACK",
+  "success": true,
+  "data": {
+    "accepted": true
+  },
+  "eventId": "8d17931d-8e12-4fc0-acf0-d7441df7b7e9",
+  "traceId": "0ade7355-6aa9-47bc-9a2f-be211d153b48",
+  "serverTime": "2026-04-19T03:55:25.359264Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13520ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "a0e3e417-be26-4d60-a29d-4085b7d51469"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   13625ms] [LOG] [WS v3] → GET_RECEIVED_INVITATIONS: {
+  "type": "GET_RECEIVED_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "e7e44029-4dc9-42de-bdb0-696ee8c621c3"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   13625ms] [LOG] [WS v3] → GET_SENT_INVITATIONS: {
+  "type": "GET_SENT_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "2e6f81ed-b684-4d82-b89d-9688047e912e"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   13626ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": null,
+    "phone": "9199315027",
+    "currentRoomId": null,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": null,
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "ONLINE",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "7a1c5f76-cd46-4f61-a822-6ddf3caa650f",
+  "traceId": "752280a5-949c-41bd-be95-35ecb8c5a6a5",
+  "serverTime": "2026-04-19T03:55:25.518031Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13645ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   13688ms] [LOG] [WS v3] ← RECEIVED_INVITATIONS: {
+  "type": "RECEIVED_INVITATIONS",
+  "action": "RECEIVED_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "dcfd102e-a611-4a94-961f-467a570ca460",
+  "traceId": "e31f04d1-c772-4858-a8a6-506694d250c9",
+  "serverTime": "2026-04-19T03:55:25.620181Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   13691ms] [LOG] [WS v3] ← SENT_INVITATIONS: {
+  "type": "SENT_INVITATIONS",
+  "action": "SENT_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "53128406-eabd-40dd-8199-8f58dfe73f82",
+  "traceId": "c805b708-f3f1-4b42-a363-db6b9ffdcc4c",
+  "serverTime": "2026-04-19T03:55:25.623919Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   20606ms] [LOG] [useRoomList] → SUBSCRIBE_ROOMS {gameType: SEA_BATTLE} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:197
+[   20606ms] [LOG] [WS v3] → SUBSCRIBE_ROOMS: {
+  "type": "SUBSCRIBE_ROOMS",
+  "protocolVersion": "v3",
+  "traceId": "e6c2fc1e-8298-47b0-936a-87caed015fae",
+  "gameType": "SEA_BATTLE"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20620ms] [LOG] [WS v3] → GET_FRIENDS: {
+  "type": "GET_FRIENDS",
+  "protocolVersion": "v3",
+  "traceId": "87b8dafb-9541-468c-82d4-f0e43400bea5"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20621ms] [LOG] [WS v3] → GET_FRIEND_REQUESTS: {
+  "type": "GET_FRIEND_REQUESTS",
+  "protocolVersion": "v3",
+  "traceId": "890272f7-37de-4d02-b02a-650351128b06"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20621ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "bfbddfcc-921c-4af4-85b3-70e0aea16056"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20705ms] [LOG] [useRoomList] → SUBSCRIBE_ROOMS {gameType: SEA_BATTLE} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:197
+[   20705ms] [LOG] [WS v3] → SUBSCRIBE_ROOMS: {
+  "type": "SUBSCRIBE_ROOMS",
+  "protocolVersion": "v3",
+  "traceId": "05b747dc-d16d-4e77-88dc-68aaaaf076cb",
+  "gameType": "SEA_BATTLE"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20713ms] [LOG] [WS v3] → GET_FRIENDS: {
+  "type": "GET_FRIENDS",
+  "protocolVersion": "v3",
+  "traceId": "7a89c1d1-3da3-4700-888b-4deb04ba2f3e"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20713ms] [LOG] [WS v3] → GET_FRIEND_REQUESTS: {
+  "type": "GET_FRIEND_REQUESTS",
+  "protocolVersion": "v3",
+  "traceId": "729c336b-d03d-49d2-9d6f-2f7988f5df7b"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   20713ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "f08507d3-b910-4acf-8865-23cdca415cac"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   22146ms] [LOG] [WS v3] ← SUBSCRIBE_ROOMS_SUCCESS: {
+  "type": "SUBSCRIBE_ROOMS_SUCCESS",
+  "action": "SUBSCRIBE_ROOMS_SUCCESS",
+  "success": true,
+  "data": {
+    "gameType": "SEA_BATTLE"
+  },
+  "eventId": "78e2b464-f6b0-4603-afd5-aa8893d7b107",
+  "traceId": "77ae234e-8301-4278-b643-e14c8fa7a716",
+  "serverTime": "2026-04-19T03:55:32.600538Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   22146ms] [LOG] [useRoomList] ← SUBSCRIBE_ROOMS_SUCCESS {type: SUBSCRIBE_ROOMS_SUCCESS, action: SUBSCRIBE_ROOMS_SUCCESS, success: true, data: Object, eventId: 78e2b464-f6b0-4603-afd5-aa8893d7b107} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:293
+[   22150ms] [LOG] [useRoomList] → GET_ROOM_LIST {gameType: SEA_BATTLE} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:220
+[   22151ms] [LOG] [WS v3] → GET_ROOM_LIST: {
+  "type": "GET_ROOM_LIST",
+  "protocolVersion": "v3",
+  "traceId": "1c0a93c6-af4f-4d10-903b-8606969c86e1",
+  "gameType": "SEA_BATTLE"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   23161ms] [LOG] [WS v3] ← room_list: {
+  "gameType": "SEA_BATTLE",
+  "data": {
+    "rooms": []
+  },
+  "success": true,
+  "type": "room_list",
+  "eventId": "23515553-f77d-4edd-b0c8-f8bc98cee530",
+  "traceId": "59fe624c-1418-47d2-852d-10ecfe03d0bc",
+  "serverTime": "2026-04-19T03:55:32.624714Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23164ms] [LOG] [useRoomList] ← ROOM_LIST received: {rawType: room_list, mode: subscribe, roomCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:264
+[   23165ms] [LOG] [WS v3] ← FRIENDS_LIST: {
+  "type": "FRIENDS_LIST",
+  "action": "FRIENDS_LIST",
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "username": "test1",
+      "avatarUrl": null,
+      "online": false,
+      "lastSeen": "2026-04-17T12:05:04.904032",
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 12,
+      "presenceStatus": "OFFLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    },
+    {
+      "id": 5,
+      "username": "test4",
+      "avatarUrl": null,
+      "online": true,
+      "lastSeen": null,
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 3,
+      "presenceStatus": "ONLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    }
+  ],
+  "eventId": "aff97649-7e55-4fee-b915-856201e6f55a",
+  "traceId": "9d2026f0-daae-4d44-a271-915bc43f5d6f",
+  "serverTime": "2026-04-19T03:55:32.633352Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23165ms] [LOG] [useFriends] FRIENDS_LIST received: {rawEnvKeys: Array(9), dataKeys: Array(2), friendsCount: 2} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:191
+[   23165ms] [LOG] [WS v3] ← FRIEND_REQUESTS: {
+  "type": "FRIEND_REQUESTS",
+  "action": "FRIEND_REQUESTS",
+  "success": true,
+  "data": [],
+  "eventId": "efae59e9-ba33-4d0e-9dca-fe7c31c93818",
+  "traceId": "076573a0-77f8-42f2-a827-49cc2dadb79a",
+  "serverTime": "2026-04-19T03:55:32.637503Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23165ms] [LOG] [useFriends] FRIEND_REQUESTS received: {friendRequestsCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:200
+[   23166ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": null,
+    "phone": "9199315027",
+    "currentRoomId": null,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": null,
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "ONLINE",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "53765377-24c0-4056-aaf2-4690e99d3b2c",
+  "traceId": "b8aa82ae-fa13-47a0-ad98-0560b5923264",
+  "serverTime": "2026-04-19T03:55:32.643650Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23166ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   23166ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   23166ms] [LOG] [WS v3] ← SUBSCRIBE_ROOMS_SUCCESS: {
+  "type": "SUBSCRIBE_ROOMS_SUCCESS",
+  "action": "SUBSCRIBE_ROOMS_SUCCESS",
+  "success": true,
+  "data": {
+    "gameType": "SEA_BATTLE"
+  },
+  "eventId": "0fb277a4-e74d-49c1-977c-89721f48da78",
+  "traceId": "1aa39c5f-b64c-45ea-b094-1ab655b9429a",
+  "serverTime": "2026-04-19T03:55:32.704520Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23166ms] [LOG] [useRoomList] ← SUBSCRIBE_ROOMS_SUCCESS {type: SUBSCRIBE_ROOMS_SUCCESS, action: SUBSCRIBE_ROOMS_SUCCESS, success: true, data: Object, eventId: 0fb277a4-e74d-49c1-977c-89721f48da78} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:293
+[   23167ms] [LOG] [WS v3] ← room_list: {
+  "gameType": "SEA_BATTLE",
+  "data": {
+    "rooms": []
+  },
+  "success": true,
+  "type": "room_list",
+  "eventId": "65d7942b-872a-401e-8f59-ee7f9d79c378",
+  "traceId": "df50d353-9c3b-41ba-8df4-f91e9d640ca4",
+  "serverTime": "2026-04-19T03:55:32.705472Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23167ms] [LOG] [useRoomList] ← ROOM_LIST received: {rawType: room_list, mode: subscribe, roomCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:264
+[   23167ms] [LOG] [WS v3] ← FRIENDS_LIST: {
+  "type": "FRIENDS_LIST",
+  "action": "FRIENDS_LIST",
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "username": "test1",
+      "avatarUrl": null,
+      "online": false,
+      "lastSeen": "2026-04-17T12:05:04.904032",
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 12,
+      "presenceStatus": "OFFLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    },
+    {
+      "id": 5,
+      "username": "test4",
+      "avatarUrl": null,
+      "online": true,
+      "lastSeen": null,
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 3,
+      "presenceStatus": "ONLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    }
+  ],
+  "eventId": "c8f689f2-5b5e-413a-bbad-eced387c038f",
+  "traceId": "a43c6292-b48d-45a0-9d6c-d7443d10d592",
+  "serverTime": "2026-04-19T03:55:32.712504Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23167ms] [LOG] [useFriends] FRIENDS_LIST received: {rawEnvKeys: Array(9), dataKeys: Array(2), friendsCount: 2} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:191
+[   23167ms] [LOG] [WS v3] ← FRIEND_REQUESTS: {
+  "type": "FRIEND_REQUESTS",
+  "action": "FRIEND_REQUESTS",
+  "success": true,
+  "data": [],
+  "eventId": "8dec3623-3b91-40e8-82cc-664c5c9b5e56",
+  "traceId": "9eecaf4a-e399-47e8-bfcd-63f510407862",
+  "serverTime": "2026-04-19T03:55:32.716022Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23167ms] [LOG] [useFriends] FRIEND_REQUESTS received: {friendRequestsCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:200
+[   23167ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": null,
+    "phone": "9199315027",
+    "currentRoomId": null,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": null,
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "ONLINE",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "444a1e4c-c8d9-41ef-aa17-29eb7010eb72",
+  "traceId": "b24f475a-31fa-4edb-9f95-993a98bb1af6",
+  "serverTime": "2026-04-19T03:55:32.721740Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23167ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   23167ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   23864ms] [LOG] [WS v3] ← room_list: {
+  "gameType": "SEA_BATTLE",
+  "data": {
+    "rooms": []
+  },
+  "success": true,
+  "type": "room_list",
+  "eventId": "deca2d0f-317c-48fc-93ce-dd52d51fd875",
+  "traceId": "415caa5e-3be4-484e-9e5d-bb82411dee75",
+  "serverTime": "2026-04-19T03:55:34.150058Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   23864ms] [LOG] [useRoomList] ← ROOM_LIST received: {rawType: room_list, mode: subscribe, roomCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:264
+[   50672ms] [LOG] [WS v3] → CREATE_ROOM: {
+  "type": "CREATE_ROOM",
+  "protocolVersion": "v3",
+  "traceId": "1a76d688-9d80-452d-b16d-73b6e04b2e7f",
+  "gameType": "SEA_BATTLE",
+  "maxPlayers": 2,
+  "entryFee": "FIFTY",
+  "roomType": "PUBLIC",
+  "gameScore": "SEA_BATTLE_ONE"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   59462ms] [LOG] [WS v3] ← ROOM_CREATED: {
+  "type": "ROOM_CREATED",
+  "action": "ROOM_CREATED",
+  "success": true,
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 1,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": "111111",
+    "roomStatus": "PENDING",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 0,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "WAITING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "eventId": "ad950d1f-d180-4c18-8c49-88914b23c284",
+  "traceId": "f9ff3bd8-ec4b-4d93-baf6-d93bedce84c5",
+  "serverTime": "2026-04-19T03:56:02.824028Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   59939ms] [LOG] [useRoomList] ← ROOM_CREATED: 1018 {roomId: 1018, gameType: seabattle, hostUserId: 6, hostUsername: tester, status: waiting} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:312
+[   60398ms] [LOG] [WS v3] ← room_update: {
+  "type": "room_update",
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": null,
+    "roomStatus": "PENDING",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "WAITING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2836,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "WAITING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "gameType": "SEA_BATTLE",
+  "roomId": 1018,
+  "eventId": "5c620036-a358-42b9-ab53-29b7158f7a13",
+  "traceId": "1b07b2d6-780e-47df-bbef-d5e4d0a7659d",
+  "serverTime": "2026-04-19T03:56:07.851245Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   60416ms] [LOG] [WS v3] ← room_update: {
+  "type": "room_update",
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": null,
+    "roomStatus": "IN_PROGRESS",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "WAITING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2836,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "WAITING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "gameType": "SEA_BATTLE",
+  "roomId": 1018,
+  "eventId": "b08aa301-5370-44cd-85c3-dbbb64c52cdb",
+  "traceId": "9776ebf3-a2b2-4b57-b3c5-925f4372039e",
+  "serverTime": "2026-04-19T03:56:07.858297Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   65359ms] [LOG] [WS v3] ← GAME_ACTION: {
+  "type": "GAME_ACTION",
+  "action": "SEA_BATTLE_GAME_STARTED",
+  "data": {
+    "gameType": "SEA_BATTLE",
+    "scheduledBoards": 1,
+    "ownFleet": [],
+    "shotHistory": [],
+    "publicFleetProgressByUserId": {
+      "6": [],
+      "7": []
+    },
+    "boardNumber": 1,
+    "targetWins": 1,
+    "gameStateId": 847,
+    "opponentPlayerId": 7,
+    "roomId": 1018,
+    "stateVersion": 1,
+    "allLayoutsLocked": false,
+    "turnTimeoutSeconds": 25,
+    "availableShots": [],
+    "boardResult": null,
+    "viewerMode": "PLAYER",
+    "phase": "placement",
+    "currentPlayerId": null,
+    "viewerPlayerId": 6,
+    "enemyFleet": [],
+    "boardEndReason": null,
+    "players": [
+      {
+        "playerId": 6,
+        "username": "tester",
+        "seatNumber": 0,
+        "score": 0,
+        "layoutLocked": false,
+        "shipsSunk": 0,
+        "shipsRemaining": 5,
+        "cellsRemaining": 0,
+        "isBot": false,
+        "controlMode": "HUMAN",
+        "isConnected": true,
+        "forfeitLocked": false
+      },
+      {
+        "playerId": 7,
+        "username": "bot001",
+        "seatNumber": 1,
+        "score": 0,
+        "layoutLocked": false,
+        "shipsSunk": 0,
+        "shipsRemaining": 5,
+        "cellsRemaining": 0,
+        "isBot": true,
+        "controlMode": "SYSTEM",
+        "isConnected": false,
+        "forfeitLocked": false
+      }
+    ],
+    "boardHistory": [],
+    "placementTimeoutSeconds": 45,
+    "startingPlayerId": 6,
+    "layoutLockedByUserId": {
+      "6": false,
+      "7": false
+    },
+    "publicBoardsByUserId": {
+      "6": {
+        "A1": {
+          "coord": "A1",
+          "row": 1,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B1": {
+          "coord": "B1",
+          "row": 1,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C1": {
+          "coord": "C1",
+          "row": 1,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D1": {
+          "coord": "D1",
+          "row": 1,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E1": {
+          "coord": "E1",
+          "row": 1,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F1": {
+          "coord": "F1",
+          "row": 1,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G1": {
+          "coord": "G1",
+          "row": 1,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H1": {
+          "coord": "H1",
+          "row": 1,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I1": {
+          "coord": "I1",
+          "row": 1,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J1": {
+          "coord": "J1",
+          "row": 1,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A2": {
+          "coord": "A2",
+          "row": 2,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B2": {
+          "coord": "B2",
+          "row": 2,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C2": {
+          "coord": "C2",
+          "row": 2,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D2": {
+          "coord": "D2",
+          "row": 2,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E2": {
+          "coord": "E2",
+          "row": 2,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F2": {
+          "coord": "F2",
+          "row": 2,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G2": {
+          "coord": "G2",
+          "row": 2,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H2": {
+          "coord": "H2",
+          "row": 2,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I2": {
+          "coord": "I2",
+          "row": 2,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J2": {
+          "coord": "J2",
+          "row": 2,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A3": {
+          "coord": "A3",
+          "row": 3,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B3": {
+          "coord": "B3",
+          "row": 3,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C3": {
+          "coord": "C3",
+          "row": 3,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D3": {
+          "coord": "D3",
+          "row": 3,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E3": {
+          "coord": "E3",
+          "row": 3,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F3": {
+          "coord": "F3",
+          "row": 3,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G3": {
+          "coord": "G3",
+          "row": 3,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H3": {
+          "coord": "H3",
+          "row": 3,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I3": {
+          "coord": "I3",
+          "row": 3,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J3": {
+          "coord": "J3",
+          "row": 3,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A4": {
+          "coord": "A4",
+          "row": 4,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B4": {
+          "coord": "B4",
+          "row": 4,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C4": {
+          "coord": "C4",
+          "row": 4,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D4": {
+          "coord": "D4",
+          "row": 4,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E4": {
+          "coord": "E4",
+          "row": 4,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F4": {
+          "coord": "F4",
+          "row": 4,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G4": {
+          "coord": "G4",
+          "row": 4,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H4": {
+          "coord": "H4",
+          "row": 4,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I4": {
+          "coord": "I4",
+          "row": 4,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J4": {
+          "coord": "J4",
+          "row": 4,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A5": {
+          "coord": "A5",
+          "row": 5,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B5": {
+          "coord": "B5",
+          "row": 5,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C5": {
+          "coord": "C5",
+          "row": 5,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D5": {
+          "coord": "D5",
+          "row": 5,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E5": {
+          "coord": "E5",
+          "row": 5,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F5": {
+          "coord": "F5",
+          "row": 5,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G5": {
+          "coord": "G5",
+          "row": 5,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H5": {
+          "coord": "H5",
+          "row": 5,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I5": {
+          "coord": "I5",
+          "row": 5,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J5": {
+          "coord": "J5",
+          "row": 5,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A6": {
+          "coord": "A6",
+          "row": 6,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B6": {
+          "coord": "B6",
+          "row": 6,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C6": {
+          "coord": "C6",
+          "row": 6,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D6": {
+          "coord": "D6",
+          "row": 6,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E6": {
+          "coord": "E6",
+          "row": 6,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F6": {
+          "coord": "F6",
+          "row": 6,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G6": {
+          "coord": "G6",
+          "row": 6,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H6": {
+          "coord": "H6",
+          "row": 6,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I6": {
+          "coord": "I6",
+          "row": 6,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J6": {
+          "coord": "J6",
+          "row": 6,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A7": {
+          "coord": "A7",
+          "row": 7,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B7": {
+          "coord": "B7",
+          "row": 7,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C7": {
+          "coord": "C7",
+          "row": 7,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D7": {
+          "coord": "D7",
+          "row": 7,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E7": {
+          "coord": "E7",
+          "row": 7,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F7": {
+          "coord": "F7",
+          "row": 7,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G7": {
+          "coord": "G7",
+          "row": 7,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H7": {
+          "coord": "H7",
+          "row": 7,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I7": {
+          "coord": "I7",
+          "row": 7,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J7": {
+          "coord": "J7",
+          "row": 7,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A8": {
+          "coord": "A8",
+          "row": 8,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B8": {
+          "coord": "B8",
+          "row": 8,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C8": {
+          "coord": "C8",
+          "row": 8,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D8": {
+          "coord": "D8",
+          "row": 8,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E8": {
+          "coord": "E8",
+          "row": 8,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F8": {
+          "coord": "F8",
+          "row": 8,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G8": {
+          "coord": "G8",
+          "row": 8,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H8": {
+          "coord": "H8",
+          "row": 8,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I8": {
+          "coord": "I8",
+          "row": 8,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J8": {
+          "coord": "J8",
+          "row": 8,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A9": {
+          "coord": "A9",
+          "row": 9,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B9": {
+          "coord": "B9",
+          "row": 9,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C9": {
+          "coord": "C9",
+          "row": 9,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D9": {
+          "coord": "D9",
+          "row": 9,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E9": {
+          "coord": "E9",
+          "row": 9,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F9": {
+          "coord": "F9",
+          "row": 9,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G9": {
+          "coord": "G9",
+          "row": 9,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H9": {
+          "coord": "H9",
+          "row": 9,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I9": {
+          "coord": "I9",
+          "row": 9,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J9": {
+          "coord": "J9",
+          "row": 9,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A10": {
+          "coord": "A10",
+          "row": 10,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B10": {
+          "coord": "B10",
+          "row": 10,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C10": {
+          "coord": "C10",
+          "row": 10,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D10": {
+          "coord": "D10",
+          "row": 10,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E10": {
+          "coord": "E10",
+          "row": 10,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F10": {
+          "coord": "F10",
+          "row": 10,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G10": {
+          "coord": "G10",
+          "row": 10,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H10": {
+          "coord": "H10",
+          "row": 10,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I10": {
+          "coord": "I10",
+          "row": 10,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J10": {
+          "coord": "J10",
+          "row": 10,
+          "col": "J",
+          "state": "UNKNOWN"
+        }
+      },
+      "7": {
+        "A1": {
+          "coord": "A1",
+          "row": 1,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B1": {
+          "coord": "B1",
+          "row": 1,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C1": {
+          "coord": "C1",
+          "row": 1,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D1": {
+          "coord": "D1",
+          "row": 1,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E1": {
+          "coord": "E1",
+          "row": 1,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F1": {
+          "coord": "F1",
+          "row": 1,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G1": {
+          "coord": "G1",
+          "row": 1,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H1": {
+          "coord": "H1",
+          "row": 1,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I1": {
+          "coord": "I1",
+          "row": 1,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J1": {
+          "coord": "J1",
+          "row": 1,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A2": {
+          "coord": "A2",
+          "row": 2,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B2": {
+          "coord": "B2",
+          "row": 2,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C2": {
+          "coord": "C2",
+          "row": 2,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D2": {
+          "coord": "D2",
+          "row": 2,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E2": {
+          "coord": "E2",
+          "row": 2,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F2": {
+          "coord": "F2",
+          "row": 2,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G2": {
+          "coord": "G2",
+          "row": 2,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H2": {
+          "coord": "H2",
+          "row": 2,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I2": {
+          "coord": "I2",
+          "row": 2,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J2": {
+          "coord": "J2",
+          "row": 2,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A3": {
+          "coord": "A3",
+          "row": 3,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B3": {
+          "coord": "B3",
+          "row": 3,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C3": {
+          "coord": "C3",
+          "row": 3,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D3": {
+          "coord": "D3",
+          "row": 3,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E3": {
+          "coord": "E3",
+          "row": 3,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F3": {
+          "coord": "F3",
+          "row": 3,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G3": {
+          "coord": "G3",
+          "row": 3,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H3": {
+          "coord": "H3",
+          "row": 3,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I3": {
+          "coord": "I3",
+          "row": 3,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J3": {
+          "coord": "J3",
+          "row": 3,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A4": {
+          "coord": "A4",
+          "row": 4,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B4": {
+          "coord": "B4",
+          "row": 4,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C4": {
+          "coord": "C4",
+          "row": 4,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D4": {
+          "coord": "D4",
+          "row": 4,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E4": {
+          "coord": "E4",
+          "row": 4,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F4": {
+          "coord": "F4",
+          "row": 4,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G4": {
+          "coord": "G4",
+          "row": 4,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H4": {
+          "coord": "H4",
+          "row": 4,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I4": {
+          "coord": "I4",
+          "row": 4,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J4": {
+          "coord": "J4",
+          "row": 4,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A5": {
+          "coord": "A5",
+          "row": 5,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B5": {
+          "coord": "B5",
+          "row": 5,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C5": {
+          "coord": "C5",
+          "row": 5,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D5": {
+          "coord": "D5",
+          "row": 5,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E5": {
+          "coord": "E5",
+          "row": 5,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F5": {
+          "coord": "F5",
+          "row": 5,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G5": {
+          "coord": "G5",
+          "row": 5,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H5": {
+          "coord": "H5",
+          "row": 5,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I5": {
+          "coord": "I5",
+          "row": 5,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J5": {
+          "coord": "J5",
+          "row": 5,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A6": {
+          "coord": "A6",
+          "row": 6,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B6": {
+          "coord": "B6",
+          "row": 6,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C6": {
+          "coord": "C6",
+          "row": 6,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D6": {
+          "coord": "D6",
+          "row": 6,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E6": {
+          "coord": "E6",
+          "row": 6,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F6": {
+          "coord": "F6",
+          "row": 6,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G6": {
+          "coord": "G6",
+          "row": 6,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H6": {
+          "coord": "H6",
+          "row": 6,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I6": {
+          "coord": "I6",
+          "row": 6,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J6": {
+          "coord": "J6",
+          "row": 6,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A7": {
+          "coord": "A7",
+          "row": 7,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B7": {
+          "coord": "B7",
+          "row": 7,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C7": {
+          "coord": "C7",
+          "row": 7,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D7": {
+          "coord": "D7",
+          "row": 7,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E7": {
+          "coord": "E7",
+          "row": 7,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F7": {
+          "coord": "F7",
+          "row": 7,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G7": {
+          "coord": "G7",
+          "row": 7,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H7": {
+          "coord": "H7",
+          "row": 7,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I7": {
+          "coord": "I7",
+          "row": 7,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J7": {
+          "coord": "J7",
+          "row": 7,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A8": {
+          "coord": "A8",
+          "row": 8,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B8": {
+          "coord": "B8",
+          "row": 8,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C8": {
+          "coord": "C8",
+          "row": 8,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D8": {
+          "coord": "D8",
+          "row": 8,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E8": {
+          "coord": "E8",
+          "row": 8,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F8": {
+          "coord": "F8",
+          "row": 8,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G8": {
+          "coord": "G8",
+          "row": 8,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H8": {
+          "coord": "H8",
+          "row": 8,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I8": {
+          "coord": "I8",
+          "row": 8,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J8": {
+          "coord": "J8",
+          "row": 8,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A9": {
+          "coord": "A9",
+          "row": 9,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B9": {
+          "coord": "B9",
+          "row": 9,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C9": {
+          "coord": "C9",
+          "row": 9,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D9": {
+          "coord": "D9",
+          "row": 9,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E9": {
+          "coord": "E9",
+          "row": 9,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F9": {
+          "coord": "F9",
+          "row": 9,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G9": {
+          "coord": "G9",
+          "row": 9,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H9": {
+          "coord": "H9",
+          "row": 9,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I9": {
+          "coord": "I9",
+          "row": 9,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J9": {
+          "coord": "J9",
+          "row": 9,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A10": {
+          "coord": "A10",
+          "row": 10,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B10": {
+          "coord": "B10",
+          "row": 10,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C10": {
+          "coord": "C10",
+          "row": 10,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D10": {
+          "coord": "D10",
+          "row": 10,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E10": {
+          "coord": "E10",
+          "row": 10,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F10": {
+          "coord": "F10",
+          "row": 10,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G10": {
+          "coord": "G10",
+          "row": 10,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H10": {
+          "coord": "H10",
+          "row": 10,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I10": {
+          "coord": "I10",
+          "row": 10,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J10": {
+          "coord": "J10",
+          "row": 10,
+          "col": "J",
+          "state": "UNKNOWN"
+        }
+      }
+    },
+    "boardWinnerId": null,
+    "enemyBoard": {
+      "A1": {
+        "coord": "A1",
+        "row": 1,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B1": {
+        "coord": "B1",
+        "row": 1,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C1": {
+        "coord": "C1",
+        "row": 1,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D1": {
+        "coord": "D1",
+        "row": 1,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E1": {
+        "coord": "E1",
+        "row": 1,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F1": {
+        "coord": "F1",
+        "row": 1,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G1": {
+        "coord": "G1",
+        "row": 1,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H1": {
+        "coord": "H1",
+        "row": 1,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I1": {
+        "coord": "I1",
+        "row": 1,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J1": {
+        "coord": "J1",
+        "row": 1,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A2": {
+        "coord": "A2",
+        "row": 2,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B2": {
+        "coord": "B2",
+        "row": 2,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C2": {
+        "coord": "C2",
+        "row": 2,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D2": {
+        "coord": "D2",
+        "row": 2,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E2": {
+        "coord": "E2",
+        "row": 2,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F2": {
+        "coord": "F2",
+        "row": 2,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G2": {
+        "coord": "G2",
+        "row": 2,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H2": {
+        "coord": "H2",
+        "row": 2,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I2": {
+        "coord": "I2",
+        "row": 2,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J2": {
+        "coord": "J2",
+        "row": 2,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A3": {
+        "coord": "A3",
+        "row": 3,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B3": {
+        "coord": "B3",
+        "row": 3,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C3": {
+        "coord": "C3",
+        "row": 3,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D3": {
+        "coord": "D3",
+        "row": 3,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E3": {
+        "coord": "E3",
+        "row": 3,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F3": {
+        "coord": "F3",
+        "row": 3,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G3": {
+        "coord": "G3",
+        "row": 3,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H3": {
+        "coord": "H3",
+        "row": 3,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I3": {
+        "coord": "I3",
+        "row": 3,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J3": {
+        "coord": "J3",
+        "row": 3,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A4": {
+        "coord": "A4",
+        "row": 4,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B4": {
+        "coord": "B4",
+        "row": 4,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C4": {
+        "coord": "C4",
+        "row": 4,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D4": {
+        "coord": "D4",
+        "row": 4,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E4": {
+        "coord": "E4",
+        "row": 4,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F4": {
+        "coord": "F4",
+        "row": 4,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G4": {
+        "coord": "G4",
+        "row": 4,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H4": {
+        "coord": "H4",
+        "row": 4,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I4": {
+        "coord": "I4",
+        "row": 4,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J4": {
+        "coord": "J4",
+        "row": 4,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A5": {
+        "coord": "A5",
+        "row": 5,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B5": {
+        "coord": "B5",
+        "row": 5,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C5": {
+        "coord": "C5",
+        "row": 5,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D5": {
+        "coord": "D5",
+        "row": 5,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E5": {
+        "coord": "E5",
+        "row": 5,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F5": {
+        "coord": "F5",
+        "row": 5,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G5": {
+        "coord": "G5",
+        "row": 5,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H5": {
+        "coord": "H5",
+        "row": 5,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I5": {
+        "coord": "I5",
+        "row": 5,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J5": {
+        "coord": "J5",
+        "row": 5,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A6": {
+        "coord": "A6",
+        "row": 6,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B6": {
+        "coord": "B6",
+        "row": 6,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C6": {
+        "coord": "C6",
+        "row": 6,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D6": {
+        "coord": "D6",
+        "row": 6,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E6": {
+        "coord": "E6",
+        "row": 6,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F6": {
+        "coord": "F6",
+        "row": 6,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G6": {
+        "coord": "G6",
+        "row": 6,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H6": {
+        "coord": "H6",
+        "row": 6,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I6": {
+        "coord": "I6",
+        "row": 6,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J6": {
+        "coord": "J6",
+        "row": 6,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A7": {
+        "coord": "A7",
+        "row": 7,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B7": {
+        "coord": "B7",
+        "row": 7,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C7": {
+        "coord": "C7",
+        "row": 7,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D7": {
+        "coord": "D7",
+        "row": 7,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E7": {
+        "coord": "E7",
+        "row": 7,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F7": {
+        "coord": "F7",
+        "row": 7,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G7": {
+        "coord": "G7",
+        "row": 7,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H7": {
+        "coord": "H7",
+        "row": 7,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I7": {
+        "coord": "I7",
+        "row": 7,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J7": {
+        "coord": "J7",
+        "row": 7,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A8": {
+        "coord": "A8",
+        "row": 8,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B8": {
+        "coord": "B8",
+        "row": 8,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C8": {
+        "coord": "C8",
+        "row": 8,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D8": {
+        "coord": "D8",
+        "row": 8,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E8": {
+        "coord": "E8",
+        "row": 8,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F8": {
+        "coord": "F8",
+        "row": 8,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G8": {
+        "coord": "G8",
+        "row": 8,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H8": {
+        "coord": "H8",
+        "row": 8,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I8": {
+        "coord": "I8",
+        "row": 8,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J8": {
+        "coord": "J8",
+        "row": 8,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A9": {
+        "coord": "A9",
+        "row": 9,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B9": {
+        "coord": "B9",
+        "row": 9,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C9": {
+        "coord": "C9",
+        "row": 9,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D9": {
+        "coord": "D9",
+        "row": 9,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E9": {
+        "coord": "E9",
+        "row": 9,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F9": {
+        "coord": "F9",
+        "row": 9,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G9": {
+        "coord": "G9",
+        "row": 9,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H9": {
+        "coord": "H9",
+        "row": 9,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I9": {
+        "coord": "I9",
+        "row": 9,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J9": {
+        "coord": "J9",
+        "row": 9,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A10": {
+        "coord": "A10",
+        "row": 10,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B10": {
+        "coord": "B10",
+        "row": 10,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C10": {
+        "coord": "C10",
+        "row": 10,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D10": {
+        "coord": "D10",
+        "row": 10,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E10": {
+        "coord": "E10",
+        "row": 10,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F10": {
+        "coord": "F10",
+        "row": 10,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G10": {
+        "coord": "G10",
+        "row": 10,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H10": {
+        "coord": "H10",
+        "row": 10,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I10": {
+        "coord": "I10",
+        "row": 10,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J10": {
+        "coord": "J10",
+        "row": 10,
+        "col": "J",
+        "state": "UNKNOWN"
+      }
+    },
+    "lastShot": {},
+    "ownBoard": {
+      "A1": {
+        "coord": "A1",
+        "row": 1,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B1": {
+        "coord": "B1",
+        "row": 1,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C1": {
+        "coord": "C1",
+        "row": 1,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D1": {
+        "coord": "D1",
+        "row": 1,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E1": {
+        "coord": "E1",
+        "row": 1,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F1": {
+        "coord": "F1",
+        "row": 1,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G1": {
+        "coord": "G1",
+        "row": 1,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H1": {
+        "coord": "H1",
+        "row": 1,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I1": {
+        "coord": "I1",
+        "row": 1,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J1": {
+        "coord": "J1",
+        "row": 1,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A2": {
+        "coord": "A2",
+        "row": 2,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B2": {
+        "coord": "B2",
+        "row": 2,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C2": {
+        "coord": "C2",
+        "row": 2,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D2": {
+        "coord": "D2",
+        "row": 2,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E2": {
+        "coord": "E2",
+        "row": 2,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F2": {
+        "coord": "F2",
+        "row": 2,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G2": {
+        "coord": "G2",
+        "row": 2,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H2": {
+        "coord": "H2",
+        "row": 2,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I2": {
+        "coord": "I2",
+        "row": 2,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J2": {
+        "coord": "J2",
+        "row": 2,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A3": {
+        "coord": "A3",
+        "row": 3,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B3": {
+        "coord": "B3",
+        "row": 3,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C3": {
+        "coord": "C3",
+        "row": 3,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D3": {
+        "coord": "D3",
+        "row": 3,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E3": {
+        "coord": "E3",
+        "row": 3,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F3": {
+        "coord": "F3",
+        "row": 3,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G3": {
+        "coord": "G3",
+        "row": 3,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H3": {
+        "coord": "H3",
+        "row": 3,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I3": {
+        "coord": "I3",
+        "row": 3,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J3": {
+        "coord": "J3",
+        "row": 3,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A4": {
+        "coord": "A4",
+        "row": 4,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B4": {
+        "coord": "B4",
+        "row": 4,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C4": {
+        "coord": "C4",
+        "row": 4,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D4": {
+        "coord": "D4",
+        "row": 4,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E4": {
+        "coord": "E4",
+        "row": 4,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F4": {
+        "coord": "F4",
+        "row": 4,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G4": {
+        "coord": "G4",
+        "row": 4,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H4": {
+        "coord": "H4",
+        "row": 4,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I4": {
+        "coord": "I4",
+        "row": 4,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J4": {
+        "coord": "J4",
+        "row": 4,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A5": {
+        "coord": "A5",
+        "row": 5,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B5": {
+        "coord": "B5",
+        "row": 5,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C5": {
+        "coord": "C5",
+        "row": 5,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D5": {
+        "coord": "D5",
+        "row": 5,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E5": {
+        "coord": "E5",
+        "row": 5,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F5": {
+        "coord": "F5",
+        "row": 5,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G5": {
+        "coord": "G5",
+        "row": 5,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H5": {
+        "coord": "H5",
+        "row": 5,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I5": {
+        "coord": "I5",
+        "row": 5,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J5": {
+        "coord": "J5",
+        "row": 5,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A6": {
+        "coord": "A6",
+        "row": 6,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B6": {
+        "coord": "B6",
+        "row": 6,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C6": {
+        "coord": "C6",
+        "row": 6,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D6": {
+        "coord": "D6",
+        "row": 6,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E6": {
+        "coord": "E6",
+        "row": 6,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F6": {
+        "coord": "F6",
+        "row": 6,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G6": {
+        "coord": "G6",
+        "row": 6,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H6": {
+        "coord": "H6",
+        "row": 6,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I6": {
+        "coord": "I6",
+        "row": 6,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J6": {
+        "coord": "J6",
+        "row": 6,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A7": {
+        "coord": "A7",
+        "row": 7,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B7": {
+        "coord": "B7",
+        "row": 7,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C7": {
+        "coord": "C7",
+        "row": 7,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D7": {
+        "coord": "D7",
+        "row": 7,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E7": {
+        "coord": "E7",
+        "row": 7,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F7": {
+        "coord": "F7",
+        "row": 7,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G7": {
+        "coord": "G7",
+        "row": 7,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H7": {
+        "coord": "H7",
+        "row": 7,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I7": {
+        "coord": "I7",
+        "row": 7,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J7": {
+        "coord": "J7",
+        "row": 7,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A8": {
+        "coord": "A8",
+        "row": 8,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B8": {
+        "coord": "B8",
+        "row": 8,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C8": {
+        "coord": "C8",
+        "row": 8,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D8": {
+        "coord": "D8",
+        "row": 8,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E8": {
+        "coord": "E8",
+        "row": 8,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F8": {
+        "coord": "F8",
+        "row": 8,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G8": {
+        "coord": "G8",
+        "row": 8,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H8": {
+        "coord": "H8",
+        "row": 8,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I8": {
+        "coord": "I8",
+        "row": 8,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J8": {
+        "coord": "J8",
+        "row": 8,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A9": {
+        "coord": "A9",
+        "row": 9,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B9": {
+        "coord": "B9",
+        "row": 9,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C9": {
+        "coord": "C9",
+        "row": 9,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D9": {
+        "coord": "D9",
+        "row": 9,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E9": {
+        "coord": "E9",
+        "row": 9,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F9": {
+        "coord": "F9",
+        "row": 9,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G9": {
+        "coord": "G9",
+        "row": 9,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H9": {
+        "coord": "H9",
+        "row": 9,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I9": {
+        "coord": "I9",
+        "row": 9,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J9": {
+        "coord": "J9",
+        "row": 9,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A10": {
+        "coord": "A10",
+        "row": 10,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B10": {
+        "coord": "B10",
+        "row": 10,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C10": {
+        "coord": "C10",
+        "row": 10,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D10": {
+        "coord": "D10",
+        "row": 10,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E10": {
+        "coord": "E10",
+        "row": 10,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F10": {
+        "coord": "F10",
+        "row": 10,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G10": {
+        "coord": "G10",
+        "row": 10,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H10": {
+        "coord": "H10",
+        "row": 10,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I10": {
+        "coord": "I10",
+        "row": 10,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J10": {
+        "coord": "J10",
+        "row": 10,
+        "col": "J",
+        "state": "EMPTY"
+      }
+    },
+    "winnerId": null,
+    "boardWinsByUserId": {
+      "6": 0,
+      "7": 0
+    }
+  },
+  "gameType": null,
+  "roomId": 1018,
+  "eventId": "2f48ff2c-0c93-4728-82b4-3c5a4a7cb760",
+  "traceId": "e2fb6df8-e3ab-4c4a-ae44-9b0ae3feeb87",
+  "serverTime": "2026-04-19T03:56:14.888418Z",
+  "protocolVersion": "v3",
+  "stateVersion": 1
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   65373ms] [LOG] [WS v3] ← SPECTATOR_BETS_UPDATED: {
+  "type": "SPECTATOR_BETS_UPDATED",
+  "action": "SPECTATOR_BETS_UPDATED",
+  "roomId": 1018,
+  "success": true,
+  "data": {
+    "roomId": 1018,
+    "bettingEnabled": false,
+    "marketWindowOpen": false,
+    "currentRoundMarketOpen": false,
+    "nextRoundMarketOpen": false,
+    "nextGoalMarketOpen": false,
+    "matchWinnerMarketOpen": false,
+    "spectatorDelaySeconds": 15,
+    "currentRound": 1,
+    "targetScore": 1,
+    "scores": {
+      "tester": 0,
+      "bot001": 0
+    },
+    "bets": []
+  },
+  "eventId": "88a99a6a-3e10-44ae-9b7c-c9a939adf270",
+  "traceId": "1390fbbd-5db0-4551-8454-c6d96631f2ca",
+  "serverTime": "2026-04-19T03:56:14.916740Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   65373ms] [LOG] [WS v3] ← room_update: {
+  "type": "room_update",
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": null,
+    "roomStatus": "IN_PROGRESS",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "PLAYING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2836,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "PLAYING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "gameType": "SEA_BATTLE",
+  "roomId": 1018,
+  "eventId": "c218232b-e406-441d-b419-dc181fe7a423",
+  "traceId": "c3c780c8-ccdd-455b-8e34-129786255a1b",
+  "serverTime": "2026-04-19T03:56:14.927696Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   65418ms] [LOG] [WS v3] ← GAME_ACTION: {
+  "type": "GAME_ACTION",
+  "action": "SEA_BATTLE_LAYOUT_LOCKED",
+  "data": {
+    "gameType": "SEA_BATTLE",
+    "scheduledBoards": 1,
+    "ownFleet": [],
+    "shotHistory": [],
+    "publicFleetProgressByUserId": {
+      "6": [],
+      "7": [
+        {
+          "shipId": "battleship",
+          "size": 4,
+          "hits": 0,
+          "remaining": 4,
+          "sunk": false,
+          "orientation": "V"
+        },
+        {
+          "shipId": "carrier",
+          "size": 5,
+          "hits": 0,
+          "remaining": 5,
+          "sunk": false,
+          "orientation": "V"
+        },
+        {
+          "shipId": "cruiser",
+          "size": 3,
+          "hits": 0,
+          "remaining": 3,
+          "sunk": false,
+          "orientation": "H"
+        },
+        {
+          "shipId": "destroyer",
+          "size": 2,
+          "hits": 0,
+          "remaining": 2,
+          "sunk": false,
+          "orientation": "V"
+        },
+        {
+          "shipId": "submarine",
+          "size": 3,
+          "hits": 0,
+          "remaining": 3,
+          "sunk": false,
+          "orientation": "V"
+        }
+      ]
+    },
+    "boardNumber": 1,
+    "targetWins": 1,
+    "gameStateId": 847,
+    "opponentPlayerId": 7,
+    "roomId": 1018,
+    "stateVersion": 2,
+    "allLayoutsLocked": false,
+    "turnTimeoutSeconds": 25,
+    "availableShots": [],
+    "boardResult": null,
+    "viewerMode": "PLAYER",
+    "phase": "placement",
+    "currentPlayerId": null,
+    "viewerPlayerId": 6,
+    "enemyFleet": [
+      {
+        "shipId": "battleship",
+        "size": 4,
+        "hits": 0,
+        "remaining": 4,
+        "sunk": false,
+        "orientation": "V"
+      },
+      {
+        "shipId": "carrier",
+        "size": 5,
+        "hits": 0,
+        "remaining": 5,
+        "sunk": false,
+        "orientation": "V"
+      },
+      {
+        "shipId": "cruiser",
+        "size": 3,
+        "hits": 0,
+        "remaining": 3,
+        "sunk": false,
+        "orientation": "H"
+      },
+      {
+        "shipId": "destroyer",
+        "size": 2,
+        "hits": 0,
+        "remaining": 2,
+        "sunk": false,
+        "orientation": "V"
+      },
+      {
+        "shipId": "submarine",
+        "size": 3,
+        "hits": 0,
+        "remaining": 3,
+        "sunk": false,
+        "orientation": "V"
+      }
+    ],
+    "boardEndReason": null,
+    "players": [
+      {
+        "playerId": 6,
+        "username": "tester",
+        "seatNumber": 0,
+        "score": 0,
+        "layoutLocked": false,
+        "shipsSunk": 0,
+        "shipsRemaining": 5,
+        "cellsRemaining": 0,
+        "isBot": false,
+        "controlMode": "HUMAN",
+        "isConnected": true,
+        "forfeitLocked": false
+      },
+      {
+        "playerId": 7,
+        "username": "bot001",
+        "seatNumber": 1,
+        "score": 0,
+        "layoutLocked": true,
+        "shipsSunk": 0,
+        "shipsRemaining": 5,
+        "cellsRemaining": 17,
+        "isBot": true,
+        "controlMode": "SYSTEM",
+        "isConnected": false,
+        "forfeitLocked": false
+      }
+    ],
+    "boardHistory": [],
+    "placementTimeoutSeconds": 45,
+    "startingPlayerId": 6,
+    "layoutLockedByUserId": {
+      "6": false,
+      "7": true
+    },
+    "publicBoardsByUserId": {
+      "6": {
+        "A1": {
+          "coord": "A1",
+          "row": 1,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B1": {
+          "coord": "B1",
+          "row": 1,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C1": {
+          "coord": "C1",
+          "row": 1,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D1": {
+          "coord": "D1",
+          "row": 1,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E1": {
+          "coord": "E1",
+          "row": 1,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F1": {
+          "coord": "F1",
+          "row": 1,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G1": {
+          "coord": "G1",
+          "row": 1,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H1": {
+          "coord": "H1",
+          "row": 1,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I1": {
+          "coord": "I1",
+          "row": 1,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J1": {
+          "coord": "J1",
+          "row": 1,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A2": {
+          "coord": "A2",
+          "row": 2,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B2": {
+          "coord": "B2",
+          "row": 2,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C2": {
+          "coord": "C2",
+          "row": 2,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D2": {
+          "coord": "D2",
+          "row": 2,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E2": {
+          "coord": "E2",
+          "row": 2,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F2": {
+          "coord": "F2",
+          "row": 2,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G2": {
+          "coord": "G2",
+          "row": 2,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H2": {
+          "coord": "H2",
+          "row": 2,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I2": {
+          "coord": "I2",
+          "row": 2,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J2": {
+          "coord": "J2",
+          "row": 2,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A3": {
+          "coord": "A3",
+          "row": 3,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B3": {
+          "coord": "B3",
+          "row": 3,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C3": {
+          "coord": "C3",
+          "row": 3,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D3": {
+          "coord": "D3",
+          "row": 3,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E3": {
+          "coord": "E3",
+          "row": 3,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F3": {
+          "coord": "F3",
+          "row": 3,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G3": {
+          "coord": "G3",
+          "row": 3,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H3": {
+          "coord": "H3",
+          "row": 3,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I3": {
+          "coord": "I3",
+          "row": 3,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J3": {
+          "coord": "J3",
+          "row": 3,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A4": {
+          "coord": "A4",
+          "row": 4,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B4": {
+          "coord": "B4",
+          "row": 4,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C4": {
+          "coord": "C4",
+          "row": 4,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D4": {
+          "coord": "D4",
+          "row": 4,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E4": {
+          "coord": "E4",
+          "row": 4,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F4": {
+          "coord": "F4",
+          "row": 4,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G4": {
+          "coord": "G4",
+          "row": 4,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H4": {
+          "coord": "H4",
+          "row": 4,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I4": {
+          "coord": "I4",
+          "row": 4,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J4": {
+          "coord": "J4",
+          "row": 4,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A5": {
+          "coord": "A5",
+          "row": 5,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B5": {
+          "coord": "B5",
+          "row": 5,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C5": {
+          "coord": "C5",
+          "row": 5,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D5": {
+          "coord": "D5",
+          "row": 5,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E5": {
+          "coord": "E5",
+          "row": 5,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F5": {
+          "coord": "F5",
+          "row": 5,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G5": {
+          "coord": "G5",
+          "row": 5,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H5": {
+          "coord": "H5",
+          "row": 5,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I5": {
+          "coord": "I5",
+          "row": 5,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J5": {
+          "coord": "J5",
+          "row": 5,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A6": {
+          "coord": "A6",
+          "row": 6,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B6": {
+          "coord": "B6",
+          "row": 6,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C6": {
+          "coord": "C6",
+          "row": 6,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D6": {
+          "coord": "D6",
+          "row": 6,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E6": {
+          "coord": "E6",
+          "row": 6,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F6": {
+          "coord": "F6",
+          "row": 6,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G6": {
+          "coord": "G6",
+          "row": 6,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H6": {
+          "coord": "H6",
+          "row": 6,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I6": {
+          "coord": "I6",
+          "row": 6,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J6": {
+          "coord": "J6",
+          "row": 6,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A7": {
+          "coord": "A7",
+          "row": 7,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B7": {
+          "coord": "B7",
+          "row": 7,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C7": {
+          "coord": "C7",
+          "row": 7,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D7": {
+          "coord": "D7",
+          "row": 7,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E7": {
+          "coord": "E7",
+          "row": 7,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F7": {
+          "coord": "F7",
+          "row": 7,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G7": {
+          "coord": "G7",
+          "row": 7,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H7": {
+          "coord": "H7",
+          "row": 7,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I7": {
+          "coord": "I7",
+          "row": 7,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J7": {
+          "coord": "J7",
+          "row": 7,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A8": {
+          "coord": "A8",
+          "row": 8,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B8": {
+          "coord": "B8",
+          "row": 8,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C8": {
+          "coord": "C8",
+          "row": 8,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D8": {
+          "coord": "D8",
+          "row": 8,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E8": {
+          "coord": "E8",
+          "row": 8,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F8": {
+          "coord": "F8",
+          "row": 8,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G8": {
+          "coord": "G8",
+          "row": 8,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H8": {
+          "coord": "H8",
+          "row": 8,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I8": {
+          "coord": "I8",
+          "row": 8,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J8": {
+          "coord": "J8",
+          "row": 8,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A9": {
+          "coord": "A9",
+          "row": 9,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B9": {
+          "coord": "B9",
+          "row": 9,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C9": {
+          "coord": "C9",
+          "row": 9,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D9": {
+          "coord": "D9",
+          "row": 9,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E9": {
+          "coord": "E9",
+          "row": 9,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F9": {
+          "coord": "F9",
+          "row": 9,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G9": {
+          "coord": "G9",
+          "row": 9,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H9": {
+          "coord": "H9",
+          "row": 9,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I9": {
+          "coord": "I9",
+          "row": 9,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J9": {
+          "coord": "J9",
+          "row": 9,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A10": {
+          "coord": "A10",
+          "row": 10,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B10": {
+          "coord": "B10",
+          "row": 10,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C10": {
+          "coord": "C10",
+          "row": 10,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D10": {
+          "coord": "D10",
+          "row": 10,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E10": {
+          "coord": "E10",
+          "row": 10,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F10": {
+          "coord": "F10",
+          "row": 10,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G10": {
+          "coord": "G10",
+          "row": 10,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H10": {
+          "coord": "H10",
+          "row": 10,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I10": {
+          "coord": "I10",
+          "row": 10,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J10": {
+          "coord": "J10",
+          "row": 10,
+          "col": "J",
+          "state": "UNKNOWN"
+        }
+      },
+      "7": {
+        "A1": {
+          "coord": "A1",
+          "row": 1,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B1": {
+          "coord": "B1",
+          "row": 1,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C1": {
+          "coord": "C1",
+          "row": 1,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D1": {
+          "coord": "D1",
+          "row": 1,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E1": {
+          "coord": "E1",
+          "row": 1,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F1": {
+          "coord": "F1",
+          "row": 1,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G1": {
+          "coord": "G1",
+          "row": 1,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H1": {
+          "coord": "H1",
+          "row": 1,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I1": {
+          "coord": "I1",
+          "row": 1,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J1": {
+          "coord": "J1",
+          "row": 1,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A2": {
+          "coord": "A2",
+          "row": 2,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B2": {
+          "coord": "B2",
+          "row": 2,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C2": {
+          "coord": "C2",
+          "row": 2,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D2": {
+          "coord": "D2",
+          "row": 2,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E2": {
+          "coord": "E2",
+          "row": 2,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F2": {
+          "coord": "F2",
+          "row": 2,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G2": {
+          "coord": "G2",
+          "row": 2,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H2": {
+          "coord": "H2",
+          "row": 2,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I2": {
+          "coord": "I2",
+          "row": 2,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J2": {
+          "coord": "J2",
+          "row": 2,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A3": {
+          "coord": "A3",
+          "row": 3,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B3": {
+          "coord": "B3",
+          "row": 3,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C3": {
+          "coord": "C3",
+          "row": 3,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D3": {
+          "coord": "D3",
+          "row": 3,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E3": {
+          "coord": "E3",
+          "row": 3,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F3": {
+          "coord": "F3",
+          "row": 3,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G3": {
+          "coord": "G3",
+          "row": 3,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H3": {
+          "coord": "H3",
+          "row": 3,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I3": {
+          "coord": "I3",
+          "row": 3,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J3": {
+          "coord": "J3",
+          "row": 3,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A4": {
+          "coord": "A4",
+          "row": 4,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B4": {
+          "coord": "B4",
+          "row": 4,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C4": {
+          "coord": "C4",
+          "row": 4,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D4": {
+          "coord": "D4",
+          "row": 4,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E4": {
+          "coord": "E4",
+          "row": 4,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F4": {
+          "coord": "F4",
+          "row": 4,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G4": {
+          "coord": "G4",
+          "row": 4,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H4": {
+          "coord": "H4",
+          "row": 4,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I4": {
+          "coord": "I4",
+          "row": 4,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J4": {
+          "coord": "J4",
+          "row": 4,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A5": {
+          "coord": "A5",
+          "row": 5,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B5": {
+          "coord": "B5",
+          "row": 5,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C5": {
+          "coord": "C5",
+          "row": 5,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D5": {
+          "coord": "D5",
+          "row": 5,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E5": {
+          "coord": "E5",
+          "row": 5,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F5": {
+          "coord": "F5",
+          "row": 5,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G5": {
+          "coord": "G5",
+          "row": 5,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H5": {
+          "coord": "H5",
+          "row": 5,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I5": {
+          "coord": "I5",
+          "row": 5,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J5": {
+          "coord": "J5",
+          "row": 5,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A6": {
+          "coord": "A6",
+          "row": 6,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B6": {
+          "coord": "B6",
+          "row": 6,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C6": {
+          "coord": "C6",
+          "row": 6,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D6": {
+          "coord": "D6",
+          "row": 6,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E6": {
+          "coord": "E6",
+          "row": 6,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F6": {
+          "coord": "F6",
+          "row": 6,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G6": {
+          "coord": "G6",
+          "row": 6,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H6": {
+          "coord": "H6",
+          "row": 6,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I6": {
+          "coord": "I6",
+          "row": 6,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J6": {
+          "coord": "J6",
+          "row": 6,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A7": {
+          "coord": "A7",
+          "row": 7,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B7": {
+          "coord": "B7",
+          "row": 7,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C7": {
+          "coord": "C7",
+          "row": 7,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D7": {
+          "coord": "D7",
+          "row": 7,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E7": {
+          "coord": "E7",
+          "row": 7,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F7": {
+          "coord": "F7",
+          "row": 7,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G7": {
+          "coord": "G7",
+          "row": 7,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H7": {
+          "coord": "H7",
+          "row": 7,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I7": {
+          "coord": "I7",
+          "row": 7,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J7": {
+          "coord": "J7",
+          "row": 7,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A8": {
+          "coord": "A8",
+          "row": 8,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B8": {
+          "coord": "B8",
+          "row": 8,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C8": {
+          "coord": "C8",
+          "row": 8,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D8": {
+          "coord": "D8",
+          "row": 8,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E8": {
+          "coord": "E8",
+          "row": 8,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F8": {
+          "coord": "F8",
+          "row": 8,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G8": {
+          "coord": "G8",
+          "row": 8,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H8": {
+          "coord": "H8",
+          "row": 8,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I8": {
+          "coord": "I8",
+          "row": 8,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J8": {
+          "coord": "J8",
+          "row": 8,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A9": {
+          "coord": "A9",
+          "row": 9,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B9": {
+          "coord": "B9",
+          "row": 9,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C9": {
+          "coord": "C9",
+          "row": 9,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D9": {
+          "coord": "D9",
+          "row": 9,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E9": {
+          "coord": "E9",
+          "row": 9,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F9": {
+          "coord": "F9",
+          "row": 9,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G9": {
+          "coord": "G9",
+          "row": 9,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H9": {
+          "coord": "H9",
+          "row": 9,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I9": {
+          "coord": "I9",
+          "row": 9,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J9": {
+          "coord": "J9",
+          "row": 9,
+          "col": "J",
+          "state": "UNKNOWN"
+        },
+        "A10": {
+          "coord": "A10",
+          "row": 10,
+          "col": "A",
+          "state": "UNKNOWN"
+        },
+        "B10": {
+          "coord": "B10",
+          "row": 10,
+          "col": "B",
+          "state": "UNKNOWN"
+        },
+        "C10": {
+          "coord": "C10",
+          "row": 10,
+          "col": "C",
+          "state": "UNKNOWN"
+        },
+        "D10": {
+          "coord": "D10",
+          "row": 10,
+          "col": "D",
+          "state": "UNKNOWN"
+        },
+        "E10": {
+          "coord": "E10",
+          "row": 10,
+          "col": "E",
+          "state": "UNKNOWN"
+        },
+        "F10": {
+          "coord": "F10",
+          "row": 10,
+          "col": "F",
+          "state": "UNKNOWN"
+        },
+        "G10": {
+          "coord": "G10",
+          "row": 10,
+          "col": "G",
+          "state": "UNKNOWN"
+        },
+        "H10": {
+          "coord": "H10",
+          "row": 10,
+          "col": "H",
+          "state": "UNKNOWN"
+        },
+        "I10": {
+          "coord": "I10",
+          "row": 10,
+          "col": "I",
+          "state": "UNKNOWN"
+        },
+        "J10": {
+          "coord": "J10",
+          "row": 10,
+          "col": "J",
+          "state": "UNKNOWN"
+        }
+      }
+    },
+    "boardWinnerId": null,
+    "enemyBoard": {
+      "A1": {
+        "coord": "A1",
+        "row": 1,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B1": {
+        "coord": "B1",
+        "row": 1,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C1": {
+        "coord": "C1",
+        "row": 1,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D1": {
+        "coord": "D1",
+        "row": 1,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E1": {
+        "coord": "E1",
+        "row": 1,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F1": {
+        "coord": "F1",
+        "row": 1,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G1": {
+        "coord": "G1",
+        "row": 1,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H1": {
+        "coord": "H1",
+        "row": 1,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I1": {
+        "coord": "I1",
+        "row": 1,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J1": {
+        "coord": "J1",
+        "row": 1,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A2": {
+        "coord": "A2",
+        "row": 2,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B2": {
+        "coord": "B2",
+        "row": 2,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C2": {
+        "coord": "C2",
+        "row": 2,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D2": {
+        "coord": "D2",
+        "row": 2,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E2": {
+        "coord": "E2",
+        "row": 2,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F2": {
+        "coord": "F2",
+        "row": 2,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G2": {
+        "coord": "G2",
+        "row": 2,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H2": {
+        "coord": "H2",
+        "row": 2,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I2": {
+        "coord": "I2",
+        "row": 2,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J2": {
+        "coord": "J2",
+        "row": 2,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A3": {
+        "coord": "A3",
+        "row": 3,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B3": {
+        "coord": "B3",
+        "row": 3,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C3": {
+        "coord": "C3",
+        "row": 3,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D3": {
+        "coord": "D3",
+        "row": 3,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E3": {
+        "coord": "E3",
+        "row": 3,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F3": {
+        "coord": "F3",
+        "row": 3,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G3": {
+        "coord": "G3",
+        "row": 3,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H3": {
+        "coord": "H3",
+        "row": 3,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I3": {
+        "coord": "I3",
+        "row": 3,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J3": {
+        "coord": "J3",
+        "row": 3,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A4": {
+        "coord": "A4",
+        "row": 4,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B4": {
+        "coord": "B4",
+        "row": 4,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C4": {
+        "coord": "C4",
+        "row": 4,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D4": {
+        "coord": "D4",
+        "row": 4,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E4": {
+        "coord": "E4",
+        "row": 4,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F4": {
+        "coord": "F4",
+        "row": 4,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G4": {
+        "coord": "G4",
+        "row": 4,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H4": {
+        "coord": "H4",
+        "row": 4,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I4": {
+        "coord": "I4",
+        "row": 4,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J4": {
+        "coord": "J4",
+        "row": 4,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A5": {
+        "coord": "A5",
+        "row": 5,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B5": {
+        "coord": "B5",
+        "row": 5,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C5": {
+        "coord": "C5",
+        "row": 5,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D5": {
+        "coord": "D5",
+        "row": 5,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E5": {
+        "coord": "E5",
+        "row": 5,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F5": {
+        "coord": "F5",
+        "row": 5,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G5": {
+        "coord": "G5",
+        "row": 5,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H5": {
+        "coord": "H5",
+        "row": 5,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I5": {
+        "coord": "I5",
+        "row": 5,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J5": {
+        "coord": "J5",
+        "row": 5,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A6": {
+        "coord": "A6",
+        "row": 6,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B6": {
+        "coord": "B6",
+        "row": 6,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C6": {
+        "coord": "C6",
+        "row": 6,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D6": {
+        "coord": "D6",
+        "row": 6,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E6": {
+        "coord": "E6",
+        "row": 6,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F6": {
+        "coord": "F6",
+        "row": 6,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G6": {
+        "coord": "G6",
+        "row": 6,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H6": {
+        "coord": "H6",
+        "row": 6,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I6": {
+        "coord": "I6",
+        "row": 6,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J6": {
+        "coord": "J6",
+        "row": 6,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A7": {
+        "coord": "A7",
+        "row": 7,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B7": {
+        "coord": "B7",
+        "row": 7,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C7": {
+        "coord": "C7",
+        "row": 7,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D7": {
+        "coord": "D7",
+        "row": 7,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E7": {
+        "coord": "E7",
+        "row": 7,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F7": {
+        "coord": "F7",
+        "row": 7,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G7": {
+        "coord": "G7",
+        "row": 7,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H7": {
+        "coord": "H7",
+        "row": 7,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I7": {
+        "coord": "I7",
+        "row": 7,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J7": {
+        "coord": "J7",
+        "row": 7,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A8": {
+        "coord": "A8",
+        "row": 8,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B8": {
+        "coord": "B8",
+        "row": 8,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C8": {
+        "coord": "C8",
+        "row": 8,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D8": {
+        "coord": "D8",
+        "row": 8,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E8": {
+        "coord": "E8",
+        "row": 8,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F8": {
+        "coord": "F8",
+        "row": 8,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G8": {
+        "coord": "G8",
+        "row": 8,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H8": {
+        "coord": "H8",
+        "row": 8,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I8": {
+        "coord": "I8",
+        "row": 8,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J8": {
+        "coord": "J8",
+        "row": 8,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A9": {
+        "coord": "A9",
+        "row": 9,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B9": {
+        "coord": "B9",
+        "row": 9,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C9": {
+        "coord": "C9",
+        "row": 9,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D9": {
+        "coord": "D9",
+        "row": 9,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E9": {
+        "coord": "E9",
+        "row": 9,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F9": {
+        "coord": "F9",
+        "row": 9,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G9": {
+        "coord": "G9",
+        "row": 9,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H9": {
+        "coord": "H9",
+        "row": 9,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I9": {
+        "coord": "I9",
+        "row": 9,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J9": {
+        "coord": "J9",
+        "row": 9,
+        "col": "J",
+        "state": "UNKNOWN"
+      },
+      "A10": {
+        "coord": "A10",
+        "row": 10,
+        "col": "A",
+        "state": "UNKNOWN"
+      },
+      "B10": {
+        "coord": "B10",
+        "row": 10,
+        "col": "B",
+        "state": "UNKNOWN"
+      },
+      "C10": {
+        "coord": "C10",
+        "row": 10,
+        "col": "C",
+        "state": "UNKNOWN"
+      },
+      "D10": {
+        "coord": "D10",
+        "row": 10,
+        "col": "D",
+        "state": "UNKNOWN"
+      },
+      "E10": {
+        "coord": "E10",
+        "row": 10,
+        "col": "E",
+        "state": "UNKNOWN"
+      },
+      "F10": {
+        "coord": "F10",
+        "row": 10,
+        "col": "F",
+        "state": "UNKNOWN"
+      },
+      "G10": {
+        "coord": "G10",
+        "row": 10,
+        "col": "G",
+        "state": "UNKNOWN"
+      },
+      "H10": {
+        "coord": "H10",
+        "row": 10,
+        "col": "H",
+        "state": "UNKNOWN"
+      },
+      "I10": {
+        "coord": "I10",
+        "row": 10,
+        "col": "I",
+        "state": "UNKNOWN"
+      },
+      "J10": {
+        "coord": "J10",
+        "row": 10,
+        "col": "J",
+        "state": "UNKNOWN"
+      }
+    },
+    "lastShot": {},
+    "ownBoard": {
+      "A1": {
+        "coord": "A1",
+        "row": 1,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B1": {
+        "coord": "B1",
+        "row": 1,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C1": {
+        "coord": "C1",
+        "row": 1,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D1": {
+        "coord": "D1",
+        "row": 1,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E1": {
+        "coord": "E1",
+        "row": 1,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F1": {
+        "coord": "F1",
+        "row": 1,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G1": {
+        "coord": "G1",
+        "row": 1,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H1": {
+        "coord": "H1",
+        "row": 1,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I1": {
+        "coord": "I1",
+        "row": 1,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J1": {
+        "coord": "J1",
+        "row": 1,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A2": {
+        "coord": "A2",
+        "row": 2,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B2": {
+        "coord": "B2",
+        "row": 2,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C2": {
+        "coord": "C2",
+        "row": 2,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D2": {
+        "coord": "D2",
+        "row": 2,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E2": {
+        "coord": "E2",
+        "row": 2,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F2": {
+        "coord": "F2",
+        "row": 2,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G2": {
+        "coord": "G2",
+        "row": 2,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H2": {
+        "coord": "H2",
+        "row": 2,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I2": {
+        "coord": "I2",
+        "row": 2,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J2": {
+        "coord": "J2",
+        "row": 2,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A3": {
+        "coord": "A3",
+        "row": 3,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B3": {
+        "coord": "B3",
+        "row": 3,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C3": {
+        "coord": "C3",
+        "row": 3,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D3": {
+        "coord": "D3",
+        "row": 3,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E3": {
+        "coord": "E3",
+        "row": 3,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F3": {
+        "coord": "F3",
+        "row": 3,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G3": {
+        "coord": "G3",
+        "row": 3,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H3": {
+        "coord": "H3",
+        "row": 3,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I3": {
+        "coord": "I3",
+        "row": 3,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J3": {
+        "coord": "J3",
+        "row": 3,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A4": {
+        "coord": "A4",
+        "row": 4,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B4": {
+        "coord": "B4",
+        "row": 4,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C4": {
+        "coord": "C4",
+        "row": 4,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D4": {
+        "coord": "D4",
+        "row": 4,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E4": {
+        "coord": "E4",
+        "row": 4,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F4": {
+        "coord": "F4",
+        "row": 4,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G4": {
+        "coord": "G4",
+        "row": 4,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H4": {
+        "coord": "H4",
+        "row": 4,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I4": {
+        "coord": "I4",
+        "row": 4,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J4": {
+        "coord": "J4",
+        "row": 4,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A5": {
+        "coord": "A5",
+        "row": 5,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B5": {
+        "coord": "B5",
+        "row": 5,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C5": {
+        "coord": "C5",
+        "row": 5,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D5": {
+        "coord": "D5",
+        "row": 5,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E5": {
+        "coord": "E5",
+        "row": 5,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F5": {
+        "coord": "F5",
+        "row": 5,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G5": {
+        "coord": "G5",
+        "row": 5,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H5": {
+        "coord": "H5",
+        "row": 5,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I5": {
+        "coord": "I5",
+        "row": 5,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J5": {
+        "coord": "J5",
+        "row": 5,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A6": {
+        "coord": "A6",
+        "row": 6,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B6": {
+        "coord": "B6",
+        "row": 6,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C6": {
+        "coord": "C6",
+        "row": 6,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D6": {
+        "coord": "D6",
+        "row": 6,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E6": {
+        "coord": "E6",
+        "row": 6,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F6": {
+        "coord": "F6",
+        "row": 6,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G6": {
+        "coord": "G6",
+        "row": 6,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H6": {
+        "coord": "H6",
+        "row": 6,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I6": {
+        "coord": "I6",
+        "row": 6,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J6": {
+        "coord": "J6",
+        "row": 6,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A7": {
+        "coord": "A7",
+        "row": 7,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B7": {
+        "coord": "B7",
+        "row": 7,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C7": {
+        "coord": "C7",
+        "row": 7,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D7": {
+        "coord": "D7",
+        "row": 7,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E7": {
+        "coord": "E7",
+        "row": 7,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F7": {
+        "coord": "F7",
+        "row": 7,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G7": {
+        "coord": "G7",
+        "row": 7,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H7": {
+        "coord": "H7",
+        "row": 7,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I7": {
+        "coord": "I7",
+        "row": 7,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J7": {
+        "coord": "J7",
+        "row": 7,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A8": {
+        "coord": "A8",
+        "row": 8,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B8": {
+        "coord": "B8",
+        "row": 8,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C8": {
+        "coord": "C8",
+        "row": 8,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D8": {
+        "coord": "D8",
+        "row": 8,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E8": {
+        "coord": "E8",
+        "row": 8,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F8": {
+        "coord": "F8",
+        "row": 8,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G8": {
+        "coord": "G8",
+        "row": 8,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H8": {
+        "coord": "H8",
+        "row": 8,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I8": {
+        "coord": "I8",
+        "row": 8,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J8": {
+        "coord": "J8",
+        "row": 8,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A9": {
+        "coord": "A9",
+        "row": 9,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B9": {
+        "coord": "B9",
+        "row": 9,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C9": {
+        "coord": "C9",
+        "row": 9,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D9": {
+        "coord": "D9",
+        "row": 9,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E9": {
+        "coord": "E9",
+        "row": 9,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F9": {
+        "coord": "F9",
+        "row": 9,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G9": {
+        "coord": "G9",
+        "row": 9,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H9": {
+        "coord": "H9",
+        "row": 9,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I9": {
+        "coord": "I9",
+        "row": 9,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J9": {
+        "coord": "J9",
+        "row": 9,
+        "col": "J",
+        "state": "EMPTY"
+      },
+      "A10": {
+        "coord": "A10",
+        "row": 10,
+        "col": "A",
+        "state": "EMPTY"
+      },
+      "B10": {
+        "coord": "B10",
+        "row": 10,
+        "col": "B",
+        "state": "EMPTY"
+      },
+      "C10": {
+        "coord": "C10",
+        "row": 10,
+        "col": "C",
+        "state": "EMPTY"
+      },
+      "D10": {
+        "coord": "D10",
+        "row": 10,
+        "col": "D",
+        "state": "EMPTY"
+      },
+      "E10": {
+        "coord": "E10",
+        "row": 10,
+        "col": "E",
+        "state": "EMPTY"
+      },
+      "F10": {
+        "coord": "F10",
+        "row": 10,
+        "col": "F",
+        "state": "EMPTY"
+      },
+      "G10": {
+        "coord": "G10",
+        "row": 10,
+        "col": "G",
+        "state": "EMPTY"
+      },
+      "H10": {
+        "coord": "H10",
+        "row": 10,
+        "col": "H",
+        "state": "EMPTY"
+      },
+      "I10": {
+        "coord": "I10",
+        "row": 10,
+        "col": "I",
+        "state": "EMPTY"
+      },
+      "J10": {
+        "coord": "J10",
+        "row": 10,
+        "col": "J",
+        "state": "EMPTY"
+      }
+    },
+    "winnerId": null,
+    "boardWinsByUserId": {
+      "6": 0,
+      "7": 0
+    }
+  },
+  "gameType": null,
+  "roomId": 1018,
+  "eventId": "4e38b37b-b471-4e5c-80b3-7d3e31f93879",
+  "traceId": "15c36bf4-bc25-41fc-9567-f7430c1577fa",
+  "serverTime": "2026-04-19T03:56:16.944724Z",
+  "protocolVersion": "v3",
+  "stateVersion": 2
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   67178ms] [LOG] [useRoomList] cleanup → UNSUBSCRIBE_ROOMS @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:425
+[   67178ms] [LOG] [useRoomList] → UNSUBSCRIBE_ROOMS {gameType: SEA_BATTLE} @ http://127.0.0.1:4173/src/app/hooks/useRoomList.ts:205
+[   67178ms] [LOG] [WS v3] → UNSUBSCRIBE_ROOMS: {
+  "type": "UNSUBSCRIBE_ROOMS",
+  "protocolVersion": "v3",
+  "traceId": "7800aec6-a884-4b43-8c42-b74328c09166",
+  "gameType": "SEA_BATTLE"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   67223ms] [LOG] [WS v3] ← UNSUBSCRIBE_ROOMS_SUCCESS: {
+  "type": "UNSUBSCRIBE_ROOMS_SUCCESS",
+  "action": "UNSUBSCRIBE_ROOMS_SUCCESS",
+  "success": true,
+  "data": {
+    "gameType": "SEA_BATTLE"
+  },
+  "eventId": "7abbb2c6-a3ff-4f41-9e4f-6f5990ad09ac",
+  "traceId": "dd4b635f-d730-47c8-ae80-f5be2540e047",
+  "serverTime": "2026-04-19T03:56:19.170128Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   68180ms] [LOG] [WS v3] → GET_ROOM: {
+  "type": "GET_ROOM",
+  "protocolVersion": "v3",
+  "traceId": "48ba6f4f-8885-4889-9cc4-f74ec974f011",
+  "roomCode": "NEV7K98M"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68190ms] [LOG] [WS v3] → GET_FRIENDS: {
+  "type": "GET_FRIENDS",
+  "protocolVersion": "v3",
+  "traceId": "8f15a9af-a6fc-4ddc-8a0f-c0e756080aa5"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68190ms] [LOG] [WS v3] → GET_FRIEND_REQUESTS: {
+  "type": "GET_FRIEND_REQUESTS",
+  "protocolVersion": "v3",
+  "traceId": "4257bf8b-d593-4208-8653-c339145d93a3"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68190ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "f412c5d2-110e-4eb7-b76d-e6aeb6712a90"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68190ms] [LOG] [WS v3] → GET_SENT_INVITATIONS: {
+  "type": "GET_SENT_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "445f5d4b-5def-407e-84e0-4074caf815cb"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68214ms] [LOG] [WS v3] → GET_ROOM: {
+  "type": "GET_ROOM",
+  "protocolVersion": "v3",
+  "traceId": "c4452c4b-6516-4235-bb87-e765903fd9e7",
+  "roomCode": "NEV7K98M"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68217ms] [LOG] [WS v3] → GET_FRIENDS: {
+  "type": "GET_FRIENDS",
+  "protocolVersion": "v3",
+  "traceId": "a8f530e6-887f-45ce-b7fc-0c82b0ef2741"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68217ms] [LOG] [WS v3] → GET_FRIEND_REQUESTS: {
+  "type": "GET_FRIEND_REQUESTS",
+  "protocolVersion": "v3",
+  "traceId": "b76e4a1a-4441-4b27-b492-4194bd6d14f0"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68217ms] [LOG] [WS v3] → GET_PROFILE: {
+  "type": "GET_PROFILE",
+  "protocolVersion": "v3",
+  "traceId": "e0f310af-f377-4570-9b53-2704a9c44282"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68217ms] [LOG] [WS v3] → GET_SENT_INVITATIONS: {
+  "type": "GET_SENT_INVITATIONS",
+  "protocolVersion": "v3",
+  "traceId": "1bbbdcc7-9ce3-44c2-b975-aa62e8a0b2ac"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   68234ms] [LOG] [WS v3] ← ROOM_DETAILS: {
+  "type": "ROOM_DETAILS",
+  "action": "ROOM_DETAILS",
+  "success": true,
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": "111111",
+    "roomStatus": "IN_PROGRESS",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "PLAYING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2836,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "PLAYING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "eventId": "3a6086d6-4d15-4e91-a1aa-6411c300dd63",
+  "traceId": "63d718ac-07c4-4134-9695-77554e5cd3a2",
+  "serverTime": "2026-04-19T03:56:20.223851Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   68980ms] [LOG] [WS v3] → GET_ROOM_CHAT_HISTORY: {
+  "type": "GET_ROOM_CHAT_HISTORY",
+  "protocolVersion": "v3",
+  "traceId": "23e57e9b-6497-46b8-98df-db52b3c1dff9",
+  "roomId": "1018"
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:242
+[   70050ms] [LOG] [WS v3] ← FRIENDS_LIST: {
+  "type": "FRIENDS_LIST",
+  "action": "FRIENDS_LIST",
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "username": "test1",
+      "avatarUrl": null,
+      "online": false,
+      "lastSeen": "2026-04-17T12:05:04.904032",
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 12,
+      "presenceStatus": "OFFLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    },
+    {
+      "id": 5,
+      "username": "test4",
+      "avatarUrl": null,
+      "online": true,
+      "lastSeen": null,
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 3,
+      "presenceStatus": "ONLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    }
+  ],
+  "eventId": "8be49e0d-4434-4349-b9af-f3b17ff64288",
+  "traceId": "6b6e9651-0cdc-4542-8c65-c15490f43748",
+  "serverTime": "2026-04-19T03:56:20.232698Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   70050ms] [LOG] [useFriends] FRIENDS_LIST received: {rawEnvKeys: Array(9), dataKeys: Array(2), friendsCount: 2} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:191
+[   70050ms] [LOG] [WS v3] ← FRIEND_REQUESTS: {
+  "type": "FRIEND_REQUESTS",
+  "action": "FRIEND_REQUESTS",
+  "success": true,
+  "data": [],
+  "eventId": "890b39e7-3014-4885-9be4-39aad38a32d3",
+  "traceId": "354ba627-7d13-4933-a30d-a00b4d604f4f",
+  "serverTime": "2026-04-19T03:56:20.236122Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   70050ms] [LOG] [useFriends] FRIEND_REQUESTS received: {friendRequestsCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:200
+[   70051ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": "NEV7K98M",
+    "phone": "9199315027",
+    "currentRoomId": 1018,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": "SEA_BATTLE",
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "IN_GAME",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "66fe923d-3bee-44c4-aeae-ae7fbbfe0f42",
+  "traceId": "3d33b27a-4148-4f07-91f8-6c87786a15fa",
+  "serverTime": "2026-04-19T03:56:20.241532Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   70051ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   70051ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   70051ms] [LOG] [WS v3] ← SENT_INVITATIONS: {
+  "type": "SENT_INVITATIONS",
+  "action": "SENT_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "14ca76f5-d42b-40da-b97d-3110bcae0adc",
+  "traceId": "ba30da37-0e72-44ec-9193-f27e36e04ee9",
+  "serverTime": "2026-04-19T03:56:20.244741Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71062ms] [LOG] [WS v3] ← ROOM_DETAILS: {
+  "type": "ROOM_DETAILS",
+  "action": "ROOM_DETAILS",
+  "success": true,
+  "data": {
+    "id": 1018,
+    "gameType": "SEA_BATTLE",
+    "roomType": "PRIVATE",
+    "entryFee": "FIFTY",
+    "gameScore": "SEA_BATTLE_ONE",
+    "roomMode": null,
+    "boardSize": null,
+    "boardColumns": null,
+    "boardRows": null,
+    "diceWinnerType": null,
+    "maxPlayers": 2,
+    "minPlayersToStart": null,
+    "smallBlind": null,
+    "bigBlind": null,
+    "minBuyIn": null,
+    "maxBuyIn": null,
+    "occupiedSeats": 2,
+    "waitingPlayers": 0,
+    "canJoinInProgress": false,
+    "tableState": null,
+    "roomCode": "NEV7K98M",
+    "roomPassword": "111111",
+    "roomStatus": "IN_PROGRESS",
+    "botAssisted": true,
+    "botMode": "INTERNAL_TEST",
+    "botCount": 1,
+    "competitionContext": "CASUAL",
+    "tournamentId": null,
+    "tournamentMatchId": null,
+    "tournamentName": null,
+    "tournamentJoinDeadlineAt": null,
+    "createdBy": {
+      "id": 6,
+      "username": "tester",
+      "email": "tester@gmail.com",
+      "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+      "level": 10
+    },
+    "players": [
+      {
+        "id": 2835,
+        "user": {
+          "id": 6,
+          "username": "tester",
+          "email": "tester@gmail.com",
+          "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+          "level": 10
+        },
+        "status": "PLAYING",
+        "seatNumber": 0,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": false,
+        "botDifficulty": null
+      },
+      {
+        "id": 2836,
+        "user": {
+          "id": 7,
+          "username": "bot001",
+          "email": "bot001@gmail.com",
+          "avatarUrl": null,
+          "level": 4
+        },
+        "status": "PLAYING",
+        "seatNumber": 1,
+        "teamId": null,
+        "score": 0,
+        "isReady": null,
+        "handCards": [],
+        "equippedItems": null,
+        "isBot": true,
+        "botDifficulty": "STANDARD"
+      }
+    ],
+    "onlinePlayersCount": 1,
+    "spectatorCount": 0,
+    "spectatable": false,
+    "spectatorDelaySeconds": 15,
+    "visibilityPolicy": "PUBLIC_BATTLE_DELAYED",
+    "spectators": [],
+    "createdAt": "2026-04-19T07:26:02"
+  },
+  "eventId": "111dd313-c5ec-4386-a465-01917171c751",
+  "traceId": "526a2537-c69c-4263-a31a-5f6cea723555",
+  "serverTime": "2026-04-19T03:56:20.275318Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71065ms] [LOG] [WS v3] ← FRIENDS_LIST: {
+  "type": "FRIENDS_LIST",
+  "action": "FRIENDS_LIST",
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "username": "test1",
+      "avatarUrl": null,
+      "online": false,
+      "lastSeen": "2026-04-17T12:05:04.904032",
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 12,
+      "presenceStatus": "OFFLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    },
+    {
+      "id": 5,
+      "username": "test4",
+      "avatarUrl": null,
+      "online": true,
+      "lastSeen": null,
+      "currentGame": null,
+      "currentRoomId": null,
+      "currentRoomCode": null,
+      "level": 3,
+      "presenceStatus": "ONLINE",
+      "friendshipStatus": "FRIEND",
+      "canSpectateCurrentGame": false,
+      "spectatableRoomId": null,
+      "spectatableRoomCode": null,
+      "spectatorDelaySeconds": null,
+      "currentUser": false
+    }
+  ],
+  "eventId": "cee4d3ef-7733-46de-aba8-4108460cff73",
+  "traceId": "43eff335-ee1f-4bb3-bf72-2890505a8297",
+  "serverTime": "2026-04-19T03:56:20.281447Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71065ms] [LOG] [useFriends] FRIENDS_LIST received: {rawEnvKeys: Array(9), dataKeys: Array(2), friendsCount: 2} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:191
+[   71065ms] [LOG] [WS v3] ← FRIEND_REQUESTS: {
+  "type": "FRIEND_REQUESTS",
+  "action": "FRIEND_REQUESTS",
+  "success": true,
+  "data": [],
+  "eventId": "b9040dae-1600-4db2-ae68-8c169ab868f3",
+  "traceId": "31fcfa10-52de-4a40-93b5-99cdc21f5551",
+  "serverTime": "2026-04-19T03:56:20.285472Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71065ms] [LOG] [useFriends] FRIEND_REQUESTS received: {friendRequestsCount: 0} @ http://127.0.0.1:4173/src/app/hooks/useFriends.ts:200
+[   71065ms] [LOG] [WS v3] ← USER_PROFILE: {
+  "type": "USER_PROFILE",
+  "action": "USER_PROFILE",
+  "success": true,
+  "data": {
+    "lastName": "رحمانی پور",
+    "country": "IR",
+    "gender": "male",
+    "level": 10,
+    "coins": 1000095,
+    "avatarUrl": "/uploads/avatars/avatar_6_1776481996209.jpg",
+    "walletNetwork": "TRC20",
+    "bio": "متن درباره من\nادم خفن گیمر",
+    "gameStats": {
+      "CHAHAR_BARG": {
+        "wins": 2,
+        "losses": 29,
+        "played": 31
+      },
+      "SPADES": {
+        "wins": 0,
+        "losses": 9,
+        "played": 9
+      },
+      "TARNEEB": {
+        "wins": 1,
+        "losses": 10,
+        "played": 11
+      },
+      "DICE": {
+        "wins": 8,
+        "losses": 9,
+        "played": 17
+      },
+      "HOKM": {
+        "wins": 23,
+        "losses": 40,
+        "played": 63
+      },
+      "CONNECT_FOUR": {
+        "wins": 0,
+        "losses": 34,
+        "played": 34
+      },
+      "DOTS_AND_BOXES": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "ROCK_PAPER_SCISSORS": {
+        "wins": 7,
+        "losses": 4,
+        "played": 11
+      },
+      "BACKGAMMON": {
+        "wins": 1,
+        "losses": 41,
+        "played": 42
+      },
+      "OTHELLO": {
+        "wins": 3,
+        "losses": 17,
+        "played": 20
+      },
+      "TIC_TAC_TOE": {
+        "wins": 0,
+        "losses": 12,
+        "played": 12
+      },
+      "AIR_HOCKEY": {
+        "wins": 2,
+        "losses": 18,
+        "played": 20
+      },
+      "SHELEM": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "CASINO_WAR": {
+        "wins": 3,
+        "losses": 29,
+        "played": 32
+      },
+      "CHECKERS": {
+        "wins": 0,
+        "losses": 14,
+        "played": 14
+      },
+      "HEARTS": {
+        "wins": 4,
+        "losses": 12,
+        "played": 16
+      },
+      "BACCARAT": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "DUZ": {
+        "wins": 0,
+        "losses": 19,
+        "played": 19
+      },
+      "SEA_BATTLE": {
+        "wins": 4,
+        "losses": 13,
+        "played": 17
+      },
+      "CHESS": {
+        "wins": 0,
+        "losses": 30,
+        "played": 30
+      },
+      "CARROM": {
+        "wins": 0,
+        "losses": 5,
+        "played": 5
+      },
+      "BLACKJACK": {
+        "wins": 4,
+        "losses": 17,
+        "played": 21
+      },
+      "HAV7KHABIS": {
+        "wins": 0,
+        "losses": 7,
+        "played": 7
+      },
+      "LUDO": {
+        "wins": 1,
+        "losses": 4,
+        "played": 5
+      },
+      "RIM": {
+        "wins": 0,
+        "losses": 1,
+        "played": 1
+      },
+      "SOCCER_STARS": {
+        "wins": 10,
+        "losses": 24,
+        "played": 34
+      }
+    },
+    "firstName": "سجاد",
+    "currentRoomCode": "NEV7K98M",
+    "phone": "9199315027",
+    "currentRoomId": 1018,
+    "xp": 2950,
+    "id": 6,
+    "currentGame": "SEA_BATTLE",
+    "walletAddress": "TRjE1H8dxypKM1NZRdysbs9wo7huR4bdNb",
+    "presenceStatus": "IN_GAME",
+    "email": "tester@gmail.com",
+    "username": "tester"
+  },
+  "eventId": "45c56881-f854-4610-a80e-9386235e7976",
+  "traceId": "76b978dd-0526-464a-8844-f6bd7c72dfce",
+  "serverTime": "2026-04-19T03:56:20.290898Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71066ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   71066ms] [LOG] [useProfile] ← USER_PROFILE normalized: {userId: 6, username: tester, balance: 1000095, coins: 1000095, level: 10} @ http://127.0.0.1:4173/src/app/hooks/useProfile.ts:72
+[   71066ms] [LOG] [WS v3] ← SENT_INVITATIONS: {
+  "type": "SENT_INVITATIONS",
+  "action": "SENT_INVITATIONS",
+  "success": true,
+  "data": [],
+  "eventId": "78aaa63f-a62b-45d7-878c-e9712ad94779",
+  "traceId": "2917fdee-7293-4e5d-b010-39d25712017b",
+  "serverTime": "2026-04-19T03:56:20.293434Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71066ms] [LOG] [WS v3] ← ROOM_CHAT_HISTORY: {
+  "type": "ROOM_CHAT_HISTORY",
+  "action": "ROOM_CHAT_HISTORY",
+  "success": true,
+  "data": {
+    "messages": [],
+    "roomId": 1018
+  },
+  "eventId": "00499c49-ebc9-4d15-9286-7f112ddf92bf",
+  "traceId": "bb6b253d-ea93-47e2-9223-2d67fbbc93e1",
+  "serverTime": "2026-04-19T03:56:20.973913Z",
+  "protocolVersion": "v3",
+  "stateVersion": 0
+} @ http://127.0.0.1:4173/src/app/services/wsManager.ts:97
+[   71066ms] [LOG] [useRoomChat] ROOM_CHAT_HISTORY: 0 messages @ http://127.0.0.1:4173/src/app/hooks/useRoomChat.ts:47
+[   72542ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4173/favicon.ico:0

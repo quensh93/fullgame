@@ -5,89 +5,133 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b2fd5eb-1f78-41e5-a29f-1a4a1bf7d4ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameBackend" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BotSeatFillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BotSeatFillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/ImprovedWebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/ImprovedWebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigBatchItemRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigBatchItemRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigUpdateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/AdminGameConfigUpdateRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/Enums.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/GameConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/GameConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/PublicGameConfigDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/models/PublicGameConfigDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/CoinTransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/CoinTransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/GameResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/GameResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/PlayerStateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/repositories/PlayerStateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/AirHockeyEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/AirHockeyEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BackgammonEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BackgammonEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BeloteEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BeloteEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BlackjackEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/BlackjackEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CarromEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CarromEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CasinoWarEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CasinoWarEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ChaharBargEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ChaharBargEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CheckersEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CheckersEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ChessEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ChessEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ConnectFourEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ConnectFourEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CrazyEightsEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/CrazyEightsEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DiceEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DiceEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DominoesEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DominoesEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DotsAndBoxesEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DotsAndBoxesEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DuzEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/DuzEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/GameConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/GameConfigService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/GameRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/GameRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/poker/PokerEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/poker/PokerEngineService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/BotSeatFillServiceInternalTimingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/BotSeatFillServiceInternalTimingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/HokmEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/HokmEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/IndividualGameContinuityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/IndividualGameContinuityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/OthelloEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/OthelloEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/RpsEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/RpsEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SeaBattleEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SeaBattleEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ShalemEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/ShalemEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SoccerStarsEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SoccerStarsEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SpectatorSessionRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/SpectatorSessionRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/TarneebEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/TarneebEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/TicTacToeEngineService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/TicTacToeEngineService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/WebSocketRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/WebSocketRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/WebSocketSessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/main/java/com/gameapp/game/services/WebSocketSessionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/BackgammonEngineServiceBotContractTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/BackgammonEngineServiceBotContractTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/GameConfigServiceTimerSettingsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/GameConfigServiceTimerSettingsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/GameRoomServiceCreateRoomCommitFlowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/GameRoomServiceCreateRoomCommitFlowTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameapp/lib/features/referral/data/models/referral_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gameapp/lib/features/referral/data/models/referral_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameapp/lib/features/referral/ui/referral_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/gameapp/lib/features/referral/ui/referral_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/WebSocketRoomServiceRoomListOnlineCountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/WebSocketRoomServiceRoomListOnlineCountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/WebSocketRoomServiceUserStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameBackend/src/test/java/com/gameapp/game/services/WebSocketRoomServiceUserStatusTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/dist/assets/index-Cx2jjFwN.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/dist/assets/index-DijvKcL8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/dist/assets/index-BGymF0_m.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/dist/assets/index-bKgnL-2p.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/DepositModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/DepositModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/DesktopHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/DesktopHeader.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/GameplayRouteGuard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/GameplayRouteGuard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/InGameSpectatorPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/InGameSpectatorPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/LobbyJoinAccessGate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/LobbyJoinAccessGate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/PlayingCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/PlayingCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/PokerExperience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/PokerExperience.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/QuickChatBubble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/QuickChatBubble.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ResultRoundHistoryRail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ResultRoundHistoryRail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/WithdrawModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/WithdrawModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/settings/HelpSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/settings/HelpSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/settings/LanguageSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/settings/LanguageSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/settings/SecuritySettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/settings/SecuritySettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/settings/SupportSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/settings/SupportSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/breadcrumb.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/breadcrumb.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/carousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/carousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/command.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/command.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/sheet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/sheet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/ui/sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/ui/sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useReferral.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useReferral.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/desktopTable/DesktopTrickTakingArena.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/desktopTable/DesktopTrickTakingArena.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/components/mobileTable/MobileTrickTakingArena.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/components/mobileTable/MobileTrickTakingArena.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/contexts/GameplayRoomRouteContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/contexts/GameplayRoomRouteContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useBackgammonGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useBackgammonGame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useCeGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useCeGame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useCheckersGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useCheckersGame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useGameState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useGameState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useGameplayRoomAccess.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useGameplayRoomAccess.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useLeaderboard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useLeaderboard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useLeaveGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useLeaveGame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useShelemGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useShelemGame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/hooks/useTarneebGame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/hooks/useTarneebGame.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/i18n/translations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/i18n/translations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/BackgammonScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/BackgammonScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/AirHockeyGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/AirHockeyGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/BaccaratScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/BaccaratScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/BlackjackScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/BlackjackScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/CarromGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/CarromGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/CasinoWarScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/CasinoWarScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/ChaharbargScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/ChaharbargScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DailyChallenge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DailyChallenge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/CheckersGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/CheckersGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/ChessScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/ChessScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/ConnectFourGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/ConnectFourGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBaccaratScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBaccaratScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBackgammonScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBackgammonScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBlackjackScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopBlackjackScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopCasinoWarScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopCasinoWarScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopChaharbargScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopChaharbargScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopDailyChallenge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopDailyChallenge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopChessScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopChessScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopDiceScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopDiceScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameLobby.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameLobby.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameRoom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameRoom.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGameScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGames.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopGames.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHaftScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHaftScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHeartsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHeartsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHome.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopHome.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopMarketplace.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopMarketplace.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopNotifications.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopNotifications.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopLeaderboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopLeaderboard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopRPSScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopRPSScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopReferral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopReferral.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopRummyScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopRummyScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopShelemScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopShelemScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopTarneebScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopTarneebScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopWallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DesktopWallet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DiceScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DiceScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DominoesGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DominoesGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DotsAndBoxesGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DotsAndBoxesGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/DuzGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/DuzGameBase.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/GameLobby.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/GameLobby.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/GameRoom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/GameRoom.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/GameScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/GameScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/HaftScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/HaftScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/HeartsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/HeartsScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Marketplace.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Marketplace.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Notifications.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Notifications.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/PlaceholderPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/PlaceholderPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Referral.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Referral.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Leaderboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Leaderboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/LudoGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/LudoGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/OthelloGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/OthelloGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/RPSScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/RPSScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/RummyScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/RummyScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/SeaBattleGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/SeaBattleGameBase.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/ShelemScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/ShelemScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/TournamentDetailPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/TournamentDetailPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/TournamentsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/TournamentsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/Wallet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/Wallet.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminBotSettings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminBotSettings.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminExchangeRates.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminExchangeRates.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminHokmBots.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminHokmBots.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminMarketplace.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminMarketplace.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminTournaments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminTournaments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminTransactions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminTransactions.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryGameDetailPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryGameDetailPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryTicketDetailPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/LotteryTicketDetailPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/MyLotteryTicketsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/MyLotteryTicketsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/lotteryUi.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/lottery/lotteryUi.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/SoccerStarsGameBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/SoccerStarsGameBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/SpadesScreenBase.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/SpadesScreenBase.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/TarneebScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/TarneebScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminGames.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/AdminGames.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/pages/admin/gameConfigFormUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/pages/admin/gameConfigFormUtils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/adminApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/adminApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/checkersState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/checkersState.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/gameConfigs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/gameConfigs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/gameRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/gameRoutes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/gameStateMappers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/gameStateMappers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/roomTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/roomTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/userApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/userApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameweb/src/app/services/wsTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/gameweb/src/app/services/wsTypes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/progress.md" beforeDir="false" afterPath="$PROJECT_DIR$/progress.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +142,7 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/gameweb" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -108,22 +152,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater",
-    "ts.external.directory.path": "/Users/sajadrahmanipour/Documents/game project/gameweb/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/sajadrahmanipour/Documents/game project/gameweb/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -148,6 +197,8 @@
       <workItem from="1774441771047" duration="7000" />
       <workItem from="1774467340546" duration="5000" />
       <workItem from="1774532543029" duration="48000" />
+      <workItem from="1776225245417" duration="721000" />
+      <workItem from="1776257834688" duration="632000" />
     </task>
     <servers />
   </component>
